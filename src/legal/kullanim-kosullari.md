@@ -62,7 +62,7 @@ Kişisel bilgilerin nasıl işlendiği [Gizlilik Politikası](https://icgor.mm-a
 
 5.1. **Ücretsiz sürüm.** Ücretsiz sürümde her ay daha önce açmadığın en fazla 3 yeni ürünün sonucunu görebilir, 1 profil kullanabilirsin. Daha önce açtığın ürünler Geçmiş'te her zaman açılır. Ücretsiz sürümün güncel kapsamı uygulamada gösterilir.
 
-5.2. **İçgör Aile.** Abonelik; sınırsız yeni ürün, en fazla 6 profil ve uygulamada güncel listesi gösterilen ek özellikleri (ör. sepet ve haftalık özet) açar. Abonelik, aynı Apple hesabıyla kullanılan cihazlarda geçerlidir.
+5.2. **İçgör Aile.** Abonelik; sınırsız yeni ürün, en fazla 6 profil ve uygulamada güncel listesi gösterilen ek özellikleri (ör. alışveriş listesinin skor dağılımı ve haftalık özet) açar. Abonelik, aynı Apple hesabıyla kullanılan cihazlarda geçerlidir.
 
 5.3. **Satın alma ve fiyat.** Abonelik App Store üzerinden, Apple hesabına bağlı ödeme yöntemiyle alınır ve ücreti Apple tarafından tahsil edilir. Güncel fiyat (vergiler dahil), dönem, varsa ücretsiz deneme süresi ve yenileme koşulları satın almadan önce ödeme ekranında ve Apple'ın onay ekranında açıkça gösterilir; esas alınan fiyat bu ekranlardaki fiyattır.
 

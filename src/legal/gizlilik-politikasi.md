@@ -31,12 +31,15 @@ Aşağıdaki bilgiler uygulamanın telefonundaki veri deposunda tutulur. Hiçbir
 | Bilgi | Neden | Nasıl silinir |
 | --- | --- | --- |
 | Aile profilleri: ad veya takma ad, simge, yaş grubu, alerjenler, hamilelik, diyet tercihleri (ör. vegan, glutensiz, helal hassasiyeti), hedef, hassas cilt | Taranan ürünü her kişi için ayrı değerlendirmek | Aile ekranından profili sil veya uygulamayı kaldır |
-| Tarama geçmişi, favoriler, sepet ve haftalık özet | Baktığın ürünlere dönmek, özet göstermek | Ayarlar > Veriler > Geçmişi temizle |
+| Tarama geçmişi, favoriler ve haftalık özet | Baktığın ürünlere dönmek, özet göstermek | Ayarlar > Veriler > Geçmişi temizle |
+| Alışveriş listesi: yazdığın veya yapıştırdığın öğeler, taradığın ürünün adı ve o andaki sonucu | Markette listeyi takip etmek | Liste > ··· > Listeyi boşalt |
 | İndirilen ürün bilgileri (önbellek) | Ürünü tekrar okuttuğunda hızlı ve internetsiz göstermek | Ayarlar > Veriler > İndirilen bilgileri temizle |
 | Ücretsiz sürümde bu ay açtığın ürünlerin barkodları | Aylık yeni ürün hakkını saymak | Her ay kendiliğinden sıfırlanır |
 | Henüz gönderilmemiş katkı veya hata bildirimi (fotoğraf dahil) | Bağlantı yokken hazırladığını sonra göndermek | Gönderilince veya gönderilemeyince otomatik silinir |
 | Son tarama özeti (widget) | Ana ekran ve kilit ekranı widget'ı | Geçmiş temizlenince silinir |
 | Tercihlerin (ör. istatistik ayarı, kabul ettiğin koşul sürümü) | Uygulamanın ayarlarını hatırlamak | Uygulamayı kaldır |
+
+**Alışveriş listesini paylaşmak ve yapıştırmak.** "Paylaş"a dokunduğunda yalnızca listedeki öğe adları, senin seçtiğin uygulamaya (ör. WhatsApp) düz metin olarak verilir; profil adı, sonuç veya skor eklenmez. Yapıştırdığın metin yalnızca telefonunda satırlara ayrılır, hiçbir yere gönderilmez.
 
 Alerjen, hamilelik, diyet veya helal hassasiyeti gibi bilgiler sağlık ya da inançla ilgili olabilir. Bu yüzden bu bilgileri telefondan hiç çıkarmıyoruz. Bu bilgileri sen, kendin ve aynı evde yaşayan ailen için kendi telefonunda işlersin; bu işlem KVKK'nın kapsamı dışındadır (KVKK md. 28/1-a) ve biz bu işlemin tarafı değiliz.
 
