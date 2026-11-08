@@ -4,7 +4,7 @@ Yayım tarihi: 5 Kasım 2026
 Yürürlük tarihi: [YÜRÜRLÜK TARİHİ]
 Sürüm: 1.0
 
-Bu koşullar, İçgör'de bulunamayan bir ürünün bilgisini veya ön yüz fotoğrafını paylaştığında, mevcut bir ürün için "Düzeltme öner" ile düzeltme gönderdiğinde ve "Hata bildir" ile bildirim gönderdiğinde uygulanır. Katkı gönderdiğin andan itibaren [Kullanım Koşulları](https://mhmtmutlu.github.io/suzgec-app/kosullar/)'nın parçası olur.
+Bu koşullar, İçgör'de bulunamayan bir ürünün bilgisini veya ön yüz fotoğrafını paylaştığında, mevcut bir ürün için "Düzeltme öner" ile düzeltme gönderdiğinde ve "Hata bildir" ile bildirim gönderdiğinde uygulanır. Katkı gönderdiğin andan itibaren [Kullanım Koşulları](https://icgor.mm-apps.com/kosullar/)'nın parçası olur.
 
 Paylaşmak her zaman isteğe bağlıdır; "Gönder"e dokunmadan hiçbir şey gönderilmez.
 

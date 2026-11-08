@@ -4,7 +4,7 @@ Yayım tarihi: 5 Kasım 2026
 Yürürlük tarihi: [YÜRÜRLÜK TARİHİ]
 Sürüm: 2.0 (önceki sürüm: 1.0, 4 Kasım 2026)
 
-Bu politika, İçgör iOS uygulamasının ("İçgör" veya "uygulama") hangi bilgileri, nerede ve ne kadar süre işlediğini anlatır. 6698 sayılı Kişisel Verilerin Korunması Kanunu ("KVKK") uyarınca hazırladığımız aydınlatma metni ayrı bir sayfadadır: [KVKK Bilgilendirmesi](https://mhmtmutlu.github.io/suzgec-app/kvkk/).
+Bu politika, İçgör iOS uygulamasının ("İçgör" veya "uygulama") hangi bilgileri, nerede ve ne kadar süre işlediğini anlatır. 6698 sayılı Kişisel Verilerin Korunması Kanunu ("KVKK") uyarınca hazırladığımız aydınlatma metni ayrı bir sayfadadır: [KVKK Bilgilendirmesi](https://icgor.mm-apps.com/kvkk/).
 
 ## Kısaca
 
@@ -87,7 +87,7 @@ Bulunamayan bir ürünü eklerken bilgiyi paylaşmayı her seferinde sen seçers
 - Fotoğraf dosyalarında çekildiği konum, tarih ve cihaz modeli gibi gömülü bilgiler (EXIF) bulunabilir. Uygulama, fotoğrafı göndermeden önce telefonunda yeniden kodlar ve bu bilgileri çıkarır. Sunucumuz da fotoğrafı ikinci kez yeniden kodlar, küçültür ve kalan gömülü bilgileri siler. Saklanan yalnızca görüntünün kendisidir.
 - İncelemede kurallara uymayan (ör. içinde kişi görünen) fotoğraf yayımlanmaz ve silinir.
 
-**Ne olur?** Katkın önce bir inceleme kuyruğuna girer; inceleme olmadan hiçbir şey yayımlanmaz. Onaylanan ürün bilgisi ve fotoğraf tüm İçgör kullanıcılarına gösterilir, açık lisanslarla herkesin indirebileceği veritabanımızda yayımlanır ve Open Food Facts'e (veya kardeş projelerine) iletilebilir. Open Food Facts'e iletilen bilgiler orada herkese açık yayımlanır ve değişiklik geçmişinden silinemeyebilir. Lisans koşulları: [Katkı Koşulları](https://mhmtmutlu.github.io/suzgec-app/katki/).
+**Ne olur?** Katkın önce bir inceleme kuyruğuna girer; inceleme olmadan hiçbir şey yayımlanmaz. Onaylanan ürün bilgisi ve fotoğraf tüm İçgör kullanıcılarına gösterilir, açık lisanslarla herkesin indirebileceği veritabanımızda yayımlanır ve Open Food Facts'e (veya kardeş projelerine) iletilebilir. Open Food Facts'e iletilen bilgiler orada herkese açık yayımlanır ve değişiklik geçmişinden silinemeyebilir. Lisans koşulları: [Katkı Koşulları](https://icgor.mm-apps.com/katki/).
 
 Ürün bilgileri bir kişiye değil bir ürüne aittir ve kural olarak kişisel veri değildir. Alanlara veya fotoğrafa yanlışlıkla kişisel bilgi girerse, incelemede fark edildiğinde silinir.
 
@@ -164,7 +164,7 @@ Yetkili bir kamu kurumunun kanuna dayanan talebi olursa, elimizdeki bilgiler mev
 
 Reklam ağı, veri simsarı, analitik veya yapay zekâ hizmetiyle hiçbir bilgi paylaşmayız. Bilgilerini satmayız.
 
-**Yurt dışı.** Open Food Facts'e giden ürün sorgularında bağlantıyı sunucumuz değil, telefonun kurar. Sunucumuzdan Open Food Facts'e iletilen katkılar kişisel veri içermez. Web sitesi ziyaretlerinde bağlantı bilgilerin GitHub'a (ABD) ulaşır. Sunucumuz Türkiye'dedir; uygulamanın sunucumuzla kurduğu bağlantılar yurt dışına aktarım içermez. Ayrıntılar: [KVKK Bilgilendirmesi](https://mhmtmutlu.github.io/suzgec-app/kvkk/).
+**Yurt dışı.** Open Food Facts'e giden ürün sorgularında bağlantıyı sunucumuz değil, telefonun kurar. Sunucumuzdan Open Food Facts'e iletilen katkılar kişisel veri içermez. Web sitesi ziyaretlerinde bağlantı bilgilerin GitHub'a (ABD) ulaşır. Sunucumuz Türkiye'dedir; uygulamanın sunucumuzla kurduğu bağlantılar yurt dışına aktarım içermez. Ayrıntılar: [KVKK Bilgilendirmesi](https://icgor.mm-apps.com/kvkk/).
 
 ## 7. Güvenlik
 
@@ -182,7 +182,7 @@ Hiçbir sistem tam olarak güvenli değildir; bir güvenlik ihlali olursa mevzua
 
 ## 9. Hakların
 
-KVKK md. 11 uyarınca kişisel verinin işlenip işlenmediğini öğrenme, bilgi isteme, düzeltme, silme, itiraz ve zararın giderilmesini isteme gibi haklara sahipsin. Ayrıntılar ve başvuru yolu: [KVKK Bilgilendirmesi](https://mhmtmutlu.github.io/suzgec-app/kvkk/).
+KVKK md. 11 uyarınca kişisel verinin işlenip işlenmediğini öğrenme, bilgi isteme, düzeltme, silme, itiraz ve zararın giderilmesini isteme gibi haklara sahipsin. Ayrıntılar ve başvuru yolu: [KVKK Bilgilendirmesi](https://icgor.mm-apps.com/kvkk/).
 
 Bilmeni istediğimiz bir durum var: Hesap sistemimiz olmadığı, IP adresini saklamadığımız ve katkıları kimseyle ilişkilendirmediğimiz için, sana ait olduğunu doğrulayabileceğimiz bir kayıt genellikle elimizde bulunmaz. Telefonundaki bilgileri uygulamanın Ayarlar ekranından kendin silebilirsin. Bir katkıda veya hata bildiriminde yanlışlıkla kişisel bilgin yer aldıysa, barkodu ve içeriği tarif ederek bize yazarsan bulup sileriz.
 

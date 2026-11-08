@@ -6,7 +6,7 @@
 
 Pages: landing (/), gizlilik, kosullar, katki-kosullari, kvkk, destek, 404. Legal bodies are Markdown in src/legal/
 (written with the lawyers in the app repo) and rendered by the small converter below: headings, paragraphs, lists,
-tables, bold/italic, links and code. Paths are relative so the site works on mhmtmutlu.github.io/suzgec-app/ and on a
+tables, bold/italic, links and code. Paths are relative so the site works on icgor.mm-apps.com (GitHub Pages, custom domain) and on a
 custom domain. No cookies, no analytics, no third-party requests (system fonts only).
 """
 from __future__ import annotations
@@ -23,7 +23,7 @@ LEGAL_SRC = ROOT.parent / "suzgec" / "docs" / "legal" / "v2"
 
 # Name in one place. Renamed from "Süzgeç" on 8 November 2026 (no trademark filing).
 APP_NAME = "İçgör"
-SITE_URL = "https://mhmtmutlu.github.io/suzgec-app/"
+SITE_URL = "https://icgor.mm-apps.com/"
 CONTACT = "destek@mm-apps.com"
 UPDATED = "5 Kasım 2026"
 

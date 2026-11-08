@@ -8,7 +8,7 @@ Bu koşullar, İçgör iOS uygulamasının ("İçgör" veya "uygulama") kullanı
 
 İletişim: destek@mm-apps.com · Posta adresi: [POSTA ADRESİ]
 
-Kişisel bilgilerin nasıl işlendiği [Gizlilik Politikası](https://mhmtmutlu.github.io/suzgec-app/gizlilik/) ve [KVKK Bilgilendirmesi](https://mhmtmutlu.github.io/suzgec-app/kvkk/) sayfalarında anlatılır. Bu iki metin bilgilendirme amaçlıdır ve sözleşmenin parçası değildir.
+Kişisel bilgilerin nasıl işlendiği [Gizlilik Politikası](https://icgor.mm-apps.com/gizlilik/) ve [KVKK Bilgilendirmesi](https://icgor.mm-apps.com/kvkk/) sayfalarında anlatılır. Bu iki metin bilgilendirme amaçlıdır ve sözleşmenin parçası değildir.
 
 **En önemli üç nokta:**
 1. İçgör bilgi verir, tıbbi tavsiye vermez. "Çakışma yok" bir güvenlik onayı değildir; alerji ve hassasiyetlerde ambalajı her zaman kontrol et (2. bölüm).
@@ -84,7 +84,7 @@ Kişisel bilgilerin nasıl işlendiği [Gizlilik Politikası](https://mhmtmutlu.
 
 6.1. Bulunamayan bir ürünün bilgisini ve isteğe bağlı olarak ön yüz fotoğrafını paylaşabilir, yanlış bilgileri "Hata bildir" ile bildirebilirsin. Paylaşmak her seferinde senin seçimindir ve isteğe bağlıdır.
 
-6.2. Katkı paylaşırken, gönderim ekranında ayrıca gösterilen [Katkı Koşulları](https://mhmtmutlu.github.io/suzgec-app/katki/)'nı kabul edersin. Özetle: ürün bilgisini ODbL 1.0 / DbCL 1.0, fotoğrafı CC BY-SA 3.0 ile herkese ve geri alınamaz biçimde lisanslarsın; bilgileri elindeki ambalajdan aldığını, fotoğrafı kendin çektiğini ve içinde kişi veya kişisel bilgi bulunmadığını beyan edersin. Katkı Koşulları, katkı gönderdiğin andan itibaren bu koşulların parçası olur.
+6.2. Katkı paylaşırken, gönderim ekranında ayrıca gösterilen [Katkı Koşulları](https://icgor.mm-apps.com/katki/)'nı kabul edersin. Özetle: ürün bilgisini ODbL 1.0 / DbCL 1.0, fotoğrafı CC BY-SA 3.0 ile herkese ve geri alınamaz biçimde lisanslarsın; bilgileri elindeki ambalajdan aldığını, fotoğrafı kendin çektiğini ve içinde kişi veya kişisel bilgi bulunmadığını beyan edersin. Katkı Koşulları, katkı gönderdiğin andan itibaren bu koşulların parçası olur.
 
 6.3. Katkıları ve bildirimleri inceleriz. Eksik, hatalı, ambalajla uyuşmayan, kötüye kullanım içeren veya bu koşullara aykırı katkıları yayımlamayabilir, düzeltebilir veya silebiliriz. Katkılar anonim olduğu için karar hakkında sana bildirim yapamayız. Onaylanmış bir katkı, bilginin doğru olduğuna dair bir garanti değildir.
 

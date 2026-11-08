@@ -77,4 +77,4 @@ g) Münhasıran otomatik sistemlerle analiz edilmesi sonucu aleyhine bir sonuç 
 
 Başvurunun reddedilmesi, yanıtı yetersiz bulman veya süresinde yanıt verilmemesi hâlinde, yanıtı öğrendiğin tarihten itibaren 30 gün ve her hâlde başvuru tarihinden itibaren 60 gün içinde Kişisel Verileri Koruma Kurulu'na şikâyette bulunabilirsin (KVKK md. 14).
 
-Daha fazla bilgi: [Gizlilik Politikası](https://mhmtmutlu.github.io/suzgec-app/gizlilik/)
+Daha fazla bilgi: [Gizlilik Politikası](https://icgor.mm-apps.com/gizlilik/)
