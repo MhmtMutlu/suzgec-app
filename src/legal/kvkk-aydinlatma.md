@@ -1,4 +1,4 @@
-# Süzgeç KVKK Aydınlatma Metni
+# İçgör KVKK Aydınlatma Metni
 
 Yayım tarihi: 5 Kasım 2026
 Yürürlük tarihi: [YÜRÜRLÜK TARİHİ]
@@ -6,7 +6,7 @@ Sürüm: 1.0
 
 Bu metin, 6698 sayılı Kişisel Verilerin Korunması Kanunu ("KVKK") md. 10 ve Aydınlatma Yükümlülüğünün Yerine Getirilmesinde Uyulacak Usul ve Esaslar Hakkında Tebliğ uyarınca hazırlanmıştır.
 
-> **Neden bu metin var?** Süzgeç senden ad, e-posta veya hesap istemez; sunucumuzda seni tanıtan bir kayıt tutmaz. Yine de internete bağlanan her uygulamada olduğu gibi IP adresin bağlantı anında sunucumuza ulaşır; bize e-posta yazarsan e-posta adresini işleriz. IP adresi de bir kişiyle ilişkilendirilebildiği ölçüde kişisel veri sayılır. Bu sınırlı işleme hakkında seni bilgilendirmek yasal yükümlülüğümüzdür.
+> **Neden bu metin var?** İçgör senden ad, e-posta veya hesap istemez; sunucumuzda seni tanıtan bir kayıt tutmaz. Yine de internete bağlanan her uygulamada olduğu gibi IP adresin bağlantı anında sunucumuza ulaşır; bize e-posta yazarsan e-posta adresini işleriz. IP adresi de bir kişiyle ilişkilendirilebildiği ölçüde kişisel veri sayılır. Bu sınırlı işleme hakkında seni bilgilendirmek yasal yükümlülüğümüzdür.
 >
 > Bu metin bir onay metni değildir; senden onay istemez.
 

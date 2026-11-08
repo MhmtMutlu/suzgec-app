@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Builds the Süzgeç website into static HTML at the repository root (GitHub Pages serves it as is).
+"""Builds the İçgör website into static HTML at the repository root (GitHub Pages serves it as is).
 
     python3 build.py            # build + check every internal link and anchor
     python3 build.py --sync     # first copy the legal texts from ../suzgec/docs/legal/v2
@@ -21,8 +21,8 @@ ROOT = pathlib.Path(__file__).parent
 SRC = ROOT / "src"
 LEGAL_SRC = ROOT.parent / "suzgec" / "docs" / "legal" / "v2"
 
-# Name in one place: the trademark review (suzgec/docs/research/marka-isim.md) may change it before launch.
-APP_NAME = "Süzgeç"
+# Name in one place. Renamed from "Süzgeç" on 8 November 2026 (no trademark filing).
+APP_NAME = "İçgör"
 SITE_URL = "https://mhmtmutlu.github.io/suzgec-app/"
 CONTACT = "destek@mm-apps.com"
 UPDATED = "5 Kasım 2026"
@@ -38,9 +38,9 @@ FREE_MONTHLY_NEW = 3
 
 LEGAL_PAGES = [
     # (slug, source file, nav label, description)
-    ("gizlilik", "gizlilik-politikasi.md", "Gizlilik", "Süzgeç gizlilik politikası: hangi bilgi nerede kalır, ne kadar tutulur."),
-    ("kosullar", "kullanim-kosullari.md", "Kullanım koşulları", "Süzgeç kullanım koşulları ve abonelik bilgileri."),
-    ("katki", "katki-kosullari.md", "Katkı koşulları", "Süzgeç'e ürün bilgisi ve fotoğrafı gönderme koşulları."),
+    ("gizlilik", "gizlilik-politikasi.md", "Gizlilik", "İçgör gizlilik politikası: hangi bilgi nerede kalır, ne kadar tutulur."),
+    ("kosullar", "kullanim-kosullari.md", "Kullanım koşulları", "İçgör kullanım koşulları ve abonelik bilgileri."),
+    ("katki", "katki-kosullari.md", "Katkı koşulları", "İçgör'e ürün bilgisi ve fotoğrafı gönderme koşulları."),
     ("kvkk", "kvkk-aydinlatma.md", "KVKK", "6698 sayılı KVKK kapsamında bilgilendirme."),
 ]
 
@@ -194,13 +194,12 @@ def store_badge(depth: int, compact: bool = False) -> str:
 
 
 def mark_svg(size: int = 28) -> str:
-    """The sieve mark: a bowl whose holes let a few drops through."""
+    """The eye mark ("İçini gör."): the app icon's eye and iris (suzgec/design/DESIGN.md 6)."""
     return (
-        f'<svg class="mark" viewBox="0 0 40 40" width="{size}" height="{size}" aria-hidden="true">'
-        '<rect width="40" height="40" rx="11" fill="currentColor"/>'
-        '<path d="M8 15h24a12 12 0 0 1-24 0z" fill="none" stroke="var(--on-mark)" stroke-width="2.6" stroke-linejoin="round"/>'
-        '<circle cx="15" cy="20" r="1.4" fill="var(--on-mark)"/><circle cx="20" cy="22" r="1.4" fill="var(--on-mark)"/>'
-        '<circle cx="25" cy="20" r="1.4" fill="var(--on-mark)"/><circle cx="20" cy="31.5" r="1.6" fill="var(--wheat)"/></svg>'
+        f'<svg class="mark" viewBox="0 0 48 48" width="{size}" height="{size}" aria-hidden="true">'
+        '<rect width="48" height="48" rx="13" fill="currentColor"/>'
+        '<path d="M7 24C13 12.5 35 12.5 41 24C35 35.5 13 35.5 7 24Z" fill="none" stroke="var(--on-mark)" stroke-width="3" stroke-linejoin="round"/>'
+        '<circle cx="24" cy="24" r="6.6" fill="var(--wheat)"/><circle cx="24" cy="24" r="2.9" fill="currentColor"/></svg>'
     )
 
 
@@ -287,14 +286,14 @@ def landing() -> str:
   {label}
   <div class="mesh" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
   <div class="result-card">
-    <p class="result-head"><span class="score s-c" aria-label="Süzgeç hesabı C">C</span><span><b>Tam Buğday Bisküvi</b><small>Süzgeç hesabı · 3 kaynak</small></span></p>
+    <p class="result-head"><span class="score s-c" aria-label="İçgör hesabı C">C</span><span><b>Tam Buğday Bisküvi</b><small>İçgör hesabı · 3 kaynak</small></span></p>
     <ul class="family">{result_rows}</ul>
   </div>
 </div>"""
 
     steps = [
         ("Okut", "Barkodu kameraya tut ya da numarayı yaz. Ürün yoksa etiketin fotoğrafını çek; yazıyı telefonun kendisi okur."),
-        ("Süz", "İçindekiler, katkı maddeleri ve besin değerleri; ailedeki her profilin alerjen, diyet ve hassasiyetleriyle tek tek karşılaştırılır."),
+        ("İncele", "İçindekiler, katkı maddeleri ve besin değerleri; ailedeki her profilin alerjen, diyet ve hassasiyetleriyle tek tek karşılaştırılır."),
         ("Gör", "Her kişi için ayrı bir satır: neyle çakıştığı, neden ve bunu hangi kaynağın söylediği. Korkutmadan, abartmadan."),
     ]
     step_html = "".join(
@@ -302,7 +301,7 @@ def landing() -> str:
     )
 
     kinds = [
-        ("Gıda", "Beslenme skoru (Bakanlığın yayımladığı yönteme göre Süzgeç hesaplar), katkı maddeleri ve AB'nin 14 alerjeni.", "food"),
+        ("Gıda", "Beslenme skoru (Bakanlığın yayımladığı yönteme göre İçgör hesaplar), katkı maddeleri ve AB'nin 14 alerjeni.", "food"),
         ("Kozmetik", "İçerik listesi (INCI) AB Kozmetik Tüzüğü eklerindeki kayıtlarla eşleştirilir; parfüm alerjenleri ayrıca gösterilir.", "beauty"),
         ("Temizlik", "Etiketteki deterjan ve CLP bilgileri sade bir dille özetlenir; puan verilmez.", "home"),
         ("Kıyafet etiketi", "Elyaf yüzdeleri okunur, etiketteki sertifika ibareleri yazıldığı gibi gösterilir.", "cloth"),
@@ -338,14 +337,14 @@ def landing() -> str:
     privacy_html = "".join(f"<li><h3>{esc(a)}</h3><p>{esc(b)}</p></li>" for a, b in privacy)
 
     faq = [
-        ("Süzgeç bir ürünün sağlıklı olup olmadığını söyler mi?",
-         "Hayır. Süzgeç etikette yazanı okunur hâle getirir, profillerinle çakışan içerikleri işaretler ve her bulgunun kaynağını gösterir. Karar her zaman senindir; alerji ve sağlık konularında etiketin kendisi ve doktorun esastır."),
-        ("“Süzgeç hesabı” resmi bir puan mı?",
+        ("İçgör bir ürünün sağlıklı olup olmadığını söyler mi?",
+         "Hayır. İçgör etikette yazanı okunur hâle getirir, profillerinle çakışan içerikleri işaretler ve her bulgunun kaynağını gösterir. Karar her zaman senindir; alerji ve sağlık konularında etiketin kendisi ve doktorun esastır."),
+        ("“İçgör hesabı” resmi bir puan mı?",
          "Hayır. Sağlık Bakanlığı'nın yayımladığı Beslenme Skoru Rehberi'ndeki yönteme göre uygulama içinde hesaplanır. Bakanlığın onayı ya da ürüne verilmiş resmi bir not değildir; bazı ürün grupları (bal, sade süt ürünleri, bebek mamaları gibi) bu yüzden puanlanmaz."),
         ("Ürün bulunamazsa ne olur?",
          "Etiketin fotoğrafını çekersin; yazıyı telefonun kendisi okur, sen kontrol edip kaydedersin. İstersen ürünü, kimliğinle ilişkilendirilmeden ve moderasyondan geçtikten sonra herkesin kullanımına açılmak üzere gönderebilirsin."),
         ("Ücretsiz sürümde neler var?",
-         f"Her ay {FREE_MONTHLY_NEW} yeni ürün, bir profil ve geçmişindeki ürünlere sınırsız erişim. Süzgeç Aile ile tarama sınırı kalkar, 6 profile kadar aile ekleyebilir, sepet ve haftalık özeti kullanabilirsin."),
+         f"Her ay {FREE_MONTHLY_NEW} yeni ürün, bir profil ve geçmişindeki ürünlere sınırsız erişim. İçgör Aile ile tarama sınırı kalkar, 6 profile kadar aile ekleyebilir, sepet ve haftalık özeti kullanabilirsin."),
         ("İnternet olmadan çalışır mı?",
          "Daha önce baktığın ürünler internetsiz de açılır. Yeni bir barkod için bağlantı gerekir; etiket fotoğrafından okuma ise tamamen telefonda yapılır."),
         ("Verilerimi nasıl silerim?",
@@ -358,7 +357,7 @@ def landing() -> str:
   <div class="wrap hero-grid">
     <div class="hero-copy">
       <p class="eyebrow">Gıda · kozmetik · temizlik · kıyafet etiketi</p>
-      <h1>Etiketi bir kez okut, <em>herkes için</em> ayrı ayrı süzülsün.</h1>
+      <h1><em>İçini gör.</em> Bir kez okut, ailendeki herkes için ayrı ayrı anlatsın.</h1>
       <p class="lede">{APP_NAME}, barkodu okuttuğun ürünün içeriğini ailendeki her kişinin alerjen, diyet ve hassasiyetleriyle karşılaştırır. Ne bulduysa sakin bir dille ve kaynağıyla söyler.</p>
       <div class="cta">{store_badge(0)}<a class="link-arrow" href="#nasil">Nasıl çalışır</a></div>
       <ul class="pills" aria-label="Öne çıkanlar"><li>Hesap yok</li><li>Reklam yok</li><li>Profiller telefonda kalır</li></ul>
@@ -388,7 +387,7 @@ def landing() -> str:
   </div>
   <figure class="quote-card">
     <blockquote>“Süt içerir” bir yargı değil, bir hatırlatmadır: Etiketteki bir içerik, profilde işaretlediğin bir şeyle eşleşiyor. Neyle eşleştiğini ve bunu nereden bildiğimizi hemen altında görürsün. Etikette bilgi yoksa “Çakışma yok” demeyiz, “bilgi yok” deriz.</blockquote>
-    <figcaption>Süzgeç'in dili</figcaption>
+    <figcaption>İçgör'ün dili</figcaption>
   </figure>
 </section>
 
@@ -428,7 +427,7 @@ def landing() -> str:
       <ul><li>Her ay {FREE_MONTHLY_NEW} yeni ürün</li><li>1 profil</li><li>Geçmişteki ürünlere sınırsız bakış</li><li>Etiket fotoğrafından okuma</li></ul>
     </article>
     <article class="plan plan-main">
-      <h3>Süzgeç Aile</h3>
+      <h3>İçgör Aile</h3>
       <p class="price">{PRICE_YEARLY}<small> / yıl</small></p>
       <p class="price-alt">ya da {PRICE_MONTHLY} / ay · 1 hafta ücretsiz deneme</p>
       <ul><li>Sınırsız tarama</li><li>6 profile kadar aile</li><li>Sepet ve haftalık özet</li><li>Tüm cihazlarında, Aile Paylaşımı ile</li></ul>
@@ -484,7 +483,7 @@ def support_page() -> str:
   <h2 id="hata">Ürün bilgisi yanlışsa</h2>
   <p>Ürün sayfasında <strong>Hata bildir</strong>'e dokun, neyin yanlış olduğunu seç. Bildirim kimliğinle ilişkilendirilmez. Not alanına ad, telefon veya sağlık bilgisi yazmana gerek yok; barkod ve seçtiğin alan yeterli.</p>
   <h2 id="abonelik">Abonelik ve iade</h2>
-  <p>Abonelik Apple üzerinden yönetilir: iPhone'da <strong>Ayarlar &gt; [adın] &gt; Abonelikler</strong>. İade talepleri için <a href="https://reportaproblem.apple.com" rel="noopener">reportaproblem.apple.com</a>. Satın alımı yeni bir cihazda geri yüklemek için uygulamada <strong>Ayarlar &gt; Süzgeç Aile &gt; Satın alımları geri yükle</strong>.</p>
+  <p>Abonelik Apple üzerinden yönetilir: iPhone'da <strong>Ayarlar &gt; [adın] &gt; Abonelikler</strong>. İade talepleri için <a href="https://reportaproblem.apple.com" rel="noopener">reportaproblem.apple.com</a>. Satın alımı yeni bir cihazda geri yüklemek için uygulamada <strong>Ayarlar &gt; İçgör Aile &gt; Satın alımları geri yükle</strong>.</p>
   <h2 id="veri">Verilerini silmek</h2>
   <p>Profiller ve geçmiş yalnızca telefonundadır: Aile ekranından profili, Ayarlar &gt; Veriler'den geçmişi silebilir ya da uygulamayı kaldırabilirsin. Sunucumuzda sana ait bir hesap veya kayıt bulunmaz.</p>
   <h2 id="iletisim">Bize yaz</h2>
@@ -497,7 +496,7 @@ def not_found_page() -> str:
     # Served from any depth by GitHub Pages, so links are absolute to the site.
     body = f"""<div class="wrap narrow doc center">
   <p class="eyebrow">404</p>
-  <h1>Bu sayfa süzgeçten geçmiş.</h1>
+  <h1>Bu sayfanın içi boş.</h1>
   <p>Aradığın adres burada yok. <a href="{SITE_URL}">Ana sayfaya dön</a>.</p>
 </div>"""
     return page("Sayfa bulunamadı", "Sayfa bulunamadı.", body, 0, "404.html", absolute=True)

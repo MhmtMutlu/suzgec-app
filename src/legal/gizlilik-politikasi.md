@@ -1,25 +1,25 @@
-# Süzgeç Gizlilik Politikası
+# İçgör Gizlilik Politikası
 
 Yayım tarihi: 5 Kasım 2026
 Yürürlük tarihi: [YÜRÜRLÜK TARİHİ]
 Sürüm: 2.0 (önceki sürüm: 1.0, 4 Kasım 2026)
 
-Bu politika, Süzgeç iOS uygulamasının ("Süzgeç" veya "uygulama") hangi bilgileri, nerede ve ne kadar süre işlediğini anlatır. 6698 sayılı Kişisel Verilerin Korunması Kanunu ("KVKK") uyarınca hazırladığımız aydınlatma metni ayrı bir sayfadadır: [KVKK Bilgilendirmesi](https://mhmtmutlu.github.io/suzgec-app/kvkk/).
+Bu politika, İçgör iOS uygulamasının ("İçgör" veya "uygulama") hangi bilgileri, nerede ve ne kadar süre işlediğini anlatır. 6698 sayılı Kişisel Verilerin Korunması Kanunu ("KVKK") uyarınca hazırladığımız aydınlatma metni ayrı bir sayfadadır: [KVKK Bilgilendirmesi](https://mhmtmutlu.github.io/suzgec-app/kvkk/).
 
 ## Kısaca
 
-- **Hesap yok.** Süzgeç'i kullanmak için ad, e-posta, telefon numarası veya giriş bilgisi istemeyiz.
+- **Hesap yok.** İçgör'ü kullanmak için ad, e-posta, telefon numarası veya giriş bilgisi istemeyiz.
 - **Reklam ve izleme yok.** Reklam göstermeyiz, reklam kimliği (IDFA) kullanmayız, üçüncü taraf analitik aracı kullanmayız. Bilgilerini satmayız.
 - **Aile profillerin yalnızca telefonunda.** Ad, yaş grubu, alerjen, hamilelik, diyet ve benzeri bilgiler bize, iCloud'a ya da başka bir yere gönderilmez. Biz bu bilgileri göremeyiz.
 - **Sunucumuzda seni tanıtan kayıt tutmayız.** Sunucumuza gönderilen bilgiler (barkod sorgusu, isteğe bağlı katkı, hata bildirimi, isteğe bağlı istatistik) hiçbir kullanıcı, cihaz veya kurulum kimliğiyle ilişkilendirilmez.
 - **IP adresi.** İnternetin çalışma biçimi gereği, sunucumuza bağlandığında IP adresin sunucuya ulaşır. IP adresini hiçbir dosyaya veya veritabanına yazmayız; yalnızca kötüye kullanımı önlemek için sunucunun belleğinde en fazla 1 saat tutarız (bkz. 4. bölüm).
 - **Bize e-posta yazarsan** e-posta adresini ve mesajını yalnızca yanıt vermek için işleriz.
 
-Yani Süzgeç'i olağan biçimde kullanırken kim olduğunu bilmemiz için bir yol bırakmamaya çalışıyoruz. Bunun hangi önlemlere dayandığını ve sınırlarını aşağıda açıklıyoruz.
+Yani İçgör'ü olağan biçimde kullanırken kim olduğunu bilmemiz için bir yol bırakmamaya çalışıyoruz. Bunun hangi önlemlere dayandığını ve sınırlarını aşağıda açıklıyoruz.
 
 ## 1. Biz kimiz?
 
-Süzgeç'in geliştiricisi, App Store'daki satıcısı ve bu politika kapsamındaki veri sorumlusu Mehmet Mutlu'dur (bireysel geliştirici, "mm-apps").
+İçgör'ün geliştiricisi, App Store'daki satıcısı ve bu politika kapsamındaki veri sorumlusu Mehmet Mutlu'dur (bireysel geliştirici, "mm-apps").
 
 - E-posta: destek@mm-apps.com
 - Posta adresi: [POSTA ADRESİ]
@@ -42,7 +42,7 @@ Alerjen, hamilelik, diyet veya helal hassasiyeti gibi bilgiler sağlık ya da in
 
 Telefonunun iCloud veya bilgisayar yedeğini açtıysan, uygulama verileri de senin Apple hesabındaki yedeğe dahil olabilir. Bu yedekleme seninle Apple arasındadır; biz bu yedeklere erişemeyiz.
 
-**Kamera ve fotoğraflar.** Barkod okuma ve etiket metnini tanıma (OCR) telefonunda yapılır. Kamera görüntüsü kaydedilmez ve gönderilmez. Fotoğraf arşivine erişim izni istemeyiz; galeriden bir fotoğraf seçersen uygulamaya yalnızca seçtiğin fotoğraf verilir. Ürün eklerken kullandığın içindekiler ve besin değeri fotoğrafları yalnızca metni okumak için telefonda kullanılır ve gönderilmez. Tek istisna, kendi seçiminle katkıya eklediğin **ürünün ön yüz fotoğrafıdır** (bkz. 3.3).
+**Kamera ve fotoğraflar.** Barkod okuma ve etiket metnini tanıma (OCR) telefonunda yapılır. Kamera görüntüsü kaydedilmez ve gönderilmez. Fotoğraf arşivine erişim izni istemeyiz; galeriden bir fotoğraf seçersen uygulamaya yalnızca seçtiğin fotoğraf verilir. Ürün eklerken kullandığın içindekiler ve besin değeri fotoğrafları yalnızca metni okumak için telefonda kullanılır ve gönderilmez. İki istisna var: kendi seçiminle katkıya eklediğin **ürünün ön yüz fotoğrafı** (bkz. 3.3) ve düzeltme önerine kendi seçiminle eklediğin, yayımlanmayan **etiket fotoğrafı** (bkz. 3.4.1). Menü fotoğrafları hiçbir zaman gönderilmez (bkz. 3.4.2).
 
 **Widget.** Kilit ekranı widget'ı telefon kilitliyken sonucu gizler. Ana ekran widget'ını telefonunu açık gören kişiler okuyabilir; istemiyorsan widget'ı kaldırabilirsin.
 
@@ -54,7 +54,7 @@ Okuttuğun ürünün bilgisi telefonunda yoksa veya eskiyse uygulama bu bilgiyi 
 
 - **Gönderilen:** barkod numarası; uygulama adı ve sürümü (teknik "User-Agent" bilgisi).
 - **Gönderilmeyen:** profil bilgilerin, adın, konumun, reklam veya cihaz kimliğin.
-- **Nereye:** Süzgeç sunucusu ve Open Food Facts ile kardeş projeleri (Open Beauty Facts, Open Products Facts). Open Food Facts, Fransa merkezli, kâr amacı gütmeyen bir açık veri projesidir.
+- **Nereye:** İçgör sunucusu ve Open Food Facts ile kardeş projeleri (Open Beauty Facts, Open Products Facts). Open Food Facts, Fransa merkezli, kâr amacı gütmeyen bir açık veri projesidir.
 
 Sunucumuz sorguları kaydetmez: hangi barkodun, ne zaman, kimin tarafından sorulduğu yazılmaz.
 
@@ -62,7 +62,7 @@ Open Food Facts'e giden sorgularda (ürün görsellerinin yüklenmesi dahil) tel
 
 ### 3.2 Anonim tarama istatistiği (isteğe bağlı, varsayılan kapalı)
 
-Bu seçenek kapalı gelir. Açarsan, okuttuğun her ürün için sunucumuza şunlar gönderilir: barkod, ürün türü (gıda, kozmetik, ev ürünü) ve sonuç (ürün bulundu, bulunamadı veya Süzgeç veritabanında bulundu).
+Bu seçenek kapalı gelir. Açarsan, okuttuğun her ürün için sunucumuza şunlar gönderilir: barkod, ürün türü (gıda, kozmetik, ev ürünü) ve sonuç (ürün bulundu, bulunamadı veya İçgör veritabanında bulundu).
 
 - Sunucu bu bilgilerle yalnızca bir sayacı bir artırır. Saat, IP adresi, cihaz veya kullanıcı bilgisi kaydedilmez; yalnızca **gün** düzeyinde toplam tutulur (ör. "bu barkod 3 Kasım'da 12 kez bulunamadı").
 - **Amaç:** Hangi ürünlerin bilgilerinin önce eklenmesi gerektiğini bulmak ve hizmeti iyileştirmek.
@@ -87,7 +87,7 @@ Bulunamayan bir ürünü eklerken bilgiyi paylaşmayı her seferinde sen seçers
 - Fotoğraf dosyalarında çekildiği konum, tarih ve cihaz modeli gibi gömülü bilgiler (EXIF) bulunabilir. Uygulama, fotoğrafı göndermeden önce telefonunda yeniden kodlar ve bu bilgileri çıkarır. Sunucumuz da fotoğrafı ikinci kez yeniden kodlar, küçültür ve kalan gömülü bilgileri siler. Saklanan yalnızca görüntünün kendisidir.
 - İncelemede kurallara uymayan (ör. içinde kişi görünen) fotoğraf yayımlanmaz ve silinir.
 
-**Ne olur?** Katkın önce bir inceleme kuyruğuna girer; inceleme olmadan hiçbir şey yayımlanmaz. Onaylanan ürün bilgisi ve fotoğraf tüm Süzgeç kullanıcılarına gösterilir, açık lisanslarla herkesin indirebileceği veritabanımızda yayımlanır ve Open Food Facts'e (veya kardeş projelerine) iletilebilir. Open Food Facts'e iletilen bilgiler orada herkese açık yayımlanır ve değişiklik geçmişinden silinemeyebilir. Lisans koşulları: [Katkı Koşulları](https://mhmtmutlu.github.io/suzgec-app/katki/).
+**Ne olur?** Katkın önce bir inceleme kuyruğuna girer; inceleme olmadan hiçbir şey yayımlanmaz. Onaylanan ürün bilgisi ve fotoğraf tüm İçgör kullanıcılarına gösterilir, açık lisanslarla herkesin indirebileceği veritabanımızda yayımlanır ve Open Food Facts'e (veya kardeş projelerine) iletilebilir. Open Food Facts'e iletilen bilgiler orada herkese açık yayımlanır ve değişiklik geçmişinden silinemeyebilir. Lisans koşulları: [Katkı Koşulları](https://mhmtmutlu.github.io/suzgec-app/katki/).
 
 Ürün bilgileri bir kişiye değil bir ürüne aittir ve kural olarak kişisel veri değildir. Alanlara veya fotoğrafa yanlışlıkla kişisel bilgi girerse, incelemede fark edildiğinde silinir.
 
@@ -99,7 +99,19 @@ Bir üründe yanlış bilgi görürsen "Hata bildir" ile bize iletebilirsin. Gö
 - **Not alanına kişisel bilgi yazma:** ad, telefon, e-posta, adres veya sağlık durumu gibi bilgiler bu alana yazılmamalıdır. Sunucumuz iletişim bilgisine benzeyen notları işaretler; böyle bir bilgi fark edildiğinde silinir. Bir ürün sağlık sorununa yol açtıysa önce bir doktora başvur; gıda şikâyetleri için ALO 174 Gıda Hattı'nı arayabilirsin.
 - Notlar yalnızca ürün bilgisini düzeltmek için okunur; yayımlanmaz ve Open Food Facts'e iletilmez.
 
-### 3.5 Süzgeç Aile aboneliği
+### 3.4.1 Düzeltme önerisi (isteğe bağlı)
+
+Bir üründe yanlış bilgi görür ve doğrusunu ambalajdan okursan "Düzeltme öner" ile gönderebilirsin. Gönderilenler: barkod, ürün türü, bilginin kaynağı, düzelttiğin alanlar, ambalajda yazan değer, o anda uygulamada gördüğün değer, uygulama sürümü ve yalnızca sen seçersen ambalajın etiket fotoğrafı.
+
+- Öneri hiçbir kişi veya cihazla ilişkilendirilmez. Bir moderatör öneriyi ürün kaydı ve fotoğrafla karşılaştırır. Onaylanan düzeltme, Open Food Facts kaydı aynı kaldığı sürece uygulamada gösterilir, ODbL ile açık veri olarak yayımlanır ve Open Food Facts'e de gönderilebilir.
+- **Etiket fotoğrafı yayımlanmaz.** Fotoğraf telefonda ve sunucuda pikselden yeniden kodlanır; konum, tarih ve cihaz bilgisi silinir. Yalnızca moderatör görür ve karar verildiğinde silinir.
+- Değer alanlarına yalnızca ambalajda yazanı gir. Telefon, e-posta, kimlik numarası veya IBAN gibi bilgiler yazılırsa uygulama gönderimi durdurur.
+
+### 3.4.2 Menü okuma ve garson kartı (İçgör Aile)
+
+Menü fotoğrafı ve okunan menü metni telefonda işlenir, hiçbir yere gönderilmez. Uygulama yalnızca yemek sözlüğünün güncel sürümünü sunucumuzdan indirir; bu istek kimin hangi menüye baktığını içermez. Garson kartı, aile profillerinden telefonunda oluşturulur ve gönderilmez.
+
+### 3.5 İçgör Aile aboneliği
 
 Abonelik App Store üzerinden, Apple'ın ödeme sistemiyle alınır. Ad, kart, fatura ve ödeme bilgilerin Apple tarafından, Apple'ın kendi sorumluluğunda işlenir; biz bu bilgileri görmeyiz. Uygulama, aboneliğinin etkin olup olmadığını telefonunda Apple'ın StoreKit altyapısıyla kontrol eder; abonelik bilgisi sunucumuza gönderilmez. Apple'ın gizlilik politikası: https://www.apple.com/tr/legal/privacy/
 
@@ -130,6 +142,8 @@ Bu işlemenin hukuki sebebi, hizmetin güvenli biçimde sunulmasına yönelik me
 | Barkod sorgusu | Ürün bilgisini göstermek | Kişisel veri değildir | Kaydedilmez |
 | Anonim tarama istatistiği (açtıysan) | Eksik ürünleri önceliklendirmek | Kişisel veri değildir; yalnızca sen açarsan gönderilir | Gün bazlı sayılar 400 gün; barkod başına toplamlar süresiz |
 | Katkı: ürün bilgileri ve ön yüz fotoğrafı | Ürün veritabanını tamamlamak ve herkese sunmak | Kural olarak kişisel veri değildir; içinde yanlışlıkla kişisel veri çıkarsa yalnızca silinmek üzere işlenir (KVKK md. 5/2-f) | İncelenmemiş: en fazla 180 gün, sonra silinir. Reddedilen: karar tarihinden itibaren 30 gün. Onaylanan: açık veri olarak süresiz |
+| Düzeltme önerisi | Mevcut ürün bilgisini düzeltmek | Kural olarak kişisel veri değildir; içinde yanlışlıkla kişisel veri çıkarsa yalnızca silinmek üzere işlenir (KVKK md. 5/2-f) | İncelenmemiş: en fazla 180 gün. Karar verilen öneri: 30 gün. Onaylanan düzeltme değeri: açık veri olarak, Open Food Facts aynı değere gelene ya da kayıt değişene kadar ve sonrasında geçmiş kaydı olarak 1 yıl |
+| Düzeltme için etiket fotoğrafı | Moderatörün düzeltmeyi doğrulaması | Aynı | Karar verilince silinir; incelenmemişse en fazla 180 gün |
 | Hata bildirimi (not dahil) | Ürün bilgisini düzeltmek | Kural olarak kişisel veri değildir; içinde yanlışlıkla kişisel veri çıkarsa yalnızca silinmek üzere işlenir (KVKK md. 5/2-f) | İnceleme bitene kadar; bildirim kapatıldıktan sonra 30 gün |
 | Destek e-postası | Talebini yanıtlamak | KVKK md. 5/2-c, 5/2-ç (KVKK başvuruları) ve 5/2-f | Konu kapandıktan sonra en geç 2 yıl |
 
@@ -141,7 +155,7 @@ Yetkili bir kamu kurumunun kanuna dayanan talebi olursa, elimizdeki bilgiler mev
 
 ## 6. Bilgiler kimlerle paylaşılır?
 
-- **Open Food Facts ve kardeş projeleri (Fransa):** Telefonunun doğrudan yaptığı ürün sorguları (3.1) ve onaylanan katkılar (3.3). Katkılar Süzgeç'in kendi Open Food Facts hesabıyla iletilir; IP adresin veya kimliğin iletilmez.
+- **Open Food Facts ve kardeş projeleri (Fransa):** Telefonunun doğrudan yaptığı ürün sorguları (3.1) ve onaylanan katkılar (3.3). Katkılar İçgör'ün kendi Open Food Facts hesabıyla iletilir; IP adresin veya kimliğin iletilmez.
 - **Herkes:** Onaylanan ürün bilgileri ve fotoğraflar açık veri olarak yayımlanır.
 - **Barındırma sağlayıcımız:** Sunucumuzun bulunduğu veri merkezini işleten firma, yalnızca altyapı hizmeti verir. Veri merkezi Türkiye'dedir.
 - **E-posta hizmet sağlayıcımız:** Destek e-postaları, e-posta hizmeti aldığımız firmanın sunucularında saklanır. [TEYİT EDİLECEK: sağlayıcı adı, ülkesi ve ileti aktarım hizmeti]
@@ -164,7 +178,7 @@ Hiçbir sistem tam olarak güvenli değildir; bir güvenlik ihlali olursa mevzua
 
 ## 8. Çocuklar
 
-Süzgeç çocuklara yönelik bir uygulama değildir ve çocuklardan doğrudan bilgi toplamaz. Ailenin çocuk ve bebek üyeleri için profil oluşturabilirsin; bu profiller yalnızca senin telefonunda durur. Profil oluştururken gerçek ad yerine takma ad veya baş harf kullanabilirsin. Katkı ve hata bildirimi özellikleri yetişkinler için tasarlanmıştır; çocukların bu özellikleri gözetimin olmadan kullanmamasını öneririz.
+İçgör çocuklara yönelik bir uygulama değildir ve çocuklardan doğrudan bilgi toplamaz. Ailenin çocuk ve bebek üyeleri için profil oluşturabilirsin; bu profiller yalnızca senin telefonunda durur. Profil oluştururken gerçek ad yerine takma ad veya baş harf kullanabilirsin. Katkı ve hata bildirimi özellikleri yetişkinler için tasarlanmıştır; çocukların bu özellikleri gözetimin olmadan kullanmamasını öneririz.
 
 ## 9. Hakların
 
@@ -181,7 +195,7 @@ Bilmeni istediğimiz bir durum var: Hesap sistemimiz olmadığı, IP adresini sa
 
 ## 11. Türkiye dışındaki kullanıcılar
 
-Süzgeç Türkiye'deki kullanıcılar için tasarlanmıştır. Avrupa Birliği'nden kullanıyorsan: Veri sorumlusu 1. bölümdeki kişidir. IP adresi için hukuki dayanak Genel Veri Koruma Tüzüğü (GDPR) md. 6(1)(f), destek yazışmaları için md. 6(1)(b) ve 6(1)(f)'dir. GDPR md. 15–22'deki haklarını destek@mm-apps.com adresinden kullanabilir, ikamet ettiğin ülkenin veri koruma otoritesine şikâyette bulunabilirsin.
+İçgör Türkiye'deki kullanıcılar için tasarlanmıştır. Avrupa Birliği'nden kullanıyorsan: Veri sorumlusu 1. bölümdeki kişidir. IP adresi için hukuki dayanak Genel Veri Koruma Tüzüğü (GDPR) md. 6(1)(f), destek yazışmaları için md. 6(1)(b) ve 6(1)(f)'dir. GDPR md. 15–22'deki haklarını destek@mm-apps.com adresinden kullanabilir, ikamet ettiğin ülkenin veri koruma otoritesine şikâyette bulunabilirsin.
 
 ## 12. Değişiklikler
 

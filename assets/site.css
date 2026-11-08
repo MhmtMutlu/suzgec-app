@@ -1,4 +1,4 @@
-/* Süzgeç site. Colours are the app's tokens (suzgec/tools/gen_colors.py); type is the system serif (New York on Apple
+/* İçgör site. Colours are the app's tokens (suzgec/tools/gen_colors.py); type is the system serif (New York on Apple
    devices) for display and the system sans for text, so nothing is downloaded from a third party. */
 :root {
   color-scheme: light dark;
