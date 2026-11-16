@@ -67,9 +67,9 @@ CSS_VERSION = hashlib.sha256((ROOT / "assets" / "site.css").read_bytes()).hexdig
 LEGAL_PAGES = [
     # (slug, source file, nav label, description)
     ("gizlilik", "gizlilik-politikasi.md", "Gizlilik", "İçgör gizlilik politikası: hangi bilgi nerede kalır, ne kadar tutulur."),
-    ("kosullar", "kullanim-kosullari.md", "Kullanım koşulları", "İçgör kullanım koşulları ve abonelik bilgileri."),
+    ("kosullar", "kullanim-kosullari.md", "Kullanım koşulları", "İçgör kullanım koşulları: hizmetin kapsamı, abonelik, ödeme ve iptal, sorumluluk ve iletişim."),
     ("katki", "katki-kosullari.md", "Katkı koşulları", "İçgör'e ürün bilgisi ve fotoğrafı gönderme koşulları."),
-    ("kvkk", "kvkk-aydinlatma.md", "KVKK", "6698 sayılı KVKK kapsamında bilgilendirme."),
+    ("kvkk", "kvkk-aydinlatma.md", "KVKK", "İçgör için 6698 sayılı KVKK kapsamında aydınlatma metni: hangi veri, hangi amaçla, ne kadar süre işlenir."),
 ]
 
 
@@ -548,9 +548,8 @@ def landing() -> str:
 </section>
 """
     title = f"{APP_NAME}: Katkı maddesi ve barkod tarayıcı, ailene göre"
-    description = (f"{APP_NAME}; barkodu okutulan ürünün katkı maddelerini (E kodları), alerjenlerini, içindekilerini ve "
-                   "besin değerlerini okur, Beslenme Skoru'nu hesaplar ve ailedeki her kişi için kaynaklı sonuç verir. "
-                   "Hesap yok, reklam yok.")
+    description = (f"{APP_NAME}, barkodu okutulan ürünün katkı maddelerini, alerjenlerini ve besin değerlerini okur; "
+                   "Beslenme Skoru'nu hesaplar, ailede herkese ayrı sonuç verir.")
     graph = common_nodes(title, description, "", [], extra={"mainEntity": {"@id": APP_NODE_ID}}) + [app_node()]
     return page(title, description, body, 0, "", active="", graph=graph)
 
@@ -628,6 +627,22 @@ ORIGIN = {
 }
 
 
+DESCRIPTION_MAX = 155  # Bing flags descriptions outside ~25-160 characters; Google cuts around 155
+TITLE_MAX = 70
+
+
+def fit(*sentences: str, limit: int = DESCRIPTION_MAX) -> str:
+    """Whole sentences while they fit (callers end with a short neutral sentence so the result is never too short)."""
+    text = ""
+    for sentence in sentences:
+        candidate = f"{text} {sentence}".strip()
+        if len(candidate) <= limit:
+            text = candidate
+            continue
+        break  # never cut a sentence: a half claim about an additive can say the opposite of the source
+    return text
+
+
 def load_rules() -> dict:
     data = {name: json.loads((RULES / name).read_text(encoding="utf-8")) for name in RULE_FILES}
     sources = {item["id"]: item for item in data["sources.json"]["sources"]}
@@ -687,7 +702,10 @@ def additive_page(item: dict, rules: dict) -> tuple[str, str]:
     level_name, level_text = LEVELS[item["level"]]
     slug_ = f"katki-maddeleri/{code_slug(code)}/"
     title = f"{code} {name} nedir? {cls}"
-    description = f"{code} ({name}): {tr_lower(cls)}. {item['summary']} {item['trStatus']}"
+    description = fit(f"{code} ({name}): {tr_lower(cls)}.", item["summary"], item["trStatus"])
+    if len(description) < 90:
+        description = fit(f"{code} ({name}): {tr_lower(cls)}.",
+                          "Türkiye'deki durumu, EFSA değerlendirmesi, etikette diğer adları ve kaynakları.")
     crumbs = [("Ana sayfa", ""), ("Katkı maddeleri", "katki-maddeleri/"), (f"{code} {name}", slug_)]
     facts = [
         ("Türü", cls),
@@ -744,7 +762,7 @@ def additives_index(rules: dict) -> str:
     count = len(rules["additives"])
     title = "Gıda katkı maddeleri ve E kodları rehberi"
     description = (f"{count} gıda katkı maddesinin (E kodu) ne olduğu, Türk Gıda Kodeksi'ndeki durumu, EFSA "
-                   "değerlendirmesi ve kaynağı. İçgör'ün etikette tanıdığı maddeler.")
+                   "değerlendirmesi ve kaynağı.")
     crumbs = [("Ana sayfa", ""), ("Katkı maddeleri", "katki-maddeleri/")]
     def row(x: dict) -> str:
         badge = "" if x["level"] == "info" else f'<span class="level level-{x["level"]}">{LEVELS[x["level"]][0]}</span>'
@@ -780,8 +798,8 @@ def score_page(rules: dict) -> str:
     score = rules["score"]
     grades = score["general"]["grades"]
     title = "Beslenme Skoru nedir, nasıl hesaplanır?"
-    description = ("Beslenme Skoru; 100 g veya 100 ml başına enerji, şeker, doymuş yağ ve tuzu olumsuz, lif, protein ve "
-                   "meyve-sebze oranını olumlu sayıp A'dan E'ye bir harf verir. Kapsam dışı ürünler ve İçgör hesabı.")
+    description = ("Beslenme Skoru, 100 g'daki enerji, şeker, doymuş yağ, tuz, lif ve proteinden A'dan E'ye bir harf "
+                   "verir. Nasıl hesaplanır, hangi ürünler kapsam dışı?")
     crumbs = [("Ana sayfa", ""), ("Beslenme Skoru", "beslenme-skoru/")]
     bounds = [("A", None, grades["A"]), ("B", grades["A"] + 1, grades["B"]), ("C", grades["B"] + 1, grades["C"]),
               ("D", grades["C"] + 1, grades["D"])]
@@ -834,8 +852,8 @@ def label_terms(allergen: dict, limit: int = 6) -> list[str]:
 
 def allergens_page(rules: dict) -> str:
     title = "14 alerjen: etikette nasıl yazar?"
-    description = ("AB 1169/2011 ve Türk Gıda Kodeksi'ne göre etikette bildirilmesi zorunlu 14 alerjen, etikette geçtikleri "
-                   "adlar ve “iz miktarda içerebilir” ifadesinin anlamı.")
+    description = ("Etikette bildirilmesi zorunlu 14 alerjen, içindekilerde hangi adlarla geçtikleri ve “iz miktarda "
+                   "içerebilir” ifadesinin anlamı.")
     crumbs = [("Ana sayfa", ""), ("14 alerjen", "alerjenler/")]
     rows = "".join(
         f'<tr><th>{esc(a["name_tr"])}</th><td>{esc(", ".join(label_terms(a)))}</td></tr>' for a in rules["allergens"])
@@ -861,8 +879,8 @@ def allergens_page(rules: dict) -> str:
 
 def label_reading_page(rules: dict) -> str:
     title = "İçindekiler ve besin değerleri nasıl okunur?"
-    description = ("Gıda etiketinde içindekiler listesini ve besin değerleri tablosunu okumanın kısa yolu: sıralama, "
-                   "E kodları, alerjenler, 100 g başına değerler ve etiketi fotoğraftan okuma.")
+    description = ("İçindekiler listesi ve besin değerleri tablosu nasıl okunur: sıralama, E kodları, alerjenler, 100 g "
+                   "değerleri ve fotoğraftan okuma.")
     crumbs = [("Ana sayfa", ""), ("Etiket okuma", "etiket-okuma/")]
     body = f"""<div class="wrap narrow doc">
   {breadcrumb_html(crumbs, 1)}
@@ -1003,6 +1021,11 @@ def check_content() -> list[str]:
         rel = file.relative_to(ROOT)
         text = file.read_text(encoding="utf-8")
         title = re.search(r"<title>(.*?)</title>", text).group(1)
+        meta = html.unescape(re.search(r'<meta name="description" content="([^"]*)"', text).group(1))
+        if not 50 <= len(meta) <= DESCRIPTION_MAX:
+            problems.append(f"{rel}: açıklama {len(meta)} karakter (50–{DESCRIPTION_MAX} olmalı)")
+        if len(html.unescape(title)) > TITLE_MAX:
+            problems.append(f"{rel}: başlık {len(html.unescape(title))} karakter (en çok {TITLE_MAX})")
         h1 = re.search(r"<h1>(.*?)</h1>", text, re.S)
         head_text = tr_lower(html.unescape(title + " " + (h1.group(1) if h1 else "") + " " + str(rel)))
         for pattern in BANNED:

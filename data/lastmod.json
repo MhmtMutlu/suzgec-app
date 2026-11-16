@@ -1,11 +1,11 @@
 {
  "": {
   "date": "2026-11-16",
-  "hash": "64bc1a9356333fb91e96f370667885e56f225d1bbbd4b1b457292a06e4bfd9ba"
+  "hash": "8e90e456c328797d134cd81ba01826cbcb7a1101408c3c41f7049fb028093be3"
  },
  "alerjenler/": {
   "date": "2026-11-16",
-  "hash": "7dc27ce020144967a2eb26065cca8e814e38928aea705cbdc03e314d413bac54"
+  "hash": "9e1241f2ed713977e2c0bce586b0916f09a9125ba9c1b95fe3c6eab60560c66f"
  },
  "basin/": {
   "date": "2026-11-16",
@@ -13,7 +13,7 @@
  },
  "beslenme-skoru/": {
   "date": "2026-11-16",
-  "hash": "2a5330665bd233c9d94242318a34400e5a744062d4ef5ce4b94de6bb1c948182"
+  "hash": "65534e93f2a60643969ccfdb65b07264cdbe00bd8d7281834b9dd1699856eda8"
  },
  "destek/": {
   "date": "2026-11-16",
@@ -21,7 +21,7 @@
  },
  "etiket-okuma/": {
   "date": "2026-11-16",
-  "hash": "c1a3b16283eb9de261bedc3c5fe2c6e79324b7c2d8b01087ac60332145d971ea"
+  "hash": "78479f5c36d28990af029f530cf1518472b31f6841370d96c28e2dad50b250c8"
  },
  "gizlilik/": {
   "date": "2026-11-16",
@@ -29,7 +29,7 @@
  },
  "katki-maddeleri/": {
   "date": "2026-11-16",
-  "hash": "ac242cf9160a794dd79755b46588cc681f8a9e26847d26c311009a565823edc6"
+  "hash": "4730e5f896226f2225cd1cebe10cfff018f235fa142af66bc88673c2e4f1bf24"
  },
  "katki-maddeleri/e100/": {
   "date": "2026-11-16",
@@ -37,31 +37,31 @@
  },
  "katki-maddeleri/e102/": {
   "date": "2026-11-16",
-  "hash": "c2881e0070e99dd33c0a0b299dea538c28d6e1cd4f8887670f7144b6cddcfcb2"
+  "hash": "3f7f834f25b4f1c1875e10abab8f4b85f89eb981c30845c13c672f7e935a29ea"
  },
  "katki-maddeleri/e104/": {
   "date": "2026-11-16",
-  "hash": "4cbf46d4c93343ddf332b250b45dcfbc2b394ceab0f0e85c8c265f9c17f0f07f"
+  "hash": "717646147f50924ec9d128bf4366136efa17f7713594ee28d03da0b2a7ffd677"
  },
  "katki-maddeleri/e110/": {
   "date": "2026-11-16",
-  "hash": "4acc387b39c5a813c4b9c38db317ffb93d64c70b9cb7bd65975a3c7a04d3ecdf"
+  "hash": "3c140bd2f809d0344e26afafe60f946a433b083bc7240e7f70918fdffba56cb6"
  },
  "katki-maddeleri/e120/": {
   "date": "2026-11-16",
-  "hash": "d64093b0c388dca4d312344ea083fc4333b2735abb8010402655cb5cf0843847"
+  "hash": "8c8d33e896d4a2eee218663ff714af7b7f45a64b4346d0087e9bbd2608e557ce"
  },
  "katki-maddeleri/e122/": {
   "date": "2026-11-16",
-  "hash": "5328912a5e296897ab65d8ec315d0f48d7fc3b668827bc34e51e766b99455b8f"
+  "hash": "99ab2f9ed8d2728257ed5a0453b4f29bb8fd2f8198b923c303745a0002531c04"
  },
  "katki-maddeleri/e124/": {
   "date": "2026-11-16",
-  "hash": "66bf037ed955369088a6a840c212c1f62b41ef423ace7ee63e2b991faf9a752f"
+  "hash": "57c5524c378098a92400f1f7bc6826b655acf10fda41fa428325fb755ceffdb7"
  },
  "katki-maddeleri/e129/": {
   "date": "2026-11-16",
-  "hash": "52ff6cf87061a65515a57caf918a66d0d6d035e80f2e1f202b3bfd50f83c83d6"
+  "hash": "00127db8d724b67b5924edd7595c1f30ff94107e79052fa23841b90cec021fb8"
  },
  "katki-maddeleri/e133/": {
   "date": "2026-11-16",
@@ -109,7 +109,7 @@
  },
  "katki-maddeleri/e171/": {
   "date": "2026-11-16",
-  "hash": "5be354fd7355c76ecdba167db3272c59fe5203bdae736689674e39939e2139b4"
+  "hash": "6163f07d18d4f8db56fd9419adc3b7177eb82eef34934e41f5b87b7a718f6afe"
  },
  "katki-maddeleri/e200/": {
   "date": "2026-11-16",
@@ -125,23 +125,23 @@
  },
  "katki-maddeleri/e220/": {
   "date": "2026-11-16",
-  "hash": "96464b0517df1964e026efe164cfe22dff7b847d039d1ade189e8ea401aca881"
+  "hash": "d9c3895d1feca8999d50c7ac38d9c9f9935aeb39ec8dc726aa489a71692249a6"
  },
  "katki-maddeleri/e223/": {
   "date": "2026-11-16",
-  "hash": "a54666257ccdb8d8bfedf943127b22344acaf87a618ab4115d6fb199127b68c6"
+  "hash": "4f247cb309e4ec1fcb9185ab5d5741b691d57cff11069d36074c691ffdf07585"
  },
  "katki-maddeleri/e250/": {
   "date": "2026-11-16",
-  "hash": "ede6ca7f11649c88926572a30009631448ef5ba4194089198c7245fb276dcc48"
+  "hash": "d22c23aa6d8f3fddf613b1630520c19e6a1598c3e5b45cfb2d2b769b74b40d62"
  },
  "katki-maddeleri/e251/": {
   "date": "2026-11-16",
-  "hash": "256da4fc698845c1563e49c0c0cd7d6270d20ee1f10696ff1a6547f6484b4075"
+  "hash": "e32ef4c89b16ecc13f1e99d149d2f9c518b9238e357fc22022f44d18a05bb67a"
  },
  "katki-maddeleri/e252/": {
   "date": "2026-11-16",
-  "hash": "aa7fc1df51402361e91af52c5508d05d3e895154c90e3a64e4910b74fe03d49e"
+  "hash": "5591919e2211f72b5fb9589bfcaa9892aba1bc73e514374a2f4c655804e07900"
  },
  "katki-maddeleri/e270/": {
   "date": "2026-11-16",
@@ -161,11 +161,11 @@
  },
  "katki-maddeleri/e320/": {
   "date": "2026-11-16",
-  "hash": "5799490a1d76ec8e8aeac7f18e878cc2b7012caea7064a714f8ae214cf89fa57"
+  "hash": "6a3d2b3f3df93d5785aefdef637a8e1094020e21cf37ace66c8498cfdc10432d"
  },
  "katki-maddeleri/e321/": {
   "date": "2026-11-16",
-  "hash": "ea9bbd27c5c5e2e4d3491a54a738f74f2f66da675da349939be128aca91e51a4"
+  "hash": "7d66a7b7182433fec190f5d0fcc733a647f79d5c0be8ecaa42cc83f4d6009360"
  },
  "katki-maddeleri/e322/": {
   "date": "2026-11-16",
@@ -181,15 +181,15 @@
  },
  "katki-maddeleri/e338/": {
   "date": "2026-11-16",
-  "hash": "45cf166de5a4d972d23a247fd2e9ba7eb51949d86671079195e09fa0552581c8"
+  "hash": "7ba9c7f865b36dd94f6a5cb2bc01a2a9438c31bf442cd883f76d58875ff5dc8d"
  },
  "katki-maddeleri/e339/": {
   "date": "2026-11-16",
-  "hash": "499cc0d20adb63c36c3faeb3d224e95990dd537d3337c836611963d275ec750b"
+  "hash": "a73f9ce17ae4587e9e0a2b4700d22b0f4ed93f7accf4048a3711b557acf09814"
  },
  "katki-maddeleri/e407/": {
   "date": "2026-11-16",
-  "hash": "59017096a666a87655d0485681be910897ab32163ac616af60c581e7ccfb69f2"
+  "hash": "087d774ef806378452abeaa8012a3359ba3dae88bc76594b1699c2f80631f109"
  },
  "katki-maddeleri/e410/": {
   "date": "2026-11-16",
@@ -241,7 +241,7 @@
  },
  "katki-maddeleri/e471/": {
   "date": "2026-11-16",
-  "hash": "06caa095e943b4ee7d33d5cea93ab58266511f3e7c22423e5accf55a79ad8cbe"
+  "hash": "5d2c0091919ef3cb3a53e41502b4a8ed4a3aa89cac9c05c6ae3affbee85c700b"
  },
  "katki-maddeleri/e472e/": {
   "date": "2026-11-16",
@@ -261,7 +261,7 @@
  },
  "katki-maddeleri/e542/": {
   "date": "2026-11-16",
-  "hash": "68455152baa3d1817816a0f340d18bd94ac0856ce85cd90f87d5c9f8ddad8735"
+  "hash": "f861414571ff218085a61f45227a013f77668a92b5818c5f2755014b9fd1b564"
  },
  "katki-maddeleri/e551/": {
   "date": "2026-11-16",
@@ -269,7 +269,7 @@
  },
  "katki-maddeleri/e621/": {
   "date": "2026-11-16",
-  "hash": "1fbeb7bbbd5c1d55c9ab08992d60e7f81352af22b499467e55cba4b83f8fc50c"
+  "hash": "1d0e96a5f48994762530d8d7306281bcfa6db7d4efe0cc5bc3889a2ce086bd25"
  },
  "katki-maddeleri/e627/": {
   "date": "2026-11-16",
@@ -289,7 +289,7 @@
  },
  "katki-maddeleri/e920/": {
   "date": "2026-11-16",
-  "hash": "e5aef79253ed0759f34fdb8dcac1c3713a1b9f03756e7d04c7463d29c7f8f7f0"
+  "hash": "c5624ac061b80261e9457ba590e6a0711489baabc98c830712586117fd295940"
  },
  "katki-maddeleri/e950/": {
   "date": "2026-11-16",
@@ -297,15 +297,15 @@
  },
  "katki-maddeleri/e951/": {
   "date": "2026-11-16",
-  "hash": "b4ec2e365f790b57809d390b3cc9b5f8a06aa853b5d502e409735d8a44e8f59f"
+  "hash": "7776e744a9c7ecaf904a9e17ee5f431b71d6d6399ab94e86b1e36addfc23d6f9"
  },
  "katki-maddeleri/e952/": {
   "date": "2026-11-16",
-  "hash": "551255b50b0caddcaeeb6c85298f1f4c8c9425005e2d0cdb56f28d0b0ffdd3b0"
+  "hash": "8ec2a043caa12d7285fa55b60c0d14803311af7027f18e97bea432fc7cfbf027"
  },
  "katki-maddeleri/e954/": {
   "date": "2026-11-16",
-  "hash": "b3c47ec28ef9a0eef4de3e918bbed0c0406d2e9d680192db0f345b2571cf548f"
+  "hash": "4ba4e5ca568214034fb6a1d0bcc0f9d9a2804ebc4f1d232663ca5f6bd8a44794"
  },
  "katki-maddeleri/e955/": {
   "date": "2026-11-16",
@@ -325,10 +325,10 @@
  },
  "kosullar/": {
   "date": "2026-11-16",
-  "hash": "b479f083ca3d8e8dcb576d30b51326ca4b737ff1e1f26cc07f3e5f25b85f8ddb"
+  "hash": "9c17b62c3e79ec57b5ba2c2959861e9b405c05b088f55f45ee710323c071e624"
  },
  "kvkk/": {
   "date": "2026-11-16",
-  "hash": "b0f35a35f061357cb7bc0052f6e2323a5ad725618f4c1694065d05443cf1bae5"
+  "hash": "d8fa2ef3ec28590314231efdbe8e8a54aeb7577901b934f3c74b3a1a0551c577"
  }
 }
