@@ -1,0 +1,22 @@
+# İçgör: all crawlers welcome (search, user-initiated fetches and AI answers)
+User-agent: *
+Allow: /
+
+User-agent: Googlebot
+User-agent: Bingbot
+User-agent: Applebot
+User-agent: Applebot-Extended
+User-agent: Google-Extended
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: GPTBot
+User-agent: Claude-SearchBot
+User-agent: Claude-User
+User-agent: ClaudeBot
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+User-agent: CCBot
+User-agent: YandexBot
+Allow: /
+
+Sitemap: https://icgor.mm-apps.com/sitemap.xml

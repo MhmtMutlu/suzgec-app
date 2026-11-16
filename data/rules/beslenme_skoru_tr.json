@@ -1,0 +1,346 @@
+{
+ "version": "2026.11.1",
+ "provisional": false,
+ "note": "Thresholds from the Ministry of Health Beslenme Skoru Rehberi (22.10.2026), identical to Nutri-Score 2023 tables (LEGAL_REVIEW B.2-5). Lists hold lower bounds: points = number of thresholds the value exceeds.",
+ "sources": [
+  "saglik-beslenme-skoru",
+  "saglik-beslenme-skoru-rehber",
+  "nutriscore-2023"
+ ],
+ "nbs": {
+  "penalty": 4,
+  "terms": [
+   "glikoz-fruktoz şurubu",
+   "fruktoz-glikoz şurubu",
+   "glikoz fruktoz şurubu",
+   "fruktoz glikoz şurubu",
+   "glikoz şurubu",
+   "fruktoz şurubu",
+   "nişasta bazlı şeker",
+   "nbş",
+   "mısır şurubu",
+   "glucose-fructose syrup",
+   "fructose-glucose syrup",
+   "glucose syrup",
+   "fructose syrup",
+   "high fructose corn syrup",
+   "corn syrup",
+   "glukoz-fruktoz şurubu",
+   "fruktoz-glukoz şurubu",
+   "glukoz şurubu",
+   "kurutulmuş glukoz şurubu",
+   "kurutulmuş glikoz şurubu",
+   "dekstroz monohidrat",
+   "susuz dekstroz",
+   "dekstroz",
+   "=fruktoz",
+   "izoglukoz",
+   "yüksek fruktozlu mısır şurubu",
+   "dextrose",
+   "=fructose",
+   "isoglucose",
+   "glucose syrup solids",
+   "glukose-fruktose-sirup",
+   "fruktose-glukose-sirup",
+   "glukosesirup",
+   "isoglukose",
+   "sirop de glucose-fructose",
+   "sirop de fructose-glucose",
+   "sirop de glucose",
+   "sciroppo di glucosio-fruttosio",
+   "sciroppo di glucosio",
+   "isoglucosio",
+   "jarabe de glucosa y fructosa",
+   "jarabe de glucosa-fructosa",
+   "jarabe de glucosa",
+   "isoglucosa",
+   "glucose-fructosestroop",
+   "fructose-glucosestroop",
+   "glucosestroop"
+  ],
+  "ingredientTags": [
+   "en:glucose-fructose-syrup",
+   "en:fructose-glucose-syrup",
+   "en:glucose-syrup",
+   "en:fructose-syrup",
+   "en:high-fructose-corn-syrup",
+   "en:corn-syrup",
+   "en:dextrose",
+   "en:fructose",
+   "en:isoglucose",
+   "en:dried-glucose-syrup"
+  ]
+ },
+ "colorantDowngradeCodes": [
+  "E102",
+  "E104",
+  "E110",
+  "E122",
+  "E124",
+  "E129"
+ ],
+ "categories": {
+  "waterTags": [
+   "en:waters",
+   "en:mineral-waters",
+   "en:spring-waters",
+   "en:unsweetened-waters"
+  ],
+  "beverageTags": [
+   "en:beverages",
+   "en:drinks"
+  ],
+  "beverageExcludeTags": [
+   "en:milks",
+   "en:dairies",
+   "en:yogurts",
+   "en:fermented-milk-products",
+   "en:plant-based-milk-alternatives",
+   "en:soups"
+  ],
+  "fatsTags": [
+   "en:fats",
+   "en:vegetable-oils",
+   "en:olive-oils",
+   "en:butters",
+   "en:margarines",
+   "en:nuts",
+   "en:nut-butters",
+   "en:seeds",
+   "en:oilseeds",
+   "en:sunflower-seeds"
+  ],
+  "redMeatTags": [
+   "en:beef",
+   "en:pork",
+   "en:lamb",
+   "en:veal",
+   "en:mutton",
+   "en:sausages",
+   "en:sucuk",
+   "en:pastirma"
+  ]
+ },
+ "general": {
+  "energyKJ": [
+   335,
+   670,
+   1005,
+   1340,
+   1675,
+   2010,
+   2345,
+   2680,
+   3015,
+   3350
+  ],
+  "sugars": [
+   3.4,
+   6.8,
+   10,
+   14,
+   17,
+   20,
+   24,
+   27,
+   31,
+   34,
+   37,
+   41,
+   44,
+   48,
+   51
+  ],
+  "saturatedFat": [
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10
+  ],
+  "salt": [
+   0.2,
+   0.4,
+   0.6,
+   0.8,
+   1.0,
+   1.2,
+   1.4,
+   1.6,
+   1.8,
+   2.0,
+   2.2,
+   2.4,
+   2.6,
+   2.8,
+   3.0,
+   3.2,
+   3.4,
+   3.6,
+   3.8,
+   4.0
+  ],
+  "protein": [
+   2.4,
+   4.8,
+   7.2,
+   9.6,
+   12,
+   14,
+   17
+  ],
+  "fiber": [
+   3.0,
+   4.1,
+   5.2,
+   6.3,
+   7.4
+  ],
+  "fruitsVegetables": {
+   "thresholds": [
+    40,
+    60,
+    80
+   ],
+   "points": [
+    1,
+    2,
+    5
+   ]
+  },
+  "proteinCapNegatives": 11,
+  "redMeatProteinMax": 2,
+  "grades": {
+   "A": 0,
+   "B": 2,
+   "C": 10,
+   "D": 18
+  }
+ },
+ "fats": {
+  "energyFromSaturatesKJ": [
+   120,
+   240,
+   360,
+   480,
+   600,
+   720,
+   840,
+   960,
+   1080,
+   1200
+  ],
+  "saturatesRatioPercent": [
+   10,
+   16,
+   22,
+   28,
+   34,
+   40,
+   46,
+   52,
+   58,
+   64
+  ],
+  "proteinCapNegatives": 7,
+  "grades": {
+   "A": -6,
+   "B": 2,
+   "C": 10,
+   "D": 18
+  }
+ },
+ "beverage": {
+  "energyKJ": [
+   30,
+   90,
+   150,
+   210,
+   240,
+   270,
+   300,
+   330,
+   360,
+   390
+  ],
+  "sugars": [
+   0.5,
+   2,
+   3.5,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11
+  ],
+  "sweetenerPoints": 4,
+  "protein": [
+   1.2,
+   1.5,
+   1.8,
+   2.1,
+   2.4,
+   2.7,
+   3.0
+  ],
+  "fruitsVegetables": {
+   "thresholds": [
+    40,
+    60,
+    80
+   ],
+   "points": [
+    2,
+    4,
+    6
+   ]
+  },
+  "grades": {
+   "B": 2,
+   "C": 6,
+   "D": 9
+  }
+ },
+ "exclusions": {
+  "note": "Rehber md. 1.1: no score for these groups.",
+  "alwaysTags": [
+   "en:honeys",
+   "en:baby-foods",
+   "en:baby-milks",
+   "en:infant-formulas",
+   "en:food-supplements",
+   "en:dietary-supplements",
+   "en:sports-nutrition",
+   "en:meal-replacements",
+   "en:salts",
+   "en:spices",
+   "en:herbs",
+   "en:food-additives"
+  ],
+  "plainDairyTags": [
+   "en:milks",
+   "en:plain-yogurts",
+   "en:yogurts",
+   "en:cheeses",
+   "en:butters",
+   "en:kefir",
+   "en:ayran"
+  ],
+  "flavouredMarkers": [
+   "en:flavoured-milks",
+   "en:sweetened-yogurts",
+   "en:flavoured-yogurts",
+   "en:fruit-yogurts",
+   "en:dairy-desserts",
+   "en:cheese-spreads",
+   "en:processed-cheese"
+  ]
+ }
+}

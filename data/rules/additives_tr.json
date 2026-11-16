@@ -1,0 +1,1248 @@
+{
+ "version": "2026.11.1",
+ "source": "TGK Gıda Katkı Maddeleri Yönetmeliği, RG 32338 (13.10.2023)",
+ "note": "Language rules: PLAN.md 'Dil kuralları'. animalOrigin: 'always' (always animal), 'maybe' (animal or plant, label decides). Every caution/unclear entry needs at least one source.",
+ "additives": [
+  {
+   "code": "E100",
+   "name": "Kurkumin",
+   "class": "Renklendirici",
+   "level": "info",
+   "summary": "Zerdeçaldan elde edilen sarı renklendirici.",
+   "trStatus": "Türk Gıda Kodeksi'nde izinli renklendiriciler arasındadır.",
+   "efsa": "2010 değerlendirmesinde günlük alım sınırı belirlendi.",
+   "colorant": true,
+   "synonyms": [
+    "kurkumin",
+    "curcumin"
+   ],
+   "sources": [
+    "tgk-katki",
+    "efsa-katki"
+   ]
+  },
+  {
+   "code": "E102",
+   "name": "Tartrazin",
+   "class": "Renklendirici",
+   "level": "caution",
+   "summary": "AB'de bu renklendiriciyi içeren gıdalarda 'çocuklarda etkinlik ve dikkat üzerinde olumsuz etkisi olabilir' uyarısı zorunludur.",
+   "trStatus": "Türk Gıda Kodeksi'nde izinlidir; ambalajda uyarı ifadesi bulunmalıdır.",
+   "efsa": "2009 yeniden değerlendirmesinde günlük alım sınırı belirlendi.",
+   "colorant": true,
+   "southampton": true,
+   "synonyms": [
+    "tartrazin",
+    "tartrazine"
+   ],
+   "sources": [
+    "ab-1333-ek5",
+    "tgk-katki",
+    "efsa-katki",
+    "saglik-beslenme-skoru-rehber"
+   ]
+  },
+  {
+   "code": "E104",
+   "name": "Kinolin sarısı",
+   "class": "Renklendirici",
+   "level": "caution",
+   "summary": "AB'de bu renklendiriciyi içeren gıdalarda çocuklara yönelik uyarı ifadesi zorunludur.",
+   "trStatus": "Türk Gıda Kodeksi'nde izinlidir; ambalajda uyarı ifadesi bulunmalıdır.",
+   "efsa": "2009 değerlendirmesinde günlük alım sınırı düşürüldü.",
+   "colorant": true,
+   "southampton": true,
+   "synonyms": [
+    "kinolin sarısı",
+    "quinoline yellow"
+   ],
+   "sources": [
+    "ab-1333-ek5",
+    "tgk-katki",
+    "efsa-katki",
+    "saglik-beslenme-skoru-rehber"
+   ]
+  },
+  {
+   "code": "E110",
+   "name": "Gün batımı sarısı",
+   "class": "Renklendirici",
+   "level": "caution",
+   "summary": "AB'de bu renklendiriciyi içeren gıdalarda çocuklara yönelik uyarı ifadesi zorunludur.",
+   "trStatus": "Türk Gıda Kodeksi'nde izinlidir; ambalajda uyarı ifadesi bulunmalıdır.",
+   "efsa": "2009 yeniden değerlendirmesinde günlük alım sınırı belirlendi.",
+   "colorant": true,
+   "southampton": true,
+   "synonyms": [
+    "gün batımı sarısı",
+    "sunset yellow"
+   ],
+   "sources": [
+    "ab-1333-ek5",
+    "tgk-katki",
+    "efsa-katki",
+    "saglik-beslenme-skoru-rehber"
+   ]
+  },
+  {
+   "code": "E120",
+   "name": "Karmin",
+   "class": "Renklendirici",
+   "level": "unclear",
+   "summary": "Koşnil böceğinden elde edilen kırmızı renklendirici; vegan ve vejetaryen beslenmeye uygun değildir.",
+   "trStatus": "Türk Gıda Kodeksi'nde izinlidir.",
+   "efsa": "2015 değerlendirmesinde günlük alım sınırı belirlendi.",
+   "whyUnclear": "Hayvansal kaynaklıdır; etikette çoğu zaman yalnızca E kodu yazar.",
+   "colorant": true,
+   "animalOrigin": "always",
+   "synonyms": [
+    "karmin",
+    "koşnil",
+    "carmine",
+    "cochineal"
+   ],
+   "sources": [
+    "tgk-katki",
+    "efsa-katki"
+   ]
+  },
+  {
+   "code": "E122",
+   "name": "Azorubin",
+   "class": "Renklendirici",
+   "level": "caution",
+   "summary": "AB'de bu renklendiriciyi içeren gıdalarda çocuklara yönelik uyarı ifadesi zorunludur.",
+   "trStatus": "Türk Gıda Kodeksi'nde izinlidir; ambalajda uyarı ifadesi bulunmalıdır.",
+   "efsa": "2009 yeniden değerlendirmesinde günlük alım sınırı belirlendi.",
+   "colorant": true,
+   "southampton": true,
+   "synonyms": [
+    "azorubin",
+    "karmoisin",
+    "carmoisine"
+   ],
+   "sources": [
+    "ab-1333-ek5",
+    "tgk-katki",
+    "efsa-katki",
+    "saglik-beslenme-skoru-rehber"
+   ]
+  },
+  {
+   "code": "E124",
+   "name": "Ponso 4R",
+   "class": "Renklendirici",
+   "level": "caution",
+   "summary": "AB'de bu renklendiriciyi içeren gıdalarda çocuklara yönelik uyarı ifadesi zorunludur.",
+   "trStatus": "Türk Gıda Kodeksi'nde izinlidir; ambalajda uyarı ifadesi bulunmalıdır.",
+   "efsa": "2009 değerlendirmesinde günlük alım sınırı düşürüldü.",
+   "colorant": true,
+   "southampton": true,
+   "synonyms": [
+    "ponso 4r",
+    "ponceau 4r"
+   ],
+   "sources": [
+    "ab-1333-ek5",
+    "tgk-katki",
+    "efsa-katki",
+    "saglik-beslenme-skoru-rehber"
+   ]
+  },
+  {
+   "code": "E129",
+   "name": "Allura kırmızısı AC",
+   "class": "Renklendirici",
+   "level": "caution",
+   "summary": "AB'de bu renklendiriciyi içeren gıdalarda çocuklara yönelik uyarı ifadesi zorunludur.",
+   "trStatus": "Türk Gıda Kodeksi'nde izinlidir; ambalajda uyarı ifadesi bulunmalıdır.",
+   "efsa": "2009 yeniden değerlendirmesinde günlük alım sınırı belirlendi.",
+   "colorant": true,
+   "southampton": true,
+   "synonyms": [
+    "allura kırmızısı",
+    "allura red"
+   ],
+   "sources": [
+    "ab-1333-ek5",
+    "tgk-katki",
+    "efsa-katki",
+    "saglik-beslenme-skoru-rehber"
+   ]
+  },
+  {
+   "code": "E133",
+   "name": "Parlak mavi FCF",
+   "class": "Renklendirici",
+   "level": "info",
+   "summary": "Sentetik mavi renklendirici.",
+   "trStatus": "Türk Gıda Kodeksi'nde izinlidir.",
+   "efsa": "2010 yeniden değerlendirmesinde günlük alım sınırı belirlendi.",
+   "colorant": true,
+   "synonyms": [
+    "parlak mavi",
+    "brilliant blue"
+   ],
+   "sources": [
+    "tgk-katki",
+    "efsa-katki"
+   ]
+  },
+  {
+   "code": "E140",
+   "name": "Klorofil",
+   "class": "Renklendirici",
+   "level": "info",
+   "summary": "Bitkilerin yeşil pigmenti.",
+   "trStatus": "Türk Gıda Kodeksi'nde izinlidir.",
+   "efsa": "Değerlendirmede sayısal sınır gerekli görülmedi.",
+   "colorant": true,
+   "synonyms": [
+    "klorofil",
+    "chlorophyll"
+   ],
+   "sources": [
+    "tgk-katki"
+   ]
+  },
+  {
+   "code": "E150A",
+   "name": "Sade karamel",
+   "class": "Renklendirici",
+   "level": "info",
+   "summary": "Şekerin ısıtılmasıyla elde edilen kahverengi renklendirici.",
+   "trStatus": "Türk Gıda Kodeksi'nde izinlidir.",
+   "efsa": "2011 değerlendirmesinde sayısal sınır gerekli görülmedi.",
+   "colorant": true,
+   "synonyms": [
+    "karamel"
+   ],
+   "sources": [
+    "tgk-katki"
+   ]
+  },
+  {
+   "code": "E150C",
+   "name": "Amonyak karameli",
+   "class": "Renklendirici",
+   "level": "info",
+   "summary": "Amonyak bileşikleriyle üretilen karamel renklendirici.",
+   "trStatus": "Türk Gıda Kodeksi'nde izinlidir.",
+   "efsa": "2011 değerlendirmesinde günlük alım sınırı belirlendi.",
+   "colorant": true,
+   "synonyms": [],
+   "sources": [
+    "tgk-katki",
+    "efsa-katki"
+   ]
+  },
+  {
+   "code": "E150D",
+   "name": "Sülfit amonyak karameli",
+   "class": "Renklendirici",
+   "level": "info",
+   "summary": "Kola türü içeceklerde sık kullanılan koyu karamel renklendirici.",
+   "trStatus": "Türk Gıda Kodeksi'nde izinlidir.",
+   "efsa": "2011 değerlendirmesinde günlük alım sınırı belirlendi.",
+   "colorant": true,
+   "synonyms": [],
+   "sources": [
+    "tgk-katki",
+    "efsa-katki"
+   ]
+  },
+  {
+   "code": "E160A",
+   "name": "Karotenler",
+   "class": "Renklendirici",
+   "level": "info",
+   "summary": "Havuç ve benzeri bitkilerdeki turuncu pigmentler.",
+   "trStatus": "Türk Gıda Kodeksi'nde izinlidir.",
+   "efsa": "2012 değerlendirmesi yapıldı.",
+   "colorant": true,
+   "synonyms": [
+    "beta karoten",
+    "beta-karoten",
+    "beta carotene"
+   ],
+   "sources": [
+    "tgk-katki"
+   ]
+  },
+  {
+   "code": "E160C",
+   "name": "Kırmızı biber ekstraktı",
+   "class": "Renklendirici",
+   "level": "info",
+   "summary": "Kırmızı biberden elde edilen renklendirici.",
+   "trStatus": "Türk Gıda Kodeksi'nde izinlidir.",
+   "efsa": "2015 değerlendirmesinde günlük alım sınırı belirlendi.",
+   "colorant": true,
+   "synonyms": [
+    "paprika ekstraktı",
+    "kapsantin"
+   ],
+   "sources": [
+    "tgk-katki"
+   ]
+  },
+  {
+   "code": "E162",
+   "name": "Pancar kırmızısı",
+   "class": "Renklendirici",
+   "level": "info",
+   "summary": "Kırmızı pancardan elde edilen renklendirici.",
+   "trStatus": "Türk Gıda Kodeksi'nde izinlidir.",
+   "efsa": "2015 değerlendirmesinde sayısal sınır gerekli görülmedi.",
+   "colorant": true,
+   "synonyms": [
+    "pancar kırmızısı",
+    "betanin"
+   ],
+   "sources": [
+    "tgk-katki"
+   ]
+  },
+  {
+   "code": "E163",
+   "name": "Antosiyaninler",
+   "class": "Renklendirici",
+   "level": "info",
+   "summary": "Mor havuç, üzüm gibi bitkilerden elde edilen renklendiriciler.",
+   "trStatus": "Türk Gıda Kodeksi'nde izinlidir.",
+   "efsa": "2013 değerlendirmesi yapıldı.",
+   "colorant": true,
+   "synonyms": [
+    "antosiyanin"
+   ],
+   "sources": [
+    "tgk-katki"
+   ]
+  },
+  {
+   "code": "E171",
+   "name": "Titanyum dioksit",
+   "class": "Renklendirici",
+   "level": "caution",
+   "summary": "AB'de 2022'den bu yana gıda katkı maddesi olarak izinli değildir; EFSA 2021'de güvenli kabul edilemeyeceği görüşünü yayımladı.",
+   "trStatus": "Türk Gıda Kodeksi'nde 2023 yönetmeliğiyle gıda katkı maddesi olarak kullanımına son verildi; 1 Nisan 2024'ten önce piyasaya arz edilen ürünler raf ömrü boyunca satışta kalabilir.",
+   "efsa": "2021 görüşünde gıda katkı maddesi olarak güvenli kabul edilemeyeceği belirtildi.",
+   "colorant": true,
+   "synonyms": [
+    "titanyum dioksit",
+    "titanium dioxide"
+   ],
+   "sources": [
+    "tgk-katki",
+    "efsa-e171"
+   ]
+  },
+  {
+   "code": "E200",
+   "name": "Sorbik asit",
+   "class": "Koruyucu",
+   "level": "info",
+   "summary": "Küf ve maya gelişimini yavaşlatan koruyucu.",
+   "trStatus": "Türk Gıda Kodeksi'nde izinlidir.",
+   "efsa": "2015 değerlendirmesinde günlük alım sınırı belirlendi.",
+   "synonyms": [
+    "sorbik asit",
+    "sorbic acid"
+   ],
+   "sources": [
+    "tgk-katki"
+   ]
+  },
+  {
+   "code": "E202",
+   "name": "Potasyum sorbat",
+   "class": "Koruyucu",
+   "level": "info",
+   "summary": "Küf ve maya gelişimini yavaşlatan koruyucu.",
+   "trStatus": "Türk Gıda Kodeksi'nde izinlidir.",
+   "efsa": "2015 değerlendirmesinde günlük alım sınırı belirlendi.",
+   "synonyms": [
+    "potasyum sorbat",
+    "potassium sorbate"
+   ],
+   "sources": [
+    "tgk-katki"
+   ]
+  },
+  {
+   "code": "E211",
+   "name": "Sodyum benzoat",
+   "class": "Koruyucu",
+   "level": "info",
+   "summary": "Asitli içecek ve soslarda kullanılan koruyucu.",
+   "trStatus": "Türk Gıda Kodeksi'nde izinlidir.",
+   "efsa": "2016 değerlendirmesinde günlük alım sınırı belirlendi.",
+   "synonyms": [
+    "sodyum benzoat",
+    "sodium benzoate"
+   ],
+   "sources": [
+    "tgk-katki",
+    "efsa-katki"
+   ]
+  },
+  {
+   "code": "E220",
+   "name": "Kükürt dioksit",
+   "class": "Koruyucu",
+   "level": "caution",
+   "summary": "Sülfit grubundandır; sülfit, etikette belirtilmesi zorunlu 14 alerjenden biridir.",
+   "trStatus": "Türk Gıda Kodeksi'nde izinlidir; alerjen olarak etiketlenmelidir.",
+   "efsa": "2016 değerlendirmesinde günlük alım sınırı belirlendi.",
+   "synonyms": [
+    "kükürt dioksit",
+    "sulphur dioxide"
+   ],
+   "sources": [
+    "ab-1169-ek2",
+    "tgk-katki"
+   ]
+  },
+  {
+   "code": "E223",
+   "name": "Sodyum metabisülfit",
+   "class": "Koruyucu",
+   "level": "caution",
+   "summary": "Sülfit grubundandır; sülfit, etikette belirtilmesi zorunlu 14 alerjenden biridir.",
+   "trStatus": "Türk Gıda Kodeksi'nde izinlidir; alerjen olarak etiketlenmelidir.",
+   "efsa": "2016 değerlendirmesinde günlük alım sınırı belirlendi.",
+   "synonyms": [
+    "sodyum metabisülfit",
+    "sodium metabisulphite"
+   ],
+   "sources": [
+    "ab-1169-ek2",
+    "tgk-katki"
+   ]
+  },
+  {
+   "code": "E250",
+   "name": "Sodyum nitrit",
+   "class": "Koruyucu",
+   "level": "caution",
+   "summary": "İşlenmiş ette kullanılır. EFSA günlük alım sınırı belirlemiştir; sık tüketimde, özellikle çocuklarda, sınıra yaklaşılabilir.",
+   "trStatus": "Türk Gıda Kodeksi'nde belirli et ürünlerinde, sınır değerlerle izinlidir.",
+   "efsa": "2017 yeniden değerlendirmesinde mevcut sınırların koruyucu olduğu, bazı gruplarda aşılabileceği belirtildi.",
+   "synonyms": [
+    "sodyum nitrit",
+    "sodium nitrite"
+   ],
+   "sources": [
+    "efsa-nitrit",
+    "tgk-katki"
+   ]
+  },
+  {
+   "code": "E251",
+   "name": "Sodyum nitrat",
+   "class": "Koruyucu",
+   "level": "info",
+   "summary": "İşlenmiş ette kullanılan koruyucu. EFSA 2017'de katkı olarak kullanılan nitratlardan gelen alımın günlük sınırın altında kaldığını belirtti.",
+   "trStatus": "Türk Gıda Kodeksi'nde belirli ürünlerde, sınır değerlerle izinlidir.",
+   "efsa": "2017 yeniden değerlendirmesi yapıldı.",
+   "synonyms": [
+    "sodyum nitrat",
+    "sodium nitrate"
+   ],
+   "sources": [
+    "efsa-nitrit",
+    "tgk-katki"
+   ]
+  },
+  {
+   "code": "E252",
+   "name": "Potasyum nitrat",
+   "class": "Koruyucu",
+   "level": "info",
+   "summary": "İşlenmiş ette kullanılan koruyucu. EFSA 2017'de katkı olarak kullanılan nitratlardan gelen alımın günlük sınırın altında kaldığını belirtti.",
+   "trStatus": "Türk Gıda Kodeksi'nde belirli ürünlerde, sınır değerlerle izinlidir.",
+   "efsa": "2017 yeniden değerlendirmesi yapıldı.",
+   "synonyms": [
+    "potasyum nitrat",
+    "potassium nitrate"
+   ],
+   "sources": [
+    "efsa-nitrit",
+    "tgk-katki"
+   ]
+  },
+  {
+   "code": "E270",
+   "name": "Laktik asit",
+   "class": "Asitlik düzenleyici",
+   "level": "info",
+   "summary": "Fermantasyonla elde edilen asitlik düzenleyici; adına rağmen süt içermez.",
+   "trStatus": "Türk Gıda Kodeksi'nde izinlidir.",
+   "efsa": "Sayısal sınır gerekli görülmedi.",
+   "synonyms": [
+    "laktik asit",
+    "lactic acid"
+   ],
+   "sources": [
+    "tgk-katki"
+   ]
+  },
+  {
+   "code": "E290",
+   "name": "Karbondioksit",
+   "class": "Gaz",
+   "level": "info",
+   "summary": "Gazlı içeceklere köpürme sağlar.",
+   "trStatus": "Türk Gıda Kodeksi'nde izinlidir.",
+   "efsa": "Sayısal sınır gerekli görülmedi.",
+   "synonyms": [
+    "karbondioksit"
+   ],
+   "sources": [
+    "tgk-katki"
+   ]
+  },
+  {
+   "code": "E300",
+   "name": "Askorbik asit",
+   "class": "Antioksidan",
+   "level": "info",
+   "summary": "C vitamini; ürünün bozulmasını yavaşlatır.",
+   "trStatus": "Türk Gıda Kodeksi'nde izinlidir.",
+   "efsa": "2015 değerlendirmesinde sayısal sınır gerekli görülmedi.",
+   "synonyms": [
+    "askorbik asit",
+    "ascorbic acid",
+    "c vitamini"
+   ],
+   "sources": [
+    "tgk-katki"
+   ]
+  },
+  {
+   "code": "E306",
+   "name": "Tokoferoller",
+   "class": "Antioksidan",
+   "level": "info",
+   "summary": "E vitamini; yağların bozulmasını yavaşlatır.",
+   "trStatus": "Türk Gıda Kodeksi'nde izinlidir.",
+   "efsa": "2015 değerlendirmesinde sayısal sınır gerekli görülmedi.",
+   "synonyms": [
+    "tokoferol",
+    "tocopherol"
+   ],
+   "sources": [
+    "tgk-katki"
+   ]
+  },
+  {
+   "code": "E320",
+   "name": "Bütil hidroksianisol (BHA)",
+   "class": "Antioksidan",
+   "level": "caution",
+   "summary": "Yağlı ürünlerde kullanılan sentetik antioksidan. EFSA günlük alım sınırı belirlemiştir.",
+   "trStatus": "Türk Gıda Kodeksi'nde belirli ürünlerde, sınır değerlerle izinlidir.",
+   "efsa": "2011 yeniden değerlendirmesinde günlük alım sınırı belirlendi.",
+   "synonyms": [
+    "bha",
+    "bütil hidroksianisol"
+   ],
+   "sources": [
+    "efsa-katki",
+    "tgk-katki"
+   ]
+  },
+  {
+   "code": "E321",
+   "name": "Bütil hidroksitoluen (BHT)",
+   "class": "Antioksidan",
+   "level": "caution",
+   "summary": "Yağlı ürünlerde kullanılan sentetik antioksidan. EFSA günlük alım sınırı belirlemiştir.",
+   "trStatus": "Türk Gıda Kodeksi'nde belirli ürünlerde, sınır değerlerle izinlidir.",
+   "efsa": "2012 yeniden değerlendirmesinde günlük alım sınırı belirlendi.",
+   "synonyms": [
+    "bht",
+    "bütil hidroksitoluen"
+   ],
+   "sources": [
+    "efsa-katki",
+    "tgk-katki"
+   ]
+  },
+  {
+   "code": "E322",
+   "name": "Lesitinler",
+   "class": "Emülgatör",
+   "level": "info",
+   "summary": "Çoğunlukla soya veya ayçiçeğinden elde edilir; soya kaynaklıysa alerjen olarak belirtilir.",
+   "trStatus": "Türk Gıda Kodeksi'nde izinlidir.",
+   "efsa": "2017 yeniden değerlendirmesinde sayısal sınır gerekli görülmedi.",
+   "synonyms": [
+    "lesitin",
+    "lecithin"
+   ],
+   "sources": [
+    "tgk-katki",
+    "efsa-katki"
+   ]
+  },
+  {
+   "code": "E330",
+   "name": "Sitrik asit",
+   "class": "Asitlik düzenleyici",
+   "level": "info",
+   "summary": "Limon gibi meyvelerde de doğal olarak bulunan asitlik düzenleyici.",
+   "trStatus": "Türk Gıda Kodeksi'nde izinlidir.",
+   "efsa": "Sayısal sınır gerekli görülmedi.",
+   "synonyms": [
+    "sitrik asit",
+    "citric acid",
+    "limon tuzu"
+   ],
+   "sources": [
+    "tgk-katki",
+    "efsa-katki"
+   ]
+  },
+  {
+   "code": "E331",
+   "name": "Sodyum sitratlar",
+   "class": "Asitlik düzenleyici",
+   "level": "info",
+   "summary": "Asitliği dengeler.",
+   "trStatus": "Türk Gıda Kodeksi'nde izinlidir.",
+   "efsa": "Sayısal sınır gerekli görülmedi.",
+   "synonyms": [
+    "sodyum sitrat"
+   ],
+   "sources": [
+    "tgk-katki"
+   ]
+  },
+  {
+   "code": "E338",
+   "name": "Fosforik asit",
+   "class": "Asitlik düzenleyici",
+   "level": "caution",
+   "summary": "Fosfat grubundandır. EFSA 2019'da fosfatlar için grup günlük alım sınırı belirledi; çok tüketenlerde sınır aşılabilir.",
+   "trStatus": "Türk Gıda Kodeksi'nde izinlidir.",
+   "efsa": "2019 yeniden değerlendirmesinde fosfor cinsinden grup günlük alım sınırı belirlendi.",
+   "synonyms": [
+    "fosforik asit",
+    "phosphoric acid"
+   ],
+   "sources": [
+    "efsa-fosfat",
+    "tgk-katki"
+   ]
+  },
+  {
+   "code": "E339",
+   "name": "Sodyum fosfatlar",
+   "class": "Asitlik düzenleyici",
+   "level": "caution",
+   "summary": "Fosfat grubundandır. EFSA 2019'da fosfatlar için grup günlük alım sınırı belirledi.",
+   "trStatus": "Türk Gıda Kodeksi'nde izinlidir.",
+   "efsa": "2019 yeniden değerlendirmesinde grup günlük alım sınırı belirlendi.",
+   "synonyms": [
+    "sodyum fosfat"
+   ],
+   "sources": [
+    "efsa-fosfat",
+    "tgk-katki"
+   ]
+  },
+  {
+   "code": "E407",
+   "name": "Karragenan",
+   "class": "Kıvam artırıcı",
+   "level": "caution",
+   "summary": "Kırmızı yosundan elde edilir. EFSA 2018'de geçici günlük alım sınırı belirledi ve ek veri istedi.",
+   "trStatus": "Türk Gıda Kodeksi'nde izinlidir; bebek mamalarında kullanım koşulları ayrıdır.",
+   "efsa": "2018 yeniden değerlendirmesinde geçici grup sınırı belirlendi.",
+   "synonyms": [
+    "karragenan",
+    "carrageenan"
+   ],
+   "sources": [
+    "efsa-katki",
+    "tgk-katki"
+   ]
+  },
+  {
+   "code": "E410",
+   "name": "Keçiboynuzu gamı",
+   "class": "Kıvam artırıcı",
+   "level": "info",
+   "summary": "Keçiboynuzu çekirdeğinden elde edilen kıvam artırıcı.",
+   "trStatus": "Türk Gıda Kodeksi'nde izinlidir.",
+   "efsa": "2017 değerlendirmesinde sayısal sınır gerekli görülmedi.",
+   "synonyms": [
+    "keçiboynuzu gamı",
+    "locust bean gum"
+   ],
+   "sources": [
+    "tgk-katki"
+   ]
+  },
+  {
+   "code": "E412",
+   "name": "Guar gam",
+   "class": "Kıvam artırıcı",
+   "level": "info",
+   "summary": "Guar bitkisinden elde edilen kıvam artırıcı.",
+   "trStatus": "Türk Gıda Kodeksi'nde izinlidir.",
+   "efsa": "2017 değerlendirmesinde sayısal sınır gerekli görülmedi.",
+   "synonyms": [
+    "guar gam",
+    "guar gum"
+   ],
+   "sources": [
+    "tgk-katki"
+   ]
+  },
+  {
+   "code": "E414",
+   "name": "Arap zamkı",
+   "class": "Kıvam artırıcı",
+   "level": "info",
+   "summary": "Akasya ağacının reçinesinden elde edilir.",
+   "trStatus": "Türk Gıda Kodeksi'nde izinlidir.",
+   "efsa": "2017 değerlendirmesinde sayısal sınır gerekli görülmedi.",
+   "synonyms": [
+    "arap zamkı",
+    "gum arabic"
+   ],
+   "sources": [
+    "tgk-katki"
+   ]
+  },
+  {
+   "code": "E415",
+   "name": "Ksantan gam",
+   "class": "Kıvam artırıcı",
+   "level": "info",
+   "summary": "Fermantasyonla elde edilen kıvam artırıcı.",
+   "trStatus": "Türk Gıda Kodeksi'nde izinlidir.",
+   "efsa": "2017 değerlendirmesinde sayısal sınır gerekli görülmedi.",
+   "synonyms": [
+    "ksantan gam",
+    "xanthan gum"
+   ],
+   "sources": [
+    "tgk-katki"
+   ]
+  },
+  {
+   "code": "E420",
+   "name": "Sorbitol",
+   "class": "Tatlandırıcı",
+   "level": "info",
+   "summary": "Şeker alkolü; fazla tüketimde laksatif etki yapabilir, ambalajda bu uyarı bulunur.",
+   "trStatus": "Türk Gıda Kodeksi'nde izinlidir.",
+   "efsa": "Sayısal sınır gerekli görülmedi.",
+   "sweetener": true,
+   "synonyms": [
+    "sorbitol"
+   ],
+   "sources": [
+    "tgk-katki"
+   ]
+  },
+  {
+   "code": "E422",
+   "name": "Gliserol",
+   "class": "Nem tutucu",
+   "level": "unclear",
+   "summary": "Bitkisel veya hayvansal yağlardan elde edilebilir.",
+   "trStatus": "Türk Gıda Kodeksi'nde izinlidir.",
+   "efsa": "2017 değerlendirmesinde sayısal sınır gerekli görülmedi.",
+   "whyUnclear": "Etikette kaynağı (bitkisel/hayvansal) yazmadığı için bu üründe hangisinin kullanıldığı bilinemez.",
+   "animalOrigin": "maybe",
+   "synonyms": [
+    "gliserol",
+    "gliserin",
+    "glycerol"
+   ],
+   "sources": [
+    "tgk-katki",
+    "efsa-katki"
+   ]
+  },
+  {
+   "code": "E440",
+   "name": "Pektin",
+   "class": "Jelleştirici",
+   "level": "info",
+   "summary": "Meyve kabuklarından elde edilen jelleştirici.",
+   "trStatus": "Türk Gıda Kodeksi'nde izinlidir.",
+   "efsa": "2017 değerlendirmesinde sayısal sınır gerekli görülmedi.",
+   "synonyms": [
+    "pektin",
+    "pectin"
+   ],
+   "sources": [
+    "tgk-katki"
+   ]
+  },
+  {
+   "code": "E450",
+   "name": "Difosfatlar",
+   "class": "Kabartıcı",
+   "level": "caution",
+   "summary": "Fosfat grubundandır. EFSA 2019'da fosfatlar için grup günlük alım sınırı belirledi.",
+   "trStatus": "Türk Gıda Kodeksi'nde izinlidir.",
+   "efsa": "2019 yeniden değerlendirmesinde grup günlük alım sınırı belirlendi.",
+   "synonyms": [
+    "difosfat",
+    "sodyum asit pirofosfat"
+   ],
+   "sources": [
+    "efsa-fosfat",
+    "tgk-katki"
+   ]
+  },
+  {
+   "code": "E451",
+   "name": "Trifosfatlar",
+   "class": "Stabilizör",
+   "level": "caution",
+   "summary": "Fosfat grubundandır. EFSA 2019'da fosfatlar için grup günlük alım sınırı belirledi.",
+   "trStatus": "Türk Gıda Kodeksi'nde izinlidir.",
+   "efsa": "2019 yeniden değerlendirmesinde grup günlük alım sınırı belirlendi.",
+   "synonyms": [
+    "trifosfat"
+   ],
+   "sources": [
+    "efsa-fosfat",
+    "tgk-katki"
+   ]
+  },
+  {
+   "code": "E452",
+   "name": "Polifosfatlar",
+   "class": "Stabilizör",
+   "level": "caution",
+   "summary": "Fosfat grubundandır. EFSA 2019'da fosfatlar için grup günlük alım sınırı belirledi.",
+   "trStatus": "Türk Gıda Kodeksi'nde izinlidir.",
+   "efsa": "2019 yeniden değerlendirmesinde grup günlük alım sınırı belirlendi.",
+   "synonyms": [
+    "polifosfat"
+   ],
+   "sources": [
+    "efsa-fosfat",
+    "tgk-katki"
+   ]
+  },
+  {
+   "code": "E460",
+   "name": "Selüloz",
+   "class": "Kıvam artırıcı",
+   "level": "info",
+   "summary": "Bitki liflerinden elde edilir.",
+   "trStatus": "Türk Gıda Kodeksi'nde izinlidir.",
+   "efsa": "2018 değerlendirmesinde sayısal sınır gerekli görülmedi.",
+   "synonyms": [
+    "selüloz",
+    "cellulose"
+   ],
+   "sources": [
+    "tgk-katki"
+   ]
+  },
+  {
+   "code": "E466",
+   "name": "Karboksimetil selüloz",
+   "class": "Kıvam artırıcı",
+   "level": "info",
+   "summary": "Selülozdan elde edilen kıvam artırıcı.",
+   "trStatus": "Türk Gıda Kodeksi'nde izinlidir.",
+   "efsa": "2018 değerlendirmesinde sayısal sınır gerekli görülmedi.",
+   "synonyms": [
+    "karboksimetil selüloz",
+    "cmc"
+   ],
+   "sources": [
+    "tgk-katki"
+   ]
+  },
+  {
+   "code": "E471",
+   "name": "Yağ asitlerinin mono- ve digliseritleri",
+   "class": "Emülgatör",
+   "level": "unclear",
+   "summary": "Yağ ve suyun karışmasını sağlar; ekmek, bisküvi ve dondurmada dokuyu yumuşatır. Bitkisel veya hayvansal yağlardan elde edilebilir.",
+   "trStatus": "Türk Gıda Kodeksi'nde izinli katkı maddeleri listesinde yer alır.",
+   "efsa": "2017 yeniden değerlendirmesinde sayısal günlük alım sınırı gerekli görülmedi.",
+   "whyUnclear": "Etikette kaynağı (bitkisel/hayvansal) yazmadığı için bu üründe hangisinin kullanıldığı bilinemez.",
+   "animalOrigin": "maybe",
+   "synonyms": [
+    "mono- ve digliseritler",
+    "mono ve digliseritler",
+    "monogliserit",
+    "mono- and diglycerides"
+   ],
+   "sources": [
+    "tgk-katki",
+    "efsa-katki"
+   ]
+  },
+  {
+   "code": "E472E",
+   "name": "DATEM",
+   "class": "Emülgatör",
+   "level": "unclear",
+   "summary": "Ekmekte hacmi artıran emülgatör; yağ kaynağı bitkisel veya hayvansal olabilir.",
+   "trStatus": "Türk Gıda Kodeksi'nde izinlidir.",
+   "efsa": "2020 değerlendirmesinde sayısal sınır gerekli görülmedi.",
+   "whyUnclear": "Yağ kaynağı etikette belirtilmediğinde bilinemez.",
+   "animalOrigin": "maybe",
+   "synonyms": [
+    "datem"
+   ],
+   "sources": [
+    "tgk-katki",
+    "efsa-katki"
+   ]
+  },
+  {
+   "code": "E476",
+   "name": "Poligliserol polirisinoleat",
+   "class": "Emülgatör",
+   "level": "info",
+   "summary": "Çikolatada akışkanlığı düzenler; hint yağından elde edilir.",
+   "trStatus": "Türk Gıda Kodeksi'nde izinlidir.",
+   "efsa": "2017 değerlendirmesinde günlük alım sınırı belirlendi.",
+   "synonyms": [
+    "pgpr"
+   ],
+   "sources": [
+    "tgk-katki"
+   ]
+  },
+  {
+   "code": "E500",
+   "name": "Sodyum karbonatlar",
+   "class": "Kabartıcı",
+   "level": "info",
+   "summary": "Kabartma tozu; hamurun kabarmasını sağlar.",
+   "trStatus": "Türk Gıda Kodeksi'nde izinlidir.",
+   "efsa": "Sayısal sınır gerekli görülmedi.",
+   "synonyms": [
+    "sodyum bikarbonat",
+    "karbonat",
+    "sodium bicarbonate"
+   ],
+   "sources": [
+    "tgk-katki"
+   ]
+  },
+  {
+   "code": "E503",
+   "name": "Amonyum karbonatlar",
+   "class": "Kabartıcı",
+   "level": "info",
+   "summary": "Bisküvide kullanılan kabartıcı; pişirmede uçar.",
+   "trStatus": "Türk Gıda Kodeksi'nde izinlidir.",
+   "efsa": "Sayısal sınır gerekli görülmedi.",
+   "synonyms": [
+    "amonyum bikarbonat",
+    "amonyum karbonat"
+   ],
+   "sources": [
+    "tgk-katki"
+   ]
+  },
+  {
+   "code": "E542",
+   "name": "Kemik fosfatı",
+   "class": "Topaklanmayı önleyici",
+   "level": "unclear",
+   "summary": "Hayvan kemiklerinden elde edilir; vegan ve vejetaryen beslenmeye uygun değildir.",
+   "trStatus": "Türk Gıda Kodeksi'nde izinlidir.",
+   "efsa": "Değerlendirme süreci devam ediyor.",
+   "whyUnclear": "Hayvansal kaynaklıdır; hangi hayvandan elde edildiği etikette yazmaz.",
+   "animalOrigin": "always",
+   "synonyms": [
+    "kemik fosfatı"
+   ],
+   "sources": [
+    "tgk-katki"
+   ]
+  },
+  {
+   "code": "E551",
+   "name": "Silisyum dioksit",
+   "class": "Topaklanmayı önleyici",
+   "level": "info",
+   "summary": "Toz ürünlerin topaklanmasını önler.",
+   "trStatus": "Türk Gıda Kodeksi'nde izinlidir.",
+   "efsa": "2018 değerlendirmesinde ek veri istendi.",
+   "synonyms": [
+    "silisyum dioksit",
+    "silica"
+   ],
+   "sources": [
+    "tgk-katki",
+    "efsa-katki"
+   ]
+  },
+  {
+   "code": "E621",
+   "name": "Monosodyum glutamat",
+   "class": "Lezzet artırıcı",
+   "level": "caution",
+   "summary": "Lezzet artırıcı. EFSA 2017'de glutamatlar için grup günlük alım sınırı belirledi; bazı tüketim gruplarında sınır aşılabilir.",
+   "trStatus": "Türk Gıda Kodeksi'nde izinlidir.",
+   "efsa": "2017 yeniden değerlendirmesinde grup günlük alım sınırı belirlendi.",
+   "synonyms": [
+    "monosodyum glutamat",
+    "msg",
+    "monosodium glutamate"
+   ],
+   "sources": [
+    "efsa-glutamat",
+    "tgk-katki"
+   ]
+  },
+  {
+   "code": "E627",
+   "name": "Disodyum guanilat",
+   "class": "Lezzet artırıcı",
+   "level": "unclear",
+   "summary": "Lezzet artırıcı; balık veya mayadan elde edilebilir.",
+   "trStatus": "Türk Gıda Kodeksi'nde izinlidir.",
+   "efsa": "Değerlendirme yapıldı.",
+   "whyUnclear": "Kaynağı etikette belirtilmediğinde vegan/vejetaryen uyumu bilinemez.",
+   "animalOrigin": "maybe",
+   "synonyms": [
+    "disodyum guanilat"
+   ],
+   "sources": [
+    "tgk-katki"
+   ]
+  },
+  {
+   "code": "E631",
+   "name": "Disodyum inozinat",
+   "class": "Lezzet artırıcı",
+   "level": "unclear",
+   "summary": "Lezzet artırıcı; et, balık veya bitkisel kaynaktan elde edilebilir.",
+   "trStatus": "Türk Gıda Kodeksi'nde izinlidir.",
+   "efsa": "Değerlendirme yapıldı.",
+   "whyUnclear": "Kaynağı etikette belirtilmediğinde vegan/vejetaryen uyumu bilinemez.",
+   "animalOrigin": "maybe",
+   "synonyms": [
+    "disodyum inozinat"
+   ],
+   "sources": [
+    "tgk-katki"
+   ]
+  },
+  {
+   "code": "E901",
+   "name": "Balmumu",
+   "class": "Parlatıcı",
+   "level": "info",
+   "summary": "Arılardan elde edilen parlatıcı; vegan beslenmeye uygun değildir.",
+   "trStatus": "Türk Gıda Kodeksi'nde izinlidir.",
+   "efsa": "Değerlendirme yapıldı.",
+   "animalOrigin": "nonVegan",
+   "synonyms": [
+    "balmumu",
+    "beeswax"
+   ],
+   "sources": [
+    "tgk-katki"
+   ]
+  },
+  {
+   "code": "E904",
+   "name": "Şellak",
+   "class": "Parlatıcı",
+   "level": "info",
+   "summary": "Lak böceğinin salgısından elde edilen parlatıcı; vegan beslenmeye uygun değildir.",
+   "trStatus": "Türk Gıda Kodeksi'nde izinlidir.",
+   "efsa": "Değerlendirme yapıldı.",
+   "animalOrigin": "nonVegan",
+   "synonyms": [
+    "şellak",
+    "shellac"
+   ],
+   "sources": [
+    "tgk-katki"
+   ]
+  },
+  {
+   "code": "E920",
+   "name": "L-sistein",
+   "class": "Un işlem maddesi",
+   "level": "unclear",
+   "summary": "Hamuru yumuşatır; hayvansal kaynaklardan (ör. tüy) veya mikrobiyal fermantasyonla elde edilebilir.",
+   "trStatus": "Türk Gıda Kodeksi'nde izinlidir.",
+   "efsa": "Değerlendirme yapıldı.",
+   "whyUnclear": "Kaynağı etikette yazmadığında hayvansal olup olmadığı bilinemez.",
+   "animalOrigin": "maybe",
+   "synonyms": [
+    "l-sistein",
+    "sistein",
+    "cysteine"
+   ],
+   "sources": [
+    "tgk-katki"
+   ]
+  },
+  {
+   "code": "E950",
+   "name": "Asesülfam K",
+   "class": "Tatlandırıcı",
+   "level": "info",
+   "summary": "Kalorisiz tatlandırıcı.",
+   "trStatus": "Türk Gıda Kodeksi'nde izinlidir.",
+   "efsa": "Günlük alım sınırı belirlendi; 2025 yeniden değerlendirmesi yapıldı.",
+   "sweetener": true,
+   "synonyms": [
+    "asesülfam",
+    "acesulfame"
+   ],
+   "sources": [
+    "efsa-tatlandirici",
+    "tgk-katki"
+   ]
+  },
+  {
+   "code": "E951",
+   "name": "Aspartam",
+   "class": "Tatlandırıcı",
+   "level": "caution",
+   "summary": "DSÖ'ye bağlı IARC 2023'te aspartamı sınırlı kanıta dayanarak Grup 2B'de sınıflandırdı. Aynı tarihte DSÖ/FAO uzman komitesi JECFA, günlük alım sınırını (40 mg/kg vücut ağırlığı) değiştirmedi. Fenilalanin kaynağıdır; ambalajda bu uyarı bulunur.",
+   "trStatus": "Türk Gıda Kodeksi'nde izinlidir.",
+   "efsa": "2013 değerlendirmesinde günlük alım sınırı 40 mg/kg olarak belirlendi.",
+   "sweetener": true,
+   "synonyms": [
+    "aspartam",
+    "aspartame"
+   ],
+   "sources": [
+    "who-aspartam",
+    "efsa-tatlandirici"
+   ]
+  },
+  {
+   "code": "E952",
+   "name": "Siklamat",
+   "class": "Tatlandırıcı",
+   "level": "info",
+   "summary": "Kalorisiz tatlandırıcı.",
+   "trStatus": "Türk Gıda Kodeksi'nde izinlidir.",
+   "efsa": "Günlük alım sınırı belirlendi.",
+   "sweetener": true,
+   "synonyms": [
+    "siklamat",
+    "cyclamate"
+   ],
+   "sources": [
+    "efsa-tatlandirici",
+    "tgk-katki"
+   ]
+  },
+  {
+   "code": "E954",
+   "name": "Sakarin",
+   "class": "Tatlandırıcı",
+   "level": "info",
+   "summary": "Kalorisiz tatlandırıcı.",
+   "trStatus": "Türk Gıda Kodeksi'nde izinlidir.",
+   "efsa": "2024 yeniden değerlendirmesinde günlük alım sınırı yükseltildi.",
+   "sweetener": true,
+   "synonyms": [
+    "sakarin",
+    "saccharin"
+   ],
+   "sources": [
+    "efsa-tatlandirici",
+    "tgk-katki"
+   ]
+  },
+  {
+   "code": "E955",
+   "name": "Sukraloz",
+   "class": "Tatlandırıcı",
+   "level": "info",
+   "summary": "Şekerden elde edilen kalorisiz tatlandırıcı.",
+   "trStatus": "Türk Gıda Kodeksi'nde izinlidir.",
+   "efsa": "Günlük alım sınırı belirlendi.",
+   "sweetener": true,
+   "synonyms": [
+    "sukraloz",
+    "sucralose"
+   ],
+   "sources": [
+    "efsa-tatlandirici",
+    "tgk-katki"
+   ]
+  },
+  {
+   "code": "E960",
+   "name": "Steviol glikozitleri",
+   "class": "Tatlandırıcı",
+   "level": "info",
+   "summary": "Stevia bitkisinden elde edilen tatlandırıcı.",
+   "trStatus": "Türk Gıda Kodeksi'nde izinlidir.",
+   "efsa": "Günlük alım sınırı belirlendi.",
+   "sweetener": true,
+   "synonyms": [
+    "stevia",
+    "steviol"
+   ],
+   "sources": [
+    "efsa-tatlandirici",
+    "tgk-katki"
+   ]
+  },
+  {
+   "code": "E965",
+   "name": "Maltitol",
+   "class": "Tatlandırıcı",
+   "level": "info",
+   "summary": "Şeker alkolü; fazla tüketimde laksatif etki yapabilir, ambalajda bu uyarı bulunur.",
+   "trStatus": "Türk Gıda Kodeksi'nde izinlidir.",
+   "efsa": "Sayısal sınır gerekli görülmedi.",
+   "sweetener": true,
+   "synonyms": [
+    "maltitol"
+   ],
+   "sources": [
+    "tgk-katki"
+   ]
+  },
+  {
+   "code": "E1422",
+   "name": "Asetillenmiş di-nişasta adipat",
+   "class": "Kıvam artırıcı",
+   "level": "info",
+   "summary": "Modifiye nişasta; soslarda ve tatlılarda kıvam verir.",
+   "trStatus": "Türk Gıda Kodeksi'nde izinlidir.",
+   "efsa": "2017 değerlendirmesinde sayısal sınır gerekli görülmedi.",
+   "synonyms": [
+    "modifiye nişasta"
+   ],
+   "sources": [
+    "tgk-katki"
+   ]
+  },
+  {
+   "code": "E1442",
+   "name": "Hidroksipropil di-nişasta fosfat",
+   "class": "Kıvam artırıcı",
+   "level": "info",
+   "summary": "Modifiye nişasta; soslarda ve tatlılarda kıvam verir.",
+   "trStatus": "Türk Gıda Kodeksi'nde izinlidir.",
+   "efsa": "2017 değerlendirmesinde sayısal sınır gerekli görülmedi.",
+   "synonyms": [],
+   "sources": [
+    "tgk-katki"
+   ]
+  }
+ ]
+}

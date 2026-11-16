@@ -1,8 +1,8 @@
 # İçgör Katkı Koşulları
 
-Yayım tarihi: 16 Kasım 2026
+Yayım tarihi: 5 Kasım 2026
 Yürürlük tarihi: [YÜRÜRLÜK TARİHİ]
-Sürüm: 1.1 (önceki sürüm: 1.0, 5 Kasım 2026; değişiklik: Katkılarım, 4.4)
+Sürüm: 1.0
 
 Bu koşullar, İçgör'de bulunamayan bir ürünün bilgisini veya ön yüz fotoğrafını paylaştığında, mevcut bir ürün için "Düzeltme öner" ile düzeltme gönderdiğinde ve "Hata bildir" ile bildirim gönderdiğinde uygulanır. Katkı gönderdiğin andan itibaren [Kullanım Koşulları](https://icgor.mm-apps.com/kosullar/)'nın parçası olur.
 
@@ -50,8 +50,6 @@ d) Gönderdiğin içerik hakaret, reklam, bağlantı, yanıltıcı ya da bir ür
 
 4.2. Eksik, hatalı, ambalajla uyuşmayan, bu koşullara aykırı veya kişisel bilgi içeren katkıları yayımlamayabilir, düzeltebilir veya silebiliriz. Fotoğrafı kırpabilir, döndürebilir veya bulanıklaştırabiliriz.
 
-4.4. **Sonucu görmek.** Katkının veya önerinin incelemede mi olduğunu, onaylandığını ya da reddedildiğini Ayarlar > Katkılarım ekranında görürsün. Reddedilen bir katkıda moderatörün yazdığı gerekçe de gösterilir. Bu takip, her gönderime ait rastgele bir numarayla çalışır ve seni tanıtmaz (Gizlilik Politikası 3.3.1).
-
 4.3. **Saklama süreleri:**
 - İncelenmemiş katkılar en fazla 180 gün bekler, sonra silinir.
 - Reddedilen katkılar karar tarihinden itibaren 30 gün içinde silinir.
@@ -65,7 +63,7 @@ d) Gönderdiğin içerik hakaret, reklam, bağlantı, yanıltıcı ya da bir ür
 
 ## 5. Katkın neden geri alınamaz?
 
-Katkılar hiçbir kişi, hesap veya cihaz kimliğiyle ilişkilendirilmez ve açık lisanslarla yayımlanır. Katkılarım ekranındaki takip numarası yalnızca sonucu görmene yarar; seni tanıtmaz ve geri çekme yetkisi vermez. Bu yüzden belirli bir katkıyı "senin katkın" olarak bulup geri çekmemiz mümkün değildir; ayrıca yayımlanmış açık veri başkalarınca kopyalanmış olabilir.
+Katkılar hiçbir kişi veya cihazla ilişkilendirilmez ve açık lisanslarla yayımlanır. Bu yüzden belirli bir katkıyı "senin katkın" olarak bulup geri çekmemiz mümkün değildir; ayrıca yayımlanmış açık veri başkalarınca kopyalanmış olabilir.
 
 **İstisna: kişisel bilgi.** Bir katkıda veya fotoğrafta yanlışlıkla kişisel bilgin (ya da bir başkasının kişisel bilgisi) yer aldıysa, destek@mm-apps.com adresine barkodu ve içeriği tarif ederek yaz. Bulup İçgör'den sileriz; Open Food Facts'e iletilmişse orada da kaldırılmasını isteriz.
 

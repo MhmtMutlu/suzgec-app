@@ -11,7 +11,10 @@ custom domain. No cookies, no analytics, no third-party requests (system fonts o
 """
 from __future__ import annotations
 
+import datetime
+import hashlib
 import html
+import json
 import pathlib
 import re
 import shutil
@@ -27,14 +30,39 @@ SITE_URL = "https://icgor.mm-apps.com/"
 CONTACT = "destek@mm-apps.com"
 UPDATED = "16 Kasım 2026"
 
-# Launch-day switch: True turns the App Store badges into real links (fill APP_ID from App Store Connect first).
-APP_STORE_LIVE = False
+APP_STORE_LIVE = True  # 1.0.0 approved and live (14 Nov 2026)
 APP_ID = "6830374026"
 APP_STORE_URL = f"https://apps.apple.com/tr/app/id{APP_ID}"
+STORE_NAME = "İçgör: Katkı Maddesi & Barkod"
+DEVELOPER = "mm-apps"
+DEVELOPER_URL = "https://mm-apps.com/"
 
-PRICE_MONTHLY = "₺49,99"
-PRICE_YEARLY = "₺299,99"
-FREE_MONTHLY_NEW = 10
+# Two separate switches, because they go live on different days (App Review vs. Apple's scheduled price change):
+# APP_RELEASE: the app version on the App Store; FEATURES are what it really does.
+# PRICE_SET: the price the App Store charges today (the 1.1 prices start 18 Nov 2026 at the earliest).
+# When APP_RELEASE becomes "1.1", also run `python3 build.py --sync` so the legal texts match the app.
+APP_RELEASE = "1.0"
+PRICE_SET = "1.0"
+FEATURES = {
+    "1.0": {"free": 3, "profiles": 6, "tracking": False},
+    "1.1": {"free": 10, "profiles": 10, "tracking": True},
+}
+PRICES = {"1.0": ("₺84,99", "₺499,99"), "1.1": ("₺49,99", "₺299,99")}
+PRICE_MONTHLY, PRICE_YEARLY = PRICES[PRICE_SET]
+FREE_MONTHLY_NEW = FEATURES[APP_RELEASE]["free"]
+FAMILY_PROFILES = FEATURES[APP_RELEASE]["profiles"]
+TRACKING = FEATURES[APP_RELEASE]["tracking"]
+
+# One definition sentence, reused on the home page, JSON-LD, llms.txt and the press page (GEO: same facts everywhere).
+DEFINITION = (f"{APP_NAME}, iPhone için ücretsiz indirilebilen bir barkod ve etiket okuyucudur: gıda, kozmetik, temizlik "
+              "ürünü ve kıyafet etiketini okur; katkı maddelerini (E kodları) ve 14 alerjeni kaynağıyla gösterir, "
+              "Beslenme Skoru'nu hesaplar ve sonucu ailedeki her kişi için ayrı verir.")
+
+# The app's own rule files (written and source-checked in the app repo); `--sync` copies them to data/rules.
+RULES_SRC = ROOT.parent / "suzgec" / "Suzgec" / "Resources" / "Rules"
+RULES = ROOT / "data" / "rules"
+RULE_FILES = ("additives_tr.json", "allergens_eu14.json", "sources.json", "beslenme_skoru_tr.json")
+CSS_VERSION = hashlib.sha256((ROOT / "assets" / "site.css").read_bytes()).hexdigest()[:10]
 
 LEGAL_PAGES = [
     # (slug, source file, nav label, description)
@@ -203,17 +231,67 @@ def mark_svg(size: int = 28) -> str:
     )
 
 
-def page(title: str, description: str, body: str, depth: int, canonical: str, active: str = "",
-         absolute: bool = False) -> str:
+def jsonld(nodes: list[dict]) -> str:
+    """One @graph per page; `</` is escaped so text can never close the script element."""
+    data = json.dumps({"@context": "https://schema.org", "@graph": nodes}, ensure_ascii=False, separators=(",", ":"))
+    data = data.replace("</", "<\\/")
+    return f'<script type="application/ld+json">{data}</script>'
+
+
+ORG_ID = f"{DEVELOPER_URL}#org"
+APP_NODE_ID = f"{SITE_URL}#app"
+
+
+def common_nodes(title: str, description: str, canonical: str, crumbs: list[tuple[str, str]],
+                 page_type: str | list[str] = "WebPage", extra: dict | None = None) -> list[dict]:
+    """Organization, WebSite, WebPage and BreadcrumbList; every text here is also visible on the page."""
+    url = f"{SITE_URL}{canonical}"
+    page_node = {"@type": page_type, "@id": f"{url}#webpage", "url": url, "name": title, "description": description,
+                 "inLanguage": "tr", "isPartOf": {"@id": f"{SITE_URL}#site"}, "about": {"@id": APP_NODE_ID}}
+    nodes = [
+        {"@type": "Organization", "@id": ORG_ID, "name": DEVELOPER, "url": DEVELOPER_URL, "email": CONTACT},
+        {"@type": "WebSite", "@id": f"{SITE_URL}#site", "url": SITE_URL, "name": APP_NAME, "inLanguage": "tr",
+         "publisher": {"@id": ORG_ID}},
+        page_node,
+    ]
+    if crumbs:
+        page_node["breadcrumb"] = {"@id": f"{url}#breadcrumb"}
+        items = []
+        for i, (name, path) in enumerate(crumbs, start=1):
+            item = {"@type": "ListItem", "position": i, "name": name}
+            if i < len(crumbs):
+                item["item"] = f"{SITE_URL}{path}"
+            items.append(item)
+        nodes.append({"@type": "BreadcrumbList", "@id": f"{url}#breadcrumb", "itemListElement": items})
+    if extra:
+        page_node.update(extra)
+    return nodes
+
+
+def breadcrumb_html(crumbs: list[tuple[str, str]], depth: int) -> str:
+    up = "../" * depth
+    parts = [f'<a href="{up}{path}">{esc(name)}</a>' if i < len(crumbs) - 1 else f'<span aria-current="page">{esc(name)}</span>'
+             for i, (name, path) in enumerate(crumbs)]
+    sep = ' <span aria-hidden="true">›</span> '
+    return f'<nav class="crumbs" aria-label="Sayfa yolu">{sep.join(parts)}</nav>'
+
+
+def page(title: str, description: str, body: str, depth: int, canonical: str, active: str | None = None,
+         absolute: bool = False, graph: list[dict] | None = None, noindex: bool = False) -> str:
     """`absolute` is for 404.html, which GitHub Pages serves at whatever path was requested."""
     up = SITE_URL if absolute else "../" * depth
     home = up or "./"
-    nav = [("", "Ürün"), ("gizlilik/", "Gizlilik"), ("kosullar/", "Koşullar"), ("destek/", "Destek")]
+    nav = [("", "Ürün"), ("katki-maddeleri/", "Katkı maddeleri"), ("beslenme-skoru/", "Beslenme Skoru"),
+           ("destek/", "Destek")]
     links = "".join(
         f'<a href="{up}{path}"{" aria-current=\"page\"" if active == path else ""}>{label}</a>' for path, label in nav
     )
     legal_links = "".join(f'<a href="{up}{s}/">{label}</a>' for s, _, label, _ in LEGAL_PAGES)
+    guide_links = "".join(f'<a href="{up}{path}">{esc(name)}</a>' for path, name, _ in GUIDES)
     full_title = title if title.startswith(APP_NAME) else f"{title} · {APP_NAME}"
+    robots = ('<meta name="robots" content="noindex">\n' if noindex
+              else f'<link rel="canonical" href="{SITE_URL}{canonical}">\n')
+    structured = "" if noindex or graph is None else jsonld(graph) + "\n"
     return f"""<!doctype html>
 <html lang="tr">
 <head>
@@ -225,16 +303,20 @@ def page(title: str, description: str, body: str, depth: int, canonical: str, ac
 <meta name="theme-color" content="#0D4A4C">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; img-src 'self' data:; script-src 'self'; base-uri 'none'; form-action 'none'">
-<link rel="canonical" href="{SITE_URL}{canonical}">
+{robots}<meta name="apple-itunes-app" content="app-id={APP_ID}">
+<meta property="og:site_name" content="{APP_NAME}">
+<meta property="og:locale" content="tr_TR">
 <meta property="og:title" content="{esc(full_title)}">
 <meta property="og:description" content="{esc(description)}">
 <meta property="og:type" content="website">
 <meta property="og:url" content="{SITE_URL}{canonical}">
 <meta property="og:image" content="{SITE_URL}assets/og.png">
+<meta property="og:image:alt" content="{APP_NAME} logosu: İçini gör.">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="{up}assets/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="{up}assets/apple-touch-icon.png">
-<link rel="stylesheet" href="{up}assets/site.css">
-</head>
+<link rel="stylesheet" href="{up}assets/site.css?v={CSS_VERSION}">
+{structured}</head>
 <body>
 <a class="skip" href="#icerik">İçeriğe geç</a>
 <header class="top">
@@ -250,8 +332,10 @@ def page(title: str, description: str, body: str, depth: int, canonical: str, ac
   <div class="wrap foot-grid">
     <div>
       <a class="brand" href="{home}">{mark_svg(24)}<span>{APP_NAME}</span></a>
+      <p class="foot-def">{esc(DEFINITION)}</p>
       <p class="foot-note">{APP_NAME} bir bilgi aracıdır; tıbbi, diyet veya alerji tavsiyesi vermez. Alerjin varsa her zaman ambalajdaki etiketi okuyup kendi doktoruna danış.</p>
     </div>
+    <nav class="foot-links" aria-label="Rehberler">{guide_links}<a href="{up}basin/">Basın</a></nav>
     <nav class="foot-links" aria-label="Yasal">{legal_links}<a href="{up}destek/">Destek</a></nav>
     <div class="foot-small">
       <p>Ürün verisinin bir kısmı <a href="https://world.openfoodfacts.org" rel="noopener">Open Food Facts</a> katkıcılarındandır (<a href="https://opendatacommons.org/licenses/odbl/1-0/" rel="noopener">ODbL</a>).</p>
@@ -344,21 +428,28 @@ def landing() -> str:
         ("Ürün bulunamazsa ne olur?",
          "Etiketin fotoğrafını çekersin; yazıyı telefonun kendisi okur, sen kontrol edip kaydedersin. İstersen ürünü, kimliğinle ilişkilendirilmeden ve moderasyondan geçtikten sonra herkesin kullanımına açılmak üzere gönderebilirsin."),
         ("Ücretsiz sürümde neler var?",
-         f"Her ay {FREE_MONTHLY_NEW} yeni ürün, bir profil ve geçmişindeki ürünlere sınırsız erişim. İçgör Aile ile tarama sınırı kalkar, 10 profile kadar aile ekleyebilir, listenin skor dağılımını ve haftalık özeti kullanabilirsin."),
+         f"Her ay {FREE_MONTHLY_NEW} yeni ürün, bir profil ve geçmişindeki ürünlere sınırsız erişim. İçgör Aile ile tarama sınırı kalkar, {FAMILY_PROFILES} profile kadar aile ekleyebilir, listenin skor dağılımını ve haftalık özeti kullanabilirsin."),
+        ("Katkı maddesi (E kodu) nasıl sorgulanır?",
+         "Ürünün barkodunu okut ya da içindekiler listesinin fotoğrafını çek. İçgör etiketteki E kodlarını ve adlarını bulur; her maddenin ne işe yaradığını, Türk Gıda Kodeksi'ndeki durumunu ve kaynağını gösterir. Tek tek maddeler için sitedeki katkı maddeleri rehberine de bakabilirsin."),
+        ("Besin değerlerini ve içindekileri fotoğraftan okuyabilir mi?",
+         "Evet. Ürün kayıtlı değilse ya da bilgisi eksikse etiketin fotoğrafını çekersin; içindekiler ve besin değerleri tablosu telefonun kendisinde okunur, sen kontrol edip onaylarsın. Fotoğraf yalnızca sen göndermeyi seçersen telefondan çıkar."),
         ("İnternet olmadan çalışır mı?",
          "Daha önce baktığın ürünler internetsiz de açılır. Yeni bir barkod için bağlantı gerekir; etiket fotoğrafından okuma ise tamamen telefonda yapılır."),
         ("Verilerimi nasıl silerim?",
          "Profilleri Aile ekranından, geçmişi Ayarlar > Veriler'den silebilirsin. Uygulamayı kaldırdığında telefondaki her şey silinir; sunucumuzda sana ait bir kayıt yoktur."),
     ]
+    if TRACKING:
+        faq.insert(3, ("Gönderdiğim bilginin durumunu görebilir miyim?",
+                       "Evet. Ayarlar > Katkılarım ekranında gönderdiğin ürün bilgilerinin incelemede mi, onaylandı mı yoksa reddedildi mi olduğunu görürsün. Her gönderim için telefonunda rastgele bir takip numarası oluşur; hesap veya cihaz kimliği kullanılmaz."))
     faq_html = "".join(f"<details><summary>{esc(q)}</summary><p>{esc(a)}</p></details>" for q, a in faq)
 
     body = f"""
 <section class="hero">
   <div class="wrap hero-grid">
     <div class="hero-copy">
-      <p class="eyebrow">Gıda · kozmetik · temizlik · kıyafet etiketi</p>
+      <p class="eyebrow">Katkı maddesi · alerjen · Beslenme Skoru · etiket okuma</p>
       <h1><em>İçini gör.</em> Bir kez okut, ailendeki herkes için ayrı ayrı anlatsın.</h1>
-      <p class="lede">{APP_NAME}, barkodu okuttuğun ürünün içeriğini ailendeki her kişinin alerjen, diyet ve hassasiyetleriyle karşılaştırır. Ne bulduysa sakin bir dille ve kaynağıyla söyler.</p>
+      <p class="lede">{APP_NAME}, barkodu okuttuğun ürünün içindekiler listesini, katkı maddelerini (E kodları) ve besin değerlerini okur; ailendeki her kişinin alerjen, diyet ve hassasiyetleriyle karşılaştırır. Ne bulduysa sakin bir dille ve kaynağıyla söyler.</p>
       <div class="cta">{store_badge(0)}<a class="link-arrow" href="#nasil">Nasıl çalışır</a></div>
       <ul class="pills" aria-label="Öne çıkanlar"><li>Hesap yok</li><li>Reklam yok</li><li>Profiller telefonda kalır</li></ul>
     </div>
@@ -377,7 +468,7 @@ def landing() -> str:
 <section class="wrap split-section" aria-labelledby="aile-baslik">
   <div>
     <p class="eyebrow">Aile profilleri</p>
-    <h2 id="aile-baslik">Aynı paket, on farklı okuma.</h2>
+    <h2 id="aile-baslik">Aynı paket, her kişiye ayrı okuma.</h2>
     <p>Çölyaklı bir eş, süt alerjisi olan bir çocuk, hamile bir anne, vegan bir genç. Her biri için profil oluşturursun; {APP_NAME} tek taramada hepsine ayrı cevap verir.</p>
     <ul class="checks">
       <li>AB'nin 14 alerjeni ve iz uyarıları ayrı ayrı</li>
@@ -397,6 +488,12 @@ def landing() -> str:
     <h2 id="tur-baslik">Mutfaktan banyoya, dolaba kadar.</h2>
     <ul class="kinds">{kind_html}</ul>
   </div>
+</section>
+
+<section class="wrap" aria-labelledby="rehber-baslik">
+  <p class="eyebrow">Rehberler</p>
+  <h2 id="rehber-baslik">Etikette ne yazdığını anlamak için.</h2>
+  <ul class="guides">{guides_html()}</ul>
 </section>
 
 <section class="wrap split-section" aria-labelledby="kaynak-baslik">
@@ -430,7 +527,7 @@ def landing() -> str:
       <h3>İçgör Aile</h3>
       <p class="price">{PRICE_YEARLY}<small> / yıl</small></p>
       <p class="price-alt">ya da {PRICE_MONTHLY} / ay · 1 hafta ücretsiz deneme</p>
-      <ul><li>Sınırsız tarama</li><li>10 profile kadar aile</li><li>Liste ve haftalık özet</li><li>Tüm cihazlarında, Aile Paylaşımı ile</li></ul>
+      <ul><li>Sınırsız tarama</li><li>{FAMILY_PROFILES} profile kadar aile</li><li>Liste ve haftalık özet</li><li>Tüm cihazlarında, Aile Paylaşımı ile</li></ul>
     </article>
   </div>
   <p class="fine">Ödeme ve iptal Apple hesabın üzerinden yapılır; abonelik, dönem bitmeden en az 24 saat önce iptal edilmezse yenilenir. Ayrıntılar: <a href="kosullar/">Kullanım koşulları</a>.</p>
@@ -446,15 +543,16 @@ def landing() -> str:
 
 <section class="wrap closing">
   <h2>Market rafında bir saniye kazan.</h2>
-  <p>{APP_NAME} iPhone için hazırlanıyor. Çıktığında haber almak istersen bize yazabilirsin: <a href="mailto:{CONTACT}">{CONTACT}</a></p>
+  <p>{APP_NAME} App Store'da, iPhone için. Soru ve önerilerin için: <a href="mailto:{CONTACT}">{CONTACT}</a></p>
   {store_badge(0)}
 </section>
 """
-    return page(
-        f"{APP_NAME}: Ailene göre etiket okuyucu",
-        f"{APP_NAME}, barkodu okutulan gıda, kozmetik, temizlik ürünü ve kıyafet etiketini ailendeki her kişinin alerjen ve tercihlerine göre kaynaklı olarak değerlendirir. Hesap yok, reklam yok.",
-        body, 0, "",
-    )
+    title = f"{APP_NAME}: Katkı maddesi ve barkod tarayıcı, ailene göre"
+    description = (f"{APP_NAME}; barkodu okutulan ürünün katkı maddelerini (E kodları), alerjenlerini, içindekilerini ve "
+                   "besin değerlerini okur, Beslenme Skoru'nu hesaplar ve ailedeki her kişi için kaynaklı sonuç verir. "
+                   "Hesap yok, reklam yok.")
+    graph = common_nodes(title, description, "", [], extra={"mainEntity": {"@id": APP_NODE_ID}}) + [app_node()]
+    return page(title, description, body, 0, "", active="", graph=graph)
 
 
 # ------------------------------------------------------------------------------------------------ other pages
@@ -467,17 +565,21 @@ def legal_page(slug_: str, source: str, description: str) -> str:
     content = f"""<div class="wrap doc-layout">
   {toc_html}
   <article class="doc">
-    <p class="eyebrow"><a href="../">{APP_NAME}</a> · Yasal</p>
+    {breadcrumb_html([("Ana sayfa", ""), (re.sub(r"<[^>]+>", "", inline(title, 1)), f"{slug_}/")], 1)}
+    <p class="eyebrow">Yasal</p>
     <h1>{inline(title, 1)}</h1>
     {body}
   </article>
 </div>"""
-    return page(title, description, content, 1, f"{slug_}/", active=f"{slug_}/")
+    crumbs = [("Ana sayfa", ""), (re.sub(r"<[^>]+>", "", inline(title, 1)), f"{slug_}/")]
+    graph = common_nodes(re.sub(r"<[^>]+>", "", inline(title, 1)), description, f"{slug_}/", crumbs)
+    return page(title, description, content, 1, f"{slug_}/", active=f"{slug_}/", graph=graph)
 
 
 def support_page() -> str:
     body = f"""<div class="wrap narrow doc">
-  <p class="eyebrow"><a href="../">{APP_NAME}</a> · Destek</p>
+  {breadcrumb_html([("Ana sayfa", ""), ("Destek", "destek/")], 1)}
+  <p class="eyebrow">Destek</p>
   <h1>Destek</h1>
   <p>Bir sorun mu yaşadın, bir ürünün bilgisi mi yanlış? Aşağıdaki yollardan birini kullanabilirsin.</p>
   <h2 id="hata">Ürün bilgisi yanlışsa</h2>
@@ -489,7 +591,9 @@ def support_page() -> str:
   <h2 id="iletisim">Bize yaz</h2>
   <p><a href="mailto:{CONTACT}">{CONTACT}</a>. Genellikle iki iş günü içinde dönüyoruz. Yazdığın e-postayı yalnızca sana cevap vermek için kullanırız (<a href="../gizlilik/">Gizlilik</a>).</p>
 </div>"""
-    return page("Destek", f"{APP_NAME} destek: hata bildirme, abonelik ve iade, veri silme.", body, 1, "destek/", active="destek/")
+    description = f"{APP_NAME} destek: hata bildirme, abonelik ve iade, veri silme."
+    graph = common_nodes("Destek", description, "destek/", [("Ana sayfa", ""), ("Destek", "destek/")])
+    return page("Destek", description, body, 1, "destek/", active="destek/", graph=graph)
 
 
 def not_found_page() -> str:
@@ -499,7 +603,325 @@ def not_found_page() -> str:
   <h1>Bu sayfanın içi boş.</h1>
   <p>Aradığın adres burada yok. <a href="{SITE_URL}">Ana sayfaya dön</a>.</p>
 </div>"""
-    return page("Sayfa bulunamadı", "Sayfa bulunamadı.", body, 0, "404.html", absolute=True)
+    return page("Sayfa bulunamadı", "Sayfa bulunamadı.", body, 0, "404.html", absolute=True, noindex=True)
+
+
+# ------------------------------------------------------------------------------------------------ guides (SEO/GEO)
+# Topic pages for what people search ("E471 nedir", "beslenme skoru nedir", "14 alerjen", "besin değerleri nasıl
+# okunur"). Every fact comes from the app's own rule files (data/rules, copied from the app repo with --sync), so the
+# site never says more than the app does. Each page has content of its own; no keyword doorway pages.
+GUIDES = [
+    ("katki-maddeleri/", "Katkı maddeleri (E kodları)", "Her E kodunun ne olduğu, Türkiye'deki durumu ve kaynağı."),
+    ("beslenme-skoru/", "Beslenme Skoru nasıl hesaplanır?", "A'dan E'ye harf, hangi değerler sayılır, hangi ürünler kapsam dışı."),
+    ("alerjenler/", "14 alerjen", "Etikette bildirilmesi zorunlu 14 alerjen ve etikette nasıl geçtikleri."),
+    ("etiket-okuma/", "İçindekiler ve besin değerleri nasıl okunur?", "Etiketi okumanın kısa yolu ve fotoğraftan okuma."),
+]
+LEVELS = {
+    "info": ("Bilgi", "İçgör bu maddeyi bilgi olarak listeler: aşağıdaki “Dikkat” ölçütlerinden hiçbiri bu madde için geçerli değildir."),
+    "caution": ("Dikkat", "İçgör bu maddeyi “Dikkat” seviyesinde gösterir. Bu seviye; etikette ek uyarı zorunlu olan maddeler, alerjen grubundaki maddeler, EFSA'nın bazı tüketici gruplarında günlük alım sınırının aşılabileceğini belirttiği ya da ek veri istediği veya geçici sınır koyduğu maddeler için kullanılır. Maddenin Türkiye'de izinli olmadığı anlamına gelmez."),
+    "unclear": ("Belirsiz", "İçgör bu maddeyi “Belirsiz” diye işaretler, çünkü etiketteki bilgi tek başına yeterli değildir."),
+}
+ORIGIN = {
+    "always": "Hayvansal kaynaklıdır; vegan ve vejetaryen profillerde İçgör bunu ayrıca belirtir.",
+    "maybe": "Bitkisel ya da hayvansal kaynaklı olabilir. Etikette kaynağı yazmıyorsa İçgör “Kaynağı belirsiz” der.",
+    "nonVegan": "Hayvansal kaynaklı olabilir; vegan profillerde İçgör bunu ayrıca belirtir.",
+}
+
+
+def load_rules() -> dict:
+    data = {name: json.loads((RULES / name).read_text(encoding="utf-8")) for name in RULE_FILES}
+    sources = {item["id"]: item for item in data["sources.json"]["sources"]}
+    additives = data["additives_tr.json"]["additives"]
+    return {"additives": additives, "sources": sources, "allergens": data["allergens_eu14.json"]["allergens"],
+            "score": data["beslenme_skoru_tr.json"], "additive_source": data["additives_tr.json"]["source"]}
+
+
+def code_slug(code: str) -> str:
+    return code.lower()
+
+
+def tr_lower(text: str) -> str:
+    return text.replace("I", "ı").replace("İ", "i").lower()
+
+
+def guides_html(depth: int = 0) -> str:
+    up = "../" * depth
+    return "".join(f'<li><a class="guide" href="{up}{path}"><b>{esc(name)}</b><span>{esc(desc)}</span></a></li>'
+                   for path, name, desc in GUIDES)
+
+
+def app_node() -> dict:
+    """MobileApplication; @id shared by every page's WebPage.about. No ratings or awards (none exist)."""
+    return {
+        "@type": "MobileApplication", "@id": APP_NODE_ID, "name": APP_NAME, "alternateName": STORE_NAME,
+        "description": DEFINITION, "url": SITE_URL, "image": f"{SITE_URL}assets/apple-touch-icon.png",
+        "applicationCategory": "HealthApplication", "applicationSubCategory": "Gıda etiketi ve katkı maddesi okuyucu",
+        "operatingSystem": "iOS", "inLanguage": "tr", "isAccessibleForFree": True,
+        "offers": {"@type": "Offer", "price": "0", "priceCurrency": "TRY"},
+        "installUrl": APP_STORE_URL, "sameAs": [APP_STORE_URL],
+        "author": {"@id": ORG_ID}, "publisher": {"@id": ORG_ID},
+    }
+
+
+def cta_box(depth: int) -> str:
+    return f"""<aside class="cta-box">
+  <p><b>{APP_NAME}</b> bu bilgileri ürünün barkodunu okuttuğun anda, ailedeki her kişi için ayrı gösterir.</p>
+  {store_badge(depth, compact=True)}
+</aside>"""
+
+
+def disclaimer() -> str:
+    return ('<p class="fine">Bilgi amaçlıdır, tıbbi tavsiye değildir. Alerji veya sağlık durumun varsa ambalajdaki '
+            'etiketi kontrol et ve doktoruna danış.</p>')
+
+
+def source_list(ids: list[str], sources: dict) -> str:
+    items = "".join(
+        f'<li><a href="{esc(sources[i]["url"])}" rel="noopener">{esc(sources[i]["label"])}</a>'
+        f'{" · " + esc(sources[i]["detail"]) if sources[i].get("detail") else ""}</li>' for i in ids)
+    return f'<ol class="refs">{items}</ol>'
+
+
+def additive_page(item: dict, rules: dict) -> tuple[str, str]:
+    code, name, cls = item["code"], item["name"], item["class"]
+    level_name, level_text = LEVELS[item["level"]]
+    slug_ = f"katki-maddeleri/{code_slug(code)}/"
+    title = f"{code} {name} nedir? {cls}"
+    description = f"{code} ({name}): {tr_lower(cls)}. {item['summary']} {item['trStatus']}"
+    crumbs = [("Ana sayfa", ""), ("Katkı maddeleri", "katki-maddeleri/"), (f"{code} {name}", slug_)]
+    facts = [
+        ("Türü", cls),
+        ("Türkiye'deki durumu", item["trStatus"]),
+        ("EFSA değerlendirmesi", item["efsa"]),
+        ("İçgör'de", level_name),
+    ]
+    if item.get("animalOrigin"):
+        facts.append(("Kaynağı", ORIGIN[item["animalOrigin"]]))
+    others = [x for x in item["synonyms"] if tr_lower(x) != tr_lower(name)]
+    if others:
+        facts.append(("Etikette diğer adı", ", ".join(others)))
+    facts_html = "".join(f"<dt>{esc(k)}</dt><dd>{esc(v)}</dd>" for k, v in facts)
+    notes = []
+    if item.get("whyUnclear"):
+        notes.append(item["whyUnclear"])
+    if item.get("southampton"):
+        notes.append("Bu renklendiriciyi içeren gıdalarda çocuklara yönelik uyarı ifadesi zorunludur; çocuk profili "
+                     "varsa İçgör bunu o kişinin satırında ayrıca gösterir.")
+    if item.get("sweetener"):
+        notes.append("Tatlandırıcıdır; çocuk profili varsa İçgör “çocuklarda sık tüketimi önerilmez” notunu gösterir.")
+    if code in rules["score"]["colorantDowngradeCodes"]:
+        notes.append("Beslenme Skoru Rehberi'ne göre bu renklendiriciyi içeren üründe skor sınıfı bir harf düşer.")
+    notes_html = "".join(f"<li>{esc(n)}</li>" for n in notes)
+    same = [x for x in rules["additives"] if x["class"] == cls and x["code"] != code][:8]
+    related = "".join(f'<li><a href="../{code_slug(x["code"])}/">{esc(x["code"])} {esc(x["name"])}</a></li>' for x in same)
+    body = f"""<div class="wrap narrow doc">
+  {breadcrumb_html(crumbs, 2)}
+  <p class="eyebrow">Katkı maddesi · {esc(cls)}</p>
+  <h1>{esc(code)} {esc(name)}</h1>
+  <p class="lede">{esc(code)} ({esc(name)}), gıdalarda {esc(tr_lower(cls))} olarak kullanılan bir katkı maddesidir. {esc(item["summary"])}</p>
+  <span class="level level-{item["level"]}">{esc(level_name)}</span>
+  <dl class="facts">{facts_html}</dl>
+  {f'<ul class="checks">{notes_html}</ul>' if notes else ""}
+  <h2 id="zararli-mi">{esc(code)} zararlı mı?</h2>
+  <p>İçgör bir katkı maddesini “zararlı” ya da “zararsız” diye nitelemez; resmî kaynakların ne dediğini aktarır. {esc(item["trStatus"])} {esc(item["efsa"])}</p>
+  <p>{esc(level_text)}</p>
+  <h2 id="icgor">İçgör bu maddeyi nasıl gösterir?</h2>
+  <p>Etikette “{esc(code)}” ya da “{esc(tr_lower(name))}” yazıyorsa {APP_NAME} maddeyi bulur ve ürünün içerik bulgularında kaynağıyla listeler. Aile profillerinde diyet veya yaş grubuyla ilgili bir not varsa o kişinin satırında ayrıca görünür.</p>
+  <h2 id="kaynaklar">Kaynaklar</h2>
+  {source_list(item["sources"], rules["sources"])}
+  {f'<h2 id="benzer">Aynı türden diğer maddeler</h2><ul class="chips">{related}</ul>' if related else ""}
+  {cta_box(2)}
+  {disclaimer()}
+</div>"""
+    graph = common_nodes(title, description, slug_, crumbs)
+    return slug_, page(title, description, body, 2, slug_, graph=graph)
+
+
+def additives_index(rules: dict) -> str:
+    by_class: dict[str, list[dict]] = {}
+    for item in rules["additives"]:
+        by_class.setdefault(item["class"], []).append(item)
+    count = len(rules["additives"])
+    title = "Gıda katkı maddeleri ve E kodları rehberi"
+    description = (f"{count} gıda katkı maddesinin (E kodu) ne olduğu, Türk Gıda Kodeksi'ndeki durumu, EFSA "
+                   "değerlendirmesi ve kaynağı. İçgör'ün etikette tanıdığı maddeler.")
+    crumbs = [("Ana sayfa", ""), ("Katkı maddeleri", "katki-maddeleri/")]
+    def row(x: dict) -> str:
+        badge = "" if x["level"] == "info" else f'<span class="level level-{x["level"]}">{LEVELS[x["level"]][0]}</span>'
+        return f'<li><a href="{code_slug(x["code"])}/"><b>{esc(x["code"])}</b> {esc(x["name"])}</a>{badge}</li>'
+
+    groups = []
+    for cls in sorted(by_class, key=tr_lower):
+        rows = "".join(row(x) for x in by_class[cls])
+        groups.append(f'<h2 id="{slug(cls, set())}">{esc(cls)}</h2><ul class="code-list">{rows}</ul>')
+    levels = "".join(f'<li><span class="level level-{k}">{esc(v[0])}</span> {esc(v[1])}</li>'
+                     for k, v in LEVELS.items())
+    body = f"""<div class="wrap narrow doc">
+  {breadcrumb_html(crumbs, 1)}
+  <p class="eyebrow">Rehber</p>
+  <h1>Gıda katkı maddeleri ve E kodları</h1>
+  <p class="lede">E kodu, Avrupa Birliği'nde ve Türkiye'de izin verilen gıda katkı maddelerine verilen numaradır. Bu rehberde {APP_NAME}'ün etikette tanıdığı {count} maddenin ne işe yaradığı, Türk Gıda Kodeksi'ndeki durumu ve kaynağı var.</p>
+  <h2 id="seviyeler">İçgör'deki seviyeler ne anlama gelir?</h2>
+  <ul class="level-legend">{levels}</ul>
+  <p>Türkiye'de izinli bir madde için “yasaklı” denmez. Kaynaklar: {esc(rules["additive_source"])}, AB mevzuatı ve EFSA değerlendirmeleri.</p>
+  {"".join(groups)}
+  {cta_box(1)}
+  {disclaimer()}
+</div>"""
+    items = [{"@type": "ListItem", "position": i, "name": f'{x["code"]} {x["name"]}',
+              "url": f'{SITE_URL}katki-maddeleri/{code_slug(x["code"])}/'}
+             for i, x in enumerate(rules["additives"], start=1)]
+    graph = common_nodes(title, description, "katki-maddeleri/", crumbs, ["WebPage", "CollectionPage"],
+                         {"mainEntity": {"@type": "ItemList", "numberOfItems": count, "itemListElement": items}})
+    return page(title, description, body, 1, "katki-maddeleri/", active="katki-maddeleri/", graph=graph)
+
+
+def score_page(rules: dict) -> str:
+    score = rules["score"]
+    grades = score["general"]["grades"]
+    title = "Beslenme Skoru nedir, nasıl hesaplanır?"
+    description = ("Beslenme Skoru; 100 g veya 100 ml başına enerji, şeker, doymuş yağ ve tuzu olumsuz, lif, protein ve "
+                   "meyve-sebze oranını olumlu sayıp A'dan E'ye bir harf verir. Kapsam dışı ürünler ve İçgör hesabı.")
+    crumbs = [("Ana sayfa", ""), ("Beslenme Skoru", "beslenme-skoru/")]
+    bounds = [("A", None, grades["A"]), ("B", grades["A"] + 1, grades["B"]), ("C", grades["B"] + 1, grades["C"]),
+              ("D", grades["C"] + 1, grades["D"])]
+    grade_rows = "".join(
+        f"<tr><th>{g}</th><td>{f'{lo}–{hi}' if lo is not None else f'{hi} ve altı'}</td></tr>" for g, lo, hi in bounds)
+    colorants = ", ".join(f'<a href="../katki-maddeleri/{code_slug(c)}/">{c}</a>'
+                          for c in score["colorantDowngradeCodes"])
+    body = f"""<div class="wrap narrow doc">
+  {breadcrumb_html(crumbs, 1)}
+  <p class="eyebrow">Rehber</p>
+  <h1>Beslenme Skoru nedir, nasıl hesaplanır?</h1>
+  <p class="lede">Beslenme Skoru, T.C. Sağlık Bakanlığı'nın yayımladığı ve aynı kategorideki gıdaları karşılaştırmaya yarayan, A'dan E'ye harfli bir ön yüz etiketidir. {APP_NAME} skoru Bakanlığın Beslenme Skoru Rehberi'ndeki eşiklerle, ürün kaydındaki besin değerlerinden kendisi hesaplar ve bunu “İçgör hesabı” diye belirtir.</p>
+  <h2 id="nasil">Puan nasıl oluşur?</h2>
+  <p>100 g veya 100 ml başına enerji, şeker, doymuş yağ ve tuz olumsuz puan; lif, protein ve meyve-sebze-baklagil oranı olumlu puan getirir. Olumsuz puanlardan olumlu puanlar düşülür ve toplam bir harfe çevrilir. İçecekler, yağlar ve genel gıdalar için ayrı eşik tabloları kullanılır.</p>
+  <h2 id="harfler">Genel gıdalarda harf sınırları</h2>
+  <table class="grid"><thead><tr><th>Harf</th><th>Toplam puan</th></tr></thead><tbody>{grade_rows}<tr><th>E</th><td>{grades["D"] + 1} ve üstü</td></tr></tbody></table>
+  <h2 id="nbs">Nişasta bazlı şeker ve renklendiriciler</h2>
+  <p>İçindekilerde nişasta bazlı şeker (NBŞ; glikoz-fruktoz şurubu gibi) varsa toplam puana {score["nbs"]["penalty"]} puan eklenir. Şu renklendiricilerden birini içeren üründe sınıf bir harf düşer: {colorants}.</p>
+  <h2 id="kapsam-disi">Hangi ürünlerde skor yoktur?</h2>
+  <p>Bal, doğal ve katkısız süt ürünleri (süt, sade yoğurt, peynir, tereyağı, kefir, ayran), 0–3 yaş bebek gıdaları, takviye edici gıdalar, sporcu gıdaları, öğün yerine geçen ürünler, tuz, baharat ve tek başına satılan katkı maddeleri Bakanlığın kapsam dışı saydığı ürünlerdir. {APP_NAME} bu ürünlerde skor göstermez.</p>
+  <h2 id="eksik">Besin değeri eksikse?</h2>
+  <p>Skor tahmin edilmez; ürün sayfasında “Besin değeri eksik” yazar. Etiketteki besin değerleri tablosunun fotoğrafını çekip değerleri ekleyebilirsin; tablo telefonda okunur, sen kontrol edip onaylarsın.</p>
+  <h2 id="resmi-mi">Ambalajdaki skorla neden farklı olabilir?</h2>
+  <p>Ambalajda bir Beslenme Skoru varsa o esas alınır. İçgör'ün hesabı ürün kaydındaki değerlere dayanır; değerler eksik, eski veya hatalıysa iki sonuç farklı olabilir. İçgör hesabı Bakanlık onayı veya üretici beyanı değildir ve bir ürünü tek başına “sağlıklı” ya da “sağlıksız” diye nitelemez.</p>
+  <h2 id="kaynaklar">Kaynaklar</h2>
+  {source_list(score["sources"], rules["sources"])}
+  {cta_box(1)}
+  {disclaimer()}
+</div>"""
+    graph = common_nodes(title, description, "beslenme-skoru/", crumbs, ["WebPage", "Article"],
+                         {"headline": title, "author": {"@id": ORG_ID}})
+    return page(title, description, body, 1, "beslenme-skoru/", active="beslenme-skoru/", graph=graph)
+
+
+def label_terms(allergen: dict, limit: int = 6) -> list[str]:
+    """The first Turkish label words of an allergen (the list starts with Turkish terms; '=' marks whole-word)."""
+    words = []
+    for term in allergen["terms"]:
+        if term.startswith("="):
+            continue
+        if words and term.isascii() and term in {"wheat", "milk", "egg", "eggs", "fish", "soy", "soya", "peanut", "peanuts",
+                                                  "celery", "mustard", "sesame", "lupin", "crustaceans", "molluscs",
+                                                  "nuts", "sulphites", "sulfites", "sulphite", "sulfite", "almond", "shrimp", "mussel", "soja", "soia"}:
+            break
+        words.append(term)
+        if len(words) == limit:
+            break
+    return words
+
+
+def allergens_page(rules: dict) -> str:
+    title = "14 alerjen: etikette nasıl yazar?"
+    description = ("AB 1169/2011 ve Türk Gıda Kodeksi'ne göre etikette bildirilmesi zorunlu 14 alerjen, etikette geçtikleri "
+                   "adlar ve “iz miktarda içerebilir” ifadesinin anlamı.")
+    crumbs = [("Ana sayfa", ""), ("14 alerjen", "alerjenler/")]
+    rows = "".join(
+        f'<tr><th>{esc(a["name_tr"])}</th><td>{esc(", ".join(label_terms(a)))}</td></tr>' for a in rules["allergens"])
+    body = f"""<div class="wrap narrow doc">
+  {breadcrumb_html(crumbs, 1)}
+  <p class="eyebrow">Rehber</p>
+  <h1>14 alerjen: etikette nasıl yazar?</h1>
+  <p class="lede">Avrupa Birliği'nin 1169/2011 sayılı tüzüğü ve Türk Gıda Kodeksi, alerjiye en sık yol açan 14 madde grubunun içindekiler listesinde vurgulanarak yazılmasını zorunlu tutar. {APP_NAME} bu 14 grubu etikette ve ürün kaydında arar, profilinde işaretlediğin alerjenle eşleşirse o kişinin satırında söyler.</p>
+  <table class="grid"><thead><tr><th>Alerjen</th><th>Etikette geçebileceği bazı adlar</th></tr></thead><tbody>{rows}</tbody></table>
+  <h2 id="iz">“İz miktarda içerebilir” ne demek?</h2>
+  <p>Ürünün aynı tesiste ya da hatta o alerjeni içeren başka ürünlerle üretildiğini ve bulaşma olabileceğini belirten bir uyarıdır. {APP_NAME} bunu “içerir”den ayrı, “iz” olarak gösterir.</p>
+  <h2 id="bilgi-yok">Etikette bilgi yoksa?</h2>
+  <p>İçindekiler listesi yoksa ya da okunamıyorsa {APP_NAME} “Çakışma yok” demez, “bilgi yok” der. Yabancı dilde etikette tanımadığı bir ifade varsa da aynı kural geçerlidir. “Çakışma yok”, ürün kaydında profilinle çakışan bir bilgi bulunamadığı anlamına gelir; ürünün senin için güvenli olduğu anlamına gelmez.</p>
+  <h2 id="kaynaklar">Kaynaklar</h2>
+  {source_list(["ab-1169-ek2"], rules["sources"])}
+  {cta_box(1)}
+  {disclaimer()}
+</div>"""
+    graph = common_nodes(title, description, "alerjenler/", crumbs, ["WebPage", "Article"],
+                         {"headline": title, "author": {"@id": ORG_ID}})
+    return page(title, description, body, 1, "alerjenler/", graph=graph)
+
+
+def label_reading_page(rules: dict) -> str:
+    title = "İçindekiler ve besin değerleri nasıl okunur?"
+    description = ("Gıda etiketinde içindekiler listesini ve besin değerleri tablosunu okumanın kısa yolu: sıralama, "
+                   "E kodları, alerjenler, 100 g başına değerler ve etiketi fotoğraftan okuma.")
+    crumbs = [("Ana sayfa", ""), ("Etiket okuma", "etiket-okuma/")]
+    body = f"""<div class="wrap narrow doc">
+  {breadcrumb_html(crumbs, 1)}
+  <p class="eyebrow">Rehber</p>
+  <h1>İçindekiler ve besin değerleri nasıl okunur?</h1>
+  <p class="lede">Bir gıda etiketinde iki bölüm işin çoğunu anlatır: içindekiler listesi ve besin değerleri tablosu. Aşağıda ikisini okumanın kısa yolunu ve {APP_NAME}'ün etiketi fotoğraftan nasıl okuduğunu bulabilirsin.</p>
+  <h2 id="icindekiler">İçindekiler listesi</h2>
+  <ul class="checks">
+    <li>Bileşenler, ürüne katılan miktara göre çoktan aza sıralanır; ilk sıradaki en çok olandır.</li>
+    <li>Katkı maddeleri işlevleriyle birlikte yazılır: “renklendirici (E102)” ya da “emülgatör (soya lesitini)” gibi. Her E kodu için <a href="../katki-maddeleri/">katkı maddeleri rehberine</a> bakabilirsin.</li>
+    <li><a href="../alerjenler/">14 alerjen</a> içindekiler listesinde vurgulanarak (kalın ya da büyük harfle) yazılır; “iz miktarda içerebilir” ayrı bir uyarıdır.</li>
+    <li>“Aroma verici” veya “bitkisel yağ” gibi genel ifadeler kaynağı söylemez; {APP_NAME} bunları “belirsiz” diye işaretler.</li>
+  </ul>
+  <h2 id="besin-degerleri">Besin değerleri tablosu</h2>
+  <ul class="checks">
+    <li>Tablo enerji (kJ ve kcal), yağ, doymuş yağ, karbonhidrat, şeker, protein ve tuz değerlerini verir; lif isteğe bağlıdır.</li>
+    <li>Karşılaştırma için 100 g veya 100 ml sütununu kullan. Porsiyon sütunu üreticinin porsiyonuna göredir ve ürünler arasında farklıdır.</li>
+    <li><a href="../beslenme-skoru/">Beslenme Skoru</a> da bu 100 g değerlerinden hesaplanır.</li>
+  </ul>
+  <h2 id="fotograftan">Etiketi fotoğraftan okuma</h2>
+  <p>Ürün kayıtlı değilse ya da içindekiler veya besin değerleri eksikse {APP_NAME}'de etiketin fotoğrafını çekersin. Belge tarayıcı etiketi bulup düzeltir; yazı ve tablo telefonun kendisinde okunur. Okunan değerleri ambalajla karşılaştırıp onaylarsın. Fotoğraf, yalnızca sen göndermeyi seçersen telefondan çıkar.</p>
+  {cta_box(1)}
+  {disclaimer()}
+</div>"""
+    graph = common_nodes(title, description, "etiket-okuma/", crumbs, ["WebPage", "Article"],
+                         {"headline": title, "author": {"@id": ORG_ID}})
+    return page(title, description, body, 1, "etiket-okuma/", graph=graph)
+
+
+def press_page(rules: dict) -> str:
+    title = "Basın ve tanıtım bilgileri"
+    description = f"{APP_NAME} hakkında kısa bilgiler: tanım, platform, fiyat, veri kaynakları ve iletişim."
+    crumbs = [("Ana sayfa", ""), ("Basın", "basin/")]
+    facts = [
+        ("Ad", APP_NAME), ("App Store adı", STORE_NAME), ("Geliştirici", f"{DEVELOPER}, Türkiye'de bağımsız geliştirici"),
+        ("Platform", "iPhone (iOS)"), ("Dil", "Türkçe"),
+        ("Fiyat", f"Ücretsiz; İçgör Aile aboneliği {PRICE_MONTHLY} / ay veya {PRICE_YEARLY} / yıl"),
+        ("Ücretsiz sürüm", f"Her ay {FREE_MONTHLY_NEW} yeni ürün, 1 profil"),
+        ("İçgör Aile", f"Sınırsız tarama, {FAMILY_PROFILES} profile kadar aile"),
+        ("Tanıdığı katkı maddesi", f"{len(rules['additives'])} E kodu"),
+        ("Alerjenler", "AB 1169/2011'deki 14 alerjen"),
+        ("Veri", "Open Food Facts (ODbL) ve onaylanan kullanıcı katkıları"),
+        ("Hesap ve reklam", "Hesap yok, reklam yok; profiller telefonda kalır"),
+        ("App Store", APP_STORE_URL), ("İletişim", CONTACT),
+    ]
+    rows = "".join(f"<tr><th>{esc(k)}</th><td>{esc(v)}</td></tr>" for k, v in facts)
+    body = f"""<div class="wrap narrow doc">
+  {breadcrumb_html(crumbs, 1)}
+  <p class="eyebrow">Basın</p>
+  <h1>Basın ve tanıtım bilgileri</h1>
+  <h2 id="kisa">Kısa tanım</h2>
+  <p>{esc(DEFINITION)}</p>
+  <h2 id="bilgiler">Bilgiler</h2>
+  <table class="grid"><tbody>{rows}</tbody></table>
+  <h2 id="kullanim">Kullanım</h2>
+  <p>Logo ve ekran görüntüleri için <a href="mailto:{CONTACT}">{CONTACT}</a> adresine yaz. {APP_NAME}'ü anlatırken skoru “resmî” ya da “Bakanlık onaylı” diye anlatmamanı rica ederiz: skor, Bakanlığın yöntemiyle uygulama içinde hesaplanan bir İçgör hesabıdır. {APP_NAME} tıbbi tavsiye vermez.</p>
+</div>"""
+    graph = common_nodes(title, description, "basin/", crumbs, ["WebPage", "AboutPage"])
+    return page(title, description, body, 1, "basin/", graph=graph)
 
 
 # ------------------------------------------------------------------------------------------------ build + check
@@ -521,6 +943,7 @@ def check() -> list[str]:
             if ref.startswith(("http", "mailto:", "data:")) or file.name == "404.html":
                 continue
             target, _, anchor = ref.partition("#")
+            target = target.partition("?")[0]
             if not target:
                 if anchor and anchor not in ids:
                     problems.append(f"{file.relative_to(ROOT)}: #{anchor} yok")
@@ -536,6 +959,9 @@ def check() -> list[str]:
 
 
 def sync_legal() -> None:
+    """The app repo's legal texts follow the next release; copy them only once that release is on the App Store."""
+    if APP_RELEASE != "1.1":
+        raise SystemExit("HATA: yasal metinler 1.1 içindir; önce APP_RELEASE = \"1.1\" yap (1.1.0 yayına girince).")
     target = SRC / "legal"
     target.mkdir(parents=True, exist_ok=True)
     for _, source, _, _ in LEGAL_PAGES:
@@ -543,16 +969,177 @@ def sync_legal() -> None:
     print(f"Yasal metinler kopyalandı: {LEGAL_SRC}")
 
 
+def sync_rules() -> None:
+    RULES.mkdir(parents=True, exist_ok=True)
+    for name in RULE_FILES:
+        shutil.copyfile(RULES_SRC / name, RULES / name)
+    print(f"Kural dosyaları kopyalandı: {RULES_SRC}")
+
+
+def check_rules_fresh() -> list[str]:
+    """The site must not drift from the app: data/rules equals the app repo's files when that repo is next to us."""
+    if not RULES_SRC.exists():
+        return []
+    return [f"data/rules/{name} uygulamadakinden farklı; `python3 build.py --sync-rules` çalıştır"
+            for name in RULE_FILES if (RULES / name).read_bytes() != (RULES_SRC / name).read_bytes()]
+
+
+# Claims we never make (overclaims, health claims, legal labels the app avoids). Title/H1/URL: error; body: listed.
+BANNED = [r"\ben iyi\b", r"#1\b", r"\bbir numara", r"\bzararsız", r"\bsağlıklı ürün", r"\bkanserojen", r"\bzehir",
+          r"\byasaklı katkı", r"\btehlikeli", r"\bgaranti", r"\bresmî skor", r"\bresmi skor", r"tıbbi tavsiye ver(ir|ir\.)"]
+BANNED_OK = {"zararsız"}  # quoted on purpose: "zararlı" ya da "zararsız" diye nitelemez
+
+
+def visible_text(html_text: str) -> str:
+    text = re.sub(r"<script.*?</script>|<style.*?</style>", " ", html_text, flags=re.S)
+    return html.unescape(re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", text)))
+
+
+def check_content() -> list[str]:
+    problems = []
+    for file in ROOT.rglob("index.html"):
+        if any(part in {"src", "node_modules", ".git", "data"} for part in file.relative_to(ROOT).parts):
+            continue
+        rel = file.relative_to(ROOT)
+        text = file.read_text(encoding="utf-8")
+        title = re.search(r"<title>(.*?)</title>", text).group(1)
+        h1 = re.search(r"<h1>(.*?)</h1>", text, re.S)
+        head_text = tr_lower(html.unescape(title + " " + (h1.group(1) if h1 else "") + " " + str(rel)))
+        for pattern in BANNED:
+            if re.search(pattern, head_text):
+                problems.append(f"{rel}: başlıkta yasak ifade /{pattern}/")
+        if "legal" in str(rel) or rel.parts[0] in {s for s, *_ in LEGAL_PAGES}:
+            continue
+        body = tr_lower(visible_text(text))
+        for pattern in BANNED:
+            for match in re.finditer(pattern, body):
+                if match.group(0).strip() not in BANNED_OK:
+                    problems.append(f"{rel}: metinde yasak ifade “{match.group(0)}”")
+        # JSON-LD must say only what the page shows.
+        ld = re.search(r'<script type="application/ld\+json">(.*?)</script>', text, re.S)
+        if not ld:
+            problems.append(f"{rel}: JSON-LD yok")
+            continue
+        graph = json.loads(ld.group(1).replace("<\\/", "</"))["@graph"]
+        shown = visible_text(text)
+        for node in graph:
+            if "WebPage" in (node["@type"] if isinstance(node["@type"], list) else [node["@type"]]):
+                if html.unescape(node["description"]) not in html.unescape(re.search(r'<meta name="description" content="([^"]*)"', text).group(1)):
+                    problems.append(f"{rel}: JSON-LD description meta ile aynı değil")
+                if not html.unescape(title).startswith(node["name"]):
+                    problems.append(f"{rel}: JSON-LD name başlıkla uyuşmuyor")
+            if node["@type"] == "BreadcrumbList":
+                for item in node["itemListElement"]:
+                    if item["name"] not in shown:
+                        problems.append(f"{rel}: sayfa yolu “{item['name']}” sayfada görünmüyor")
+            if node["@type"] == "MobileApplication" and node["description"] not in shown:
+                problems.append(f"{rel}: uygulama tanımı sayfada görünmüyor")
+    return problems
+
+
+def page_paths() -> list[str]:
+    paths = []
+    for file in sorted(ROOT.rglob("index.html")):
+        rel = file.relative_to(ROOT)
+        if any(part in {"src", "node_modules", ".git", "data"} for part in rel.parts):
+            continue
+        paths.append("" if rel.parent == pathlib.Path(".") else f"{rel.parent.as_posix()}/")
+    return paths
+
+
+def lastmods(paths: list[str]) -> dict[str, str]:
+    """Date of the last real content change per page (hash of the page minus the CSS cache key)."""
+    store = ROOT / "data" / "lastmod.json"
+    known = json.loads(store.read_text(encoding="utf-8")) if store.exists() else {}
+    today = datetime.date.today().isoformat()
+    result = {}
+    for path in paths:
+        text = (ROOT / path / "index.html").read_text(encoding="utf-8")
+        digest = hashlib.sha256(re.sub(r"\?v=[0-9a-f]+", "", text).encode()).hexdigest()
+        old = known.get(path)
+        result[path] = {"hash": digest, "date": old["date"] if old and old["hash"] == digest else today}
+    store.parent.mkdir(parents=True, exist_ok=True)
+    store.write_text(json.dumps(result, ensure_ascii=False, indent=1, sort_keys=True) + "\n", encoding="utf-8")
+    return {path: value["date"] for path, value in result.items()}
+
+
+def write_sitemap(dates: dict[str, str]) -> None:
+    urls = "".join(f"<url><loc>{SITE_URL}{path}</loc><lastmod>{date}</lastmod></url>\n" for path, date in dates.items())
+    write("sitemap.xml", f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n{urls}</urlset>\n')
+
+
+def write_robots() -> None:
+    bots = ["Googlebot", "Bingbot", "Applebot", "Applebot-Extended", "Google-Extended", "OAI-SearchBot", "ChatGPT-User",
+            "GPTBot", "Claude-SearchBot", "Claude-User", "ClaudeBot", "PerplexityBot", "Perplexity-User", "CCBot",
+            "YandexBot"]
+    agents = "".join(f"User-agent: {b}\n" for b in bots)
+    write("robots.txt", f"# {APP_NAME}: all crawlers welcome (search, user-initiated fetches and AI answers)\n"
+                        f"User-agent: *\nAllow: /\n\n{agents}Allow: /\n\nSitemap: {SITE_URL}sitemap.xml\n")
+
+
+def write_llms(rules: dict) -> None:
+    """llms.txt (speculative; Google says it does not use it). Same facts as the pages, in Turkish."""
+    pages = [("", f"{APP_NAME} ana sayfa")] + [(path, name) for path, name, _ in GUIDES] + [
+        ("basin/", "Basın ve tanıtım bilgileri"), ("destek/", "Destek"), ("gizlilik/", "Gizlilik politikası")]
+    page_lines = "".join(f"- [{name}]({SITE_URL}{path})\n" for path, name in pages)
+    codes = ", ".join(f'{x["code"]} {x["name"]}' for x in rules["additives"][:12])
+    write("llms.txt", f"""# {APP_NAME}
+
+> {DEFINITION}
+
+{APP_NAME} ({STORE_NAME}), {DEVELOPER} tarafından Türkiye'de geliştirilen bir iPhone uygulamasıdır.
+
+## Bilgiler
+- Platform: iPhone (iOS); dil: Türkçe
+- Fiyat: ücretsiz indirme; İçgör Aile aboneliği {PRICE_MONTHLY} / ay veya {PRICE_YEARLY} / yıl (Türkiye App Store)
+- Ücretsiz sürüm: her ay {FREE_MONTHLY_NEW} yeni ürün, 1 profil; İçgör Aile: sınırsız tarama, {FAMILY_PROFILES} profile kadar aile
+- Hesap yok, reklam yok; aile profilleri telefonda kalır
+- Ürün türleri: gıda, kozmetik, temizlik ürünü, kıyafet etiketi
+- Katkı maddeleri: {len(rules["additives"])} E kodu (ör. {codes}); kaynaklar Türk Gıda Kodeksi, AB mevzuatı, EFSA
+- Alerjenler: AB 1169/2011'deki 14 alerjen
+- Beslenme Skoru: Sağlık Bakanlığı Beslenme Skoru Rehberi eşikleriyle İçgör hesaplar; resmî bir not değildir
+- Tıbbi tavsiye vermez
+- App Store: {APP_STORE_URL}
+
+## Sayfalar
+{page_lines}
+## İsteğe bağlı
+- [Geliştirici]({DEVELOPER_URL})
+""")
+
+
+INDEXNOW_KEY = "f31eb28ebc81c1b9118317945af166ae"
+
+
+def write_indexnow_key() -> None:
+    write(f"{INDEXNOW_KEY}.txt", INDEXNOW_KEY)
+
+
 def main() -> int:
     if "--sync" in sys.argv:
         sync_legal()
+    if "--sync" in sys.argv or "--sync-rules" in sys.argv:
+        sync_rules()
+    rules = load_rules()
     write("index.html", landing())
+    write("katki-maddeleri/index.html", additives_index(rules))
+    for item in rules["additives"]:
+        slug_, text = additive_page(item, rules)
+        write(f"{slug_}index.html", text)
+    write("beslenme-skoru/index.html", score_page(rules))
+    write("alerjenler/index.html", allergens_page(rules))
+    write("etiket-okuma/index.html", label_reading_page(rules))
+    write("basin/index.html", press_page(rules))
     for slug_, source, _, description in LEGAL_PAGES:
         write(f"{slug_}/index.html", legal_page(slug_, source, description))
     write("destek/index.html", support_page())
     write("404.html", not_found_page())
     write(".nojekyll", "")
-    problems = check()
+    write_robots()
+    write_llms(rules)
+    write_indexnow_key()
+    write_sitemap(lastmods(page_paths()))
+    problems = check() + check_content() + check_rules_fresh()
     for problem in problems:
         print("HATA:", problem)
     print("Derlendi." if not problems else f"{len(problems)} sorun.")

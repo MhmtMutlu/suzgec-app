@@ -1,0 +1,204 @@
+{
+  "version": "2026.11.2",
+  "note": "Legal review 2026-11-04 (docs/legal/LEGAL_REVIEW.md, section A). Existing ids kept; new ids appended. Every URL opened on 2026-11-04. EUR-Lex returns HTTP 202 (bot check) to scripts but opens in a browser. Re-check before each rules release.",
+  "sources": [
+    {
+      "id": "saglik-beslenme-skoru",
+      "label": "T.C. Sağlık Bakanlığı, Beslenme Skoru",
+      "detail": "Halk Sağlığı Genel Müdürlüğü · hesaplayıcı ve sık sorulan sorular",
+      "url": "https://hsgm.saglik.gov.tr/tr/beslenme-skoru.html"
+    },
+    {
+      "id": "nutriscore-2023",
+      "label": "Nutri-Score Bilimsel Komitesi, içecek algoritması güncellemesi",
+      "detail": "2023 raporu · Hollanda Hükümeti yayını",
+      "url": "https://www.rijksoverheid.nl/documenten/rapporten/2023/03/30/second-update-report-from-the-scientific-committee-of-the-nutri-score-2023"
+    },
+    {
+      "id": "tgk-katki",
+      "label": "TGK Gıda Katkı Maddeleri Yönetmeliği",
+      "detail": "Resmî Gazete 32338 (Mükerrer) · 13.10.2023",
+      "url": "https://www.resmigazete.gov.tr/eskiler/2023/10/20231013M1-1.htm"
+    },
+    {
+      "id": "tgk-etiketleme",
+      "label": "TGK Gıda Etiketleme ve Tüketicileri Bilgilendirme Yönetmeliği",
+      "detail": "Resmî Gazete 29960 (Mükerrer) · 26.01.2017 · alerjen listesi Ek-1",
+      "url": "https://www.resmigazete.gov.tr/eskiler/2017/01/20170126M1-6.htm"
+    },
+    {
+      "id": "ab-1169-ek2",
+      "label": "AB 1169/2011 Ek II, alerjen listesi",
+      "detail": "EUR-Lex",
+      "url": "https://eur-lex.europa.eu/eli/reg/2011/1169/oj"
+    },
+    {
+      "id": "ab-1333-ek5",
+      "label": "AB 1333/2008 Ek V, renklendirici uyarısı",
+      "detail": "EUR-Lex",
+      "url": "https://eur-lex.europa.eu/eli/reg/2008/1333/oj"
+    },
+    {
+      "id": "efsa-katki",
+      "label": "EFSA, gıda katkı maddeleri değerlendirmeleri",
+      "detail": "efsa.europa.eu",
+      "url": "https://www.efsa.europa.eu/en/topics/topic/food-additives"
+    },
+    {
+      "id": "efsa-e171",
+      "label": "EFSA, E171 titanyum dioksit görüşü",
+      "detail": "efsa.europa.eu · 06.05.2021",
+      "url": "https://www.efsa.europa.eu/en/news/titanium-dioxide-e171-no-longer-considered-safe-when-used-food-additive"
+    },
+    {
+      "id": "efsa-tatlandirici",
+      "label": "EFSA, tatlandırıcılar",
+      "detail": "efsa.europa.eu",
+      "url": "https://www.efsa.europa.eu/en/topics/topic/sweeteners"
+    },
+    {
+      "id": "who-aspartam",
+      "label": "DSÖ, aspartam değerlendirmesi (IARC ve JECFA)",
+      "detail": "who.int · 14.07.2023",
+      "url": "https://www.who.int/news/item/14-07-2023-aspartame-hazard-and-risk-assessment-results-released"
+    },
+    {
+      "id": "efsa-kafein",
+      "label": "EFSA, kafein güvenliği görüşü",
+      "detail": "efsa.europa.eu · 2015",
+      "url": "https://www.efsa.europa.eu/en/topics/topic/caffeine"
+    },
+    {
+      "id": "fsa-etiket",
+      "label": "Ön yüz besin etiketi eşikleri (yüksek/orta/düşük)",
+      "detail": "UK Department of Health · 2016",
+      "url": "https://www.gov.uk/government/publications/front-of-pack-nutrition-labelling-guidance"
+    },
+    {
+      "id": "who-seker",
+      "label": "DSÖ, yetişkin ve çocuklarda şeker alımı rehberi",
+      "detail": "who.int · 2015",
+      "url": "https://www.who.int/publications/i/item/9789241549028"
+    },
+    {
+      "id": "who-tuz",
+      "label": "DSÖ, sodyum alımı rehberi",
+      "detail": "who.int · 2012",
+      "url": "https://www.who.int/publications/i/item/9789241504836"
+    },
+    {
+      "id": "cosing",
+      "label": "AB Komisyonu, CosIng veritabanı Ek II–VI",
+      "detail": "single-market-economy.ec.europa.eu",
+      "url": "https://single-market-economy.ec.europa.eu/sectors/cosmetics/cosmetic-ingredient-database_en"
+    },
+    {
+      "id": "ab-1223",
+      "label": "AB 1223/2009 Kozmetik Tüzüğü",
+      "detail": "EUR-Lex",
+      "url": "https://eur-lex.europa.eu/eli/reg/2009/1223/oj"
+    },
+    {
+      "id": "ab-2023-1545",
+      "label": "AB 2023/1545, parfüm alerjeni etiketleme",
+      "detail": "EUR-Lex",
+      "url": "https://eur-lex.europa.eu/eli/reg/2023/1545/oj"
+    },
+    {
+      "id": "off",
+      "label": "Open Food Facts",
+      "detail": "ODbL · openfoodfacts.org",
+      "url": "https://world.openfoodfacts.org/"
+    },
+    {
+      "id": "saglik-beslenme-skoru-rehber",
+      "label": "T.C. Sağlık Bakanlığı, Beslenme Skoru Rehberi",
+      "detail": "Üretici Kullanım ve Reformülasyon Rehberi · Ekim 2026 · eşik tabloları",
+      "url": "https://hsgm.saglik.gov.tr/depo/birimler/saglikli-beslenme-ve-hareketli-hayat-db/Dokumanlar/Rehberler/Beslenme%20Skoru%20Rehberi.pdf"
+    },
+    {
+      "id": "tgk-katki-ekler",
+      "label": "TGK Gıda Katkı Maddeleri Yönetmeliği ekleri",
+      "detail": "Resmî Gazete 32338 (Mükerrer) · Ek-II–Ek-VI (PDF)",
+      "url": "https://www.resmigazete.gov.tr/eskiler/2023/10/20231013M1-1-1.pdf"
+    },
+    {
+      "id": "efsa-nitrit",
+      "label": "EFSA, nitrit ve nitrat katkıları değerlendirmesi",
+      "detail": "efsa.europa.eu · 15.06.2017",
+      "url": "https://www.efsa.europa.eu/en/press/news/170615"
+    },
+    {
+      "id": "efsa-fosfat",
+      "label": "EFSA, fosfat katkıları değerlendirmesi",
+      "detail": "efsa.europa.eu · 12.06.2019",
+      "url": "https://www.efsa.europa.eu/en/press/news/190612"
+    },
+    {
+      "id": "efsa-glutamat",
+      "label": "EFSA, glutamat katkıları değerlendirmesi",
+      "detail": "efsa.europa.eu · 12.07.2017",
+      "url": "https://www.efsa.europa.eu/en/press/news/170712"
+    },
+    {
+      "id": "who-tatlandirici",
+      "label": "DSÖ, şeker içermeyen tatlandırıcılar rehberi",
+      "detail": "who.int · 15.05.2023",
+      "url": "https://www.who.int/news/item/15-05-2023-who-advises-not-to-use-non-sugar-sweeteners-for-weight-control-in-newly-released-guideline"
+    },
+    {
+      "id": "tr-kozmetik",
+      "label": "Kozmetik Ürünler Yönetmeliği (Türkiye)",
+      "detail": "Resmî Gazete 32184 (Mükerrer) · 08.05.2023 · TİTCK",
+      "url": "https://www.resmigazete.gov.tr/eskiler/2023/05/20230508M1-1.htm"
+    },
+    {
+      "id": "obf",
+      "label": "Open Beauty Facts",
+      "detail": "ODbL · openbeautyfacts.org",
+      "url": "https://world.openbeautyfacts.org/"
+    },
+    {
+      "id": "off-kosullar",
+      "label": "Open Food Facts kullanım ve yeniden kullanım koşulları",
+      "detail": "ODbL, DbCL, CC BY-SA",
+      "url": "https://world.openfoodfacts.org/terms-of-use"
+    },
+    {
+      "id": "odbl",
+      "label": "Open Database License (ODbL) 1.0",
+      "detail": "Open Data Commons",
+      "url": "https://opendatacommons.org/licenses/odbl/1-0/"
+    },
+    {
+      "id": "ab-648-2004",
+      "label": "AB 648/2004 Deterjan Tüzüğü, Ek VII (içerik etiketlemesi)",
+      "detail": "EUR-Lex",
+      "url": "https://eur-lex.europa.eu/eli/reg/2004/648/oj"
+    },
+    {
+      "id": "ab-1272-2008",
+      "label": "AB 1272/2008 CLP Tüzüğü (sınıflandırma ve etiketleme)",
+      "detail": "EUR-Lex",
+      "url": "https://eur-lex.europa.eu/eli/reg/2008/1272/oj"
+    },
+    {
+      "id": "ab-1007-2011",
+      "label": "AB 1007/2011 Tekstil elyaf adları ve etiketleme",
+      "detail": "EUR-Lex",
+      "url": "https://eur-lex.europa.eu/eli/reg/2011/1007/oj"
+    },
+    {
+      "id": "oeko-tex-kontrol",
+      "label": "OEKO-TEX etiket kontrolü",
+      "detail": "oeko-tex.com · sertifika numarası sorgulama",
+      "url": "https://www.oeko-tex.com/en/label-check"
+    },
+    {
+      "id": "gots",
+      "label": "Global Organic Textile Standard (GOTS)",
+      "detail": "global-standard.org · sertifikalı kuruluşlar",
+      "url": "https://global-standard.org/find-suppliers-shops-and-inputs/certified-suppliers"
+    }
+  ]
+}

@@ -11,13 +11,19 @@
 | Katkı koşulları | `/katki/` |
 | KVKK bilgilendirmesi | `/kvkk/` |
 | Destek | `/destek/` |
+| Katkı maddeleri rehberi ve 72 madde sayfası | `/katki-maddeleri/`, `/katki-maddeleri/e471/` … |
+| Beslenme Skoru, 14 alerjen, etiket okuma | `/beslenme-skoru/`, `/alerjenler/`, `/etiket-okuma/` |
+| Basın | `/basin/` |
+
+Arama ve yapay zekâ yanıtları için yapılanlar, denetimler ve senin adımların: [SEO.md](SEO.md).
 
 ## Düzenleme
 - Yasal metinlerin kaynağı uygulama deposundaki `docs/legal/v2/*.md` dosyalarıdır (iki avukat görüşüyle yazıldı).
   Değişince: `python3 build.py --sync` (metinleri `src/legal/` altına kopyalar ve siteyi derler).
 - Tanıtım metni, fiyatlar ve uygulama adı `build.py` başındaki sabitlerde. Ad tek yerde (`APP_NAME`); değişirse
   yalnız orayı değiştirip yeniden derle. Depo adı (`suzgec-app`) eski adla kalıyor; site `icgor.mm-apps.com` alan adında yayınlanır (`CNAME`).
-- Yayın günü: `APP_STORE_LIVE = True` (rozetler gerçek App Store bağlantısı olur).
+- Sürüm ve fiyat anahtarları: `APP_RELEASE`, `PRICE_SET` (bkz. SEO.md). Katkı/alerjen/skor verisi uygulamanın kural
+  dosyalarından gelir: `python3 build.py --sync-rules`.
 - Derleme: `python3 build.py`. Statik HTML depo köküne yazılır ve commit'lenir; bütün iç bağlantılar ve sayfa içi
   çapalar derlemede kontrol edilir. GitHub Pages ek bir derleme adımı çalıştırmaz.
 - Stil: `assets/site.css`. Renkler uygulamanın token'larıyla aynı (`suzgec/tools/gen_colors.py`); yazı tipleri sistem
