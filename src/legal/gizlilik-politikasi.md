@@ -22,7 +22,6 @@ Yani İçgör'ü olağan biçimde kullanırken kim olduğunu bilmemiz için bir 
 İçgör'ün geliştiricisi, App Store'daki satıcısı ve bu politika kapsamındaki veri sorumlusu Mehmet Mutlu'dur (bireysel geliştirici, "mm-apps").
 
 - E-posta: destek@mm-apps.com
-- Posta adresi: [POSTA ADRESİ]
 
 ## 2. Yalnızca telefonunda kalan bilgiler
 
@@ -206,4 +205,4 @@ Bu politikayı uygulamanın işleyişi değiştiğinde güncelleriz. Yeni bir bi
 
 ## 13. İletişim
 
-destek@mm-apps.com · Posta adresi: [POSTA ADRESİ]
+destek@mm-apps.com

@@ -12,9 +12,8 @@ Bu metin, 6698 sayılı Kişisel Verilerin Korunması Kanunu ("KVKK") md. 10 ve 
 
 ## 1. Veri sorumlusu
 
-Mehmet Mutlu (bireysel geliştirici, "mm-apps")
+Mehmet Mutlu (Türkiye'de yaşayan bireysel geliştirici, "mm-apps")
 E-posta: destek@mm-apps.com
-Posta adresi: [POSTA ADRESİ]
 
 ## 2. Hangi kişisel verileri, hangi amaç ve hukuki sebeple işliyoruz?
 
@@ -72,7 +71,7 @@ f) (d) ve (e) bentlerindeki işlemlerin, aktarıldığı üçüncü kişilere bi
 g) Münhasıran otomatik sistemlerle analiz edilmesi sonucu aleyhine bir sonuç çıkmasına itiraz etme,
 ğ) Kanuna aykırı işleme nedeniyle zarara uğraman hâlinde zararın giderilmesini talep etme.
 
-**Nasıl başvurursun?** Başvurunu yazılı olarak posta adresimize veya güvenli elektronik imza ya da mobil imza ile destek@mm-apps.com adresine gönderebilirsin. Başvurunda adını, soyadını, iletişim bilgini ve talebini açıkça yaz. Kolaylık olsun diye imzasız e-posta ile yapılan talepleri de değerlendiririz. Başvuruna en geç 30 gün içinde ücretsiz yanıt veririz; işlem ayrıca bir maliyet gerektirirse Kişisel Verileri Koruma Kurulu'nun belirlediği tarifedeki ücret alınabilir (KVKK md. 13).
+**Nasıl başvurursun?** Başvurunu destek@mm-apps.com adresine e-postayla, tercihen güvenli elektronik imza ya da mobil imza ile gönderebilirsin. Başvurunda adını, soyadını, iletişim bilgini ve talebini açıkça yaz. Kolaylık olsun diye imzasız e-posta ile yapılan talepleri de değerlendiririz. Başvuruna en geç 30 gün içinde ücretsiz yanıt veririz; işlem ayrıca bir maliyet gerektirirse Kişisel Verileri Koruma Kurulu'nun belirlediği tarifedeki ücret alınabilir (KVKK md. 13).
 
 **Bilmen gereken.** Hesap sistemimiz olmadığı, IP adresini saklamadığımız ve katkıları kimseyle ilişkilendirmediğimiz için, bize e-posta yazmadıysan elimizde sana ait olduğunu belirleyebileceğimiz bir kayıt genellikle bulunmaz. Telefonundaki bilgileri uygulamanın Ayarlar ekranından kendin silebilirsin.
 

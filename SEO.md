@@ -46,8 +46,8 @@ Sayfa başına tek konu; aynı metni farklı anahtar kelimeyle çoğaltan "kapı
 3. **GitHub Pages:** Settings > Pages > "Enforce HTTPS" açık mı kontrol et.
 4. **Yayından sonra:** `./scripts/indexnow.sh` (değişen sayfaları Bing/Yandex'e bildirir).
 5. **App Store açıklaması:** İlk cümle sitedeki tanımla aynı olsun (yapay zekâ yanıtları en çok App Store sayfasını kaynak gösteriyor).
-6. **Yasal sayfalardaki yer tutucular:** `[YÜRÜRLÜK TARİHİ]`, `[POSTA ADRESİ]`, `[TEYİT EDİLECEK …]` canlı sayfalarda
-   görünüyor. Metinler uygulama deposunda (`docs/legal/v2`); doldurulması senin kararın.
+6. ~~Yasal sayfalardaki yer tutucular~~: tamamlandı (16 Kasım 2026). Posta adresi Zirve'deki gibi yazılmadı; iletişim
+   ve KVKK başvuruları destek@mm-apps.com üzerinden. Hukuk notu (MEMO R14) bunu orta risk sayar; sahibin kararı.
 
 ## Ölçüm (ayda bir)
 Oturum kapalı, her soru yeni sohbette: ChatGPT, Perplexity, Google AI Modu, Gemini, Copilot. Sorular:

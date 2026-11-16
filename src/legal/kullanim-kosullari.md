@@ -6,7 +6,7 @@ Sürüm: 2.0 (önceki sürüm: 1.0, 4 Kasım 2026)
 
 Bu koşullar, İçgör iOS uygulamasının ("İçgör" veya "uygulama") kullanımını düzenler ve seninle İçgör'ün geliştiricisi Mehmet Mutlu ("biz") arasındaki sözleşmedir. Uygulamanın ilk açılışında "Devam et" düğmesine dokunarak bu koşulları kabul etmiş olursun. Kabul etmiyorsan uygulamayı kullanmamalısın.
 
-İletişim: destek@mm-apps.com · Posta adresi: [POSTA ADRESİ]
+İletişim: destek@mm-apps.com
 
 Kişisel bilgilerin nasıl işlendiği [Gizlilik Politikası](https://icgor.mm-apps.com/gizlilik/) ve [KVKK Bilgilendirmesi](https://icgor.mm-apps.com/kvkk/) sayfalarında anlatılır. Bu iki metin bilgilendirme amaçlıdır ve sözleşmenin parçası değildir.
 
@@ -160,4 +160,4 @@ g) Apple ve bağlı şirketleri bu koşulların üçüncü kişi lehtarıdır; k
 
 ## 14. İletişim
 
-destek@mm-apps.com · Posta adresi: [POSTA ADRESİ]
+destek@mm-apps.com
