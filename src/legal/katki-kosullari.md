@@ -1,7 +1,7 @@
 # İçgör Katkı Koşulları
 
 Yayım tarihi: 5 Kasım 2026
-Yürürlük tarihi: [YÜRÜRLÜK TARİHİ]
+Yürürlük tarihi: 14 Kasım 2026
 Sürüm: 1.0
 
 Bu koşullar, İçgör'de bulunamayan bir ürünün bilgisini veya ön yüz fotoğrafını paylaştığında, mevcut bir ürün için "Düzeltme öner" ile düzeltme gönderdiğinde ve "Hata bildir" ile bildirim gönderdiğinde uygulanır. Katkı gönderdiğin andan itibaren [Kullanım Koşulları](https://icgor.mm-apps.com/kosullar/)'nın parçası olur.

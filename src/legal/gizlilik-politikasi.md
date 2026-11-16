@@ -1,7 +1,7 @@
 # İçgör Gizlilik Politikası
 
 Yayım tarihi: 5 Kasım 2026
-Yürürlük tarihi: [YÜRÜRLÜK TARİHİ]
+Yürürlük tarihi: 14 Kasım 2026
 Sürüm: 2.0 (önceki sürüm: 1.0, 4 Kasım 2026)
 
 Bu politika, İçgör iOS uygulamasının ("İçgör" veya "uygulama") hangi bilgileri, nerede ve ne kadar süre işlediğini anlatır. 6698 sayılı Kişisel Verilerin Korunması Kanunu ("KVKK") uyarınca hazırladığımız aydınlatma metni ayrı bir sayfadadır: [KVKK Bilgilendirmesi](https://icgor.mm-apps.com/kvkk/).
@@ -126,7 +126,7 @@ destek@mm-apps.com adresine yazdığında e-posta adresin, mesajın ve eklediği
 
 Yasal sayfalarımız GitHub Pages hizmetinde (GitHub, Inc., ABD) yayımlanır. Sitemiz çerez, analitik veya izleme aracı kullanmaz. Ancak sayfayı açtığında IP adresin ve tarayıcı bilgilerin, internetin çalışma biçimi gereği ABD'deki GitHub sunucularına ulaşır ve GitHub tarafından güvenlik amacıyla kayıt altına alınabilir. Bu kayıtlara biz erişmeyiz. GitHub'ın gizlilik bildirimi: https://docs.github.com/site-policy/privacy-policies/github-general-privacy-statement
 
-Bu aktarımı istemiyorsan bu metinlerin aynısını uygulama içinde, Ayarlar > Gizlilik bölümünde okuyabilir veya destek@mm-apps.com adresinden e-postayla isteyebilirsin. [UYGULAMA İÇİ METİN TEYİT EDİLECEK]
+Bu aktarımı istemiyorsan bu metinlerin aynısını destek@mm-apps.com adresinden e-postayla isteyebilirsin.
 
 ## 4. IP adresi ve sunucu kayıtları
 
@@ -161,13 +161,13 @@ Yetkili bir kamu kurumunun kanuna dayanan talebi olursa, elimizdeki bilgiler mev
 - **Open Food Facts ve kardeş projeleri (Fransa):** Telefonunun doğrudan yaptığı ürün sorguları (3.1) ve onaylanan katkılar (3.3). Katkılar İçgör'ün kendi Open Food Facts hesabıyla iletilir; IP adresin veya kimliğin iletilmez.
 - **Herkes:** Onaylanan ürün bilgileri ve fotoğraflar açık veri olarak yayımlanır.
 - **Barındırma sağlayıcımız:** Sunucumuzun bulunduğu veri merkezini işleten firma, yalnızca altyapı hizmeti verir. Veri merkezi Türkiye'dedir.
-- **E-posta hizmet sağlayıcımız:** Destek e-postaları, e-posta hizmeti aldığımız firmanın sunucularında saklanır. [TEYİT EDİLECEK: sağlayıcı adı, ülkesi ve ileti aktarım hizmeti]
+- **E-posta hizmet sağlayıcımız:** destek@mm-apps.com adresi Güzel Hosting'in (GNET İnternet Telekomünikasyon A.Ş., Türkiye) kurumsal e-posta hizmetinde barındırılır; bize yazdığın e-postalar Türkiye'deki sunucularda saklanır. Gönderdiğimiz yanıtlar, Güzel Hosting'in posta iletim hizmeti MailChannels Corporation (Kanada) üzerinden alıcıya iletilir: yanıtın içeriği ve e-posta adresin iletim sırasında bu şirketin sunucularından geçer, orada saklanmaz.
 - **Apple:** Uygulamanın dağıtımı ve abonelik ödemeleri Apple tarafından, Apple'ın kendi politikalarına göre yürütülür.
 - **GitHub (ABD):** Yalnızca bu web sitesini ziyaret edenlerin bağlantı bilgileri (3.7).
 
 Reklam ağı, veri simsarı, analitik veya yapay zekâ hizmetiyle hiçbir bilgi paylaşmayız. Bilgilerini satmayız.
 
-**Yurt dışı.** Open Food Facts'e giden ürün sorgularında bağlantıyı sunucumuz değil, telefonun kurar. Sunucumuzdan Open Food Facts'e iletilen katkılar kişisel veri içermez. Web sitesi ziyaretlerinde bağlantı bilgilerin GitHub'a (ABD) ulaşır. Sunucumuz Türkiye'dedir; uygulamanın sunucumuzla kurduğu bağlantılar yurt dışına aktarım içermez. Ayrıntılar: [KVKK Bilgilendirmesi](https://icgor.mm-apps.com/kvkk/).
+**Yurt dışı.** Open Food Facts'e giden ürün sorgularında bağlantıyı sunucumuz değil, telefonun kurar. Sunucumuzdan Open Food Facts'e iletilen katkılar kişisel veri içermez. Web sitesi ziyaretlerinde bağlantı bilgilerin GitHub'a (ABD) ulaşır. Bize e-posta yazdığında yanıtımız MailChannels (Kanada) üzerinden iletilir (yukarıda). Sunucumuz Türkiye'dedir; uygulamanın sunucumuzla kurduğu bağlantılar yurt dışına aktarım içermez. Ayrıntılar: [KVKK Bilgilendirmesi](https://icgor.mm-apps.com/kvkk/).
 
 ## 7. Güvenlik
 

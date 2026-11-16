@@ -1,7 +1,7 @@
 # İçgör Kullanım Koşulları
 
 Yayım tarihi: 5 Kasım 2026
-Yürürlük tarihi: [YÜRÜRLÜK TARİHİ]
+Yürürlük tarihi: 14 Kasım 2026
 Sürüm: 2.0 (önceki sürüm: 1.0, 4 Kasım 2026)
 
 Bu koşullar, İçgör iOS uygulamasının ("İçgör" veya "uygulama") kullanımını düzenler ve seninle İçgör'ün geliştiricisi Mehmet Mutlu ("biz") arasındaki sözleşmedir. Uygulamanın ilk açılışında "Devam et" düğmesine dokunarak bu koşulları kabul etmiş olursun. Kabul etmiyorsan uygulamayı kullanmamalısın.

@@ -1,7 +1,7 @@
 # İçgör KVKK Aydınlatma Metni
 
 Yayım tarihi: 5 Kasım 2026
-Yürürlük tarihi: [YÜRÜRLÜK TARİHİ]
+Yürürlük tarihi: 14 Kasım 2026
 Sürüm: 1.0
 
 Bu metin, 6698 sayılı Kişisel Verilerin Korunması Kanunu ("KVKK") md. 10 ve Aydınlatma Yükümlülüğünün Yerine Getirilmesinde Uyulacak Usul ve Esaslar Hakkında Tebliğ uyarınca hazırlanmıştır.
@@ -46,12 +46,13 @@ Kişisel veriler, uygulamayı veya yasal sayfalarımızı kullanırken elektroni
 
 **Yurt içi ve yurt dışı hizmet sağlayıcılar:**
 - **Barındırma sağlayıcımız:** Sunucumuzun bulunduğu veri merkezini işleten firma, yalnızca altyapı hizmeti kapsamında. Veri merkezi Türkiye'dedir.
-- **E-posta hizmet sağlayıcımız:** Destek e-postaları bu sağlayıcının sunucularında saklanır. [TEYİT EDİLECEK: sağlayıcı adı, ülkesi ve ileti aktarım hizmeti]
+- **E-posta hizmet sağlayıcımız:** Güzel Hosting (GNET İnternet Telekomünikasyon A.Ş., Türkiye). Destek e-postaları bu sağlayıcının Türkiye'deki sunucularında saklanır.
 
 **Yetkili kamu kurumları:** Yalnızca kanunda öngörülen hâllerde ve kanuna dayanan talep üzerine.
 
 **Yurt dışı:**
-- **GitHub, Inc. (ABD):** Yasal sayfalarımız GitHub Pages'te yayımlanır. Bu sayfaları açtığında IP adresin ve tarayıcı bilgilerin GitHub'ın ABD'deki sunucularına ulaşır ve GitHub tarafından güvenlik amacıyla kaydedilebilir. Bu aktarım, sayfaların sana gösterilebilmesi için teknik olarak zorunludur. İstemiyorsan aynı metinleri uygulama içinde Ayarlar > Gizlilik bölümünden okuyabilir veya destek@mm-apps.com adresinden e-postayla isteyebilirsin.
+- **GitHub, Inc. (ABD):** Yasal sayfalarımız GitHub Pages'te yayımlanır. Bu sayfaları açtığında IP adresin ve tarayıcı bilgilerin GitHub'ın ABD'deki sunucularına ulaşır ve GitHub tarafından güvenlik amacıyla kaydedilebilir. Bu aktarım, sayfaların sana gösterilebilmesi için teknik olarak zorunludur. İstemiyorsan aynı metinleri destek@mm-apps.com adresinden e-postayla isteyebilirsin.
+- **MailChannels Corporation (Kanada):** Bize e-posta yazdığında gönderdiğimiz yanıt, e-posta sağlayıcımızın posta iletim hizmeti olan MailChannels üzerinden alıcıya iletilir. Yanıtın içeriği ve e-posta adresin iletim sırasında bu şirketin sunucularından geçer, orada saklanmaz. Bu aktarım yalnızca sen bize yazdığında, yanıtı sana ulaştırmak için olur.
 - **Open Food Facts (Fransa):** Ürün sorgularında bağlantıyı sunucumuz değil, telefonun doğrudan kurar; bu sırada IP adresin Open Food Facts'e ulaşır ve Open Food Facts bunu kendi sorumluluğunda işler. Sunucumuzdan Open Food Facts'e iletilen katkılar kişisel veri içermez.
 - **Apple:** Abonelik ödemeleri Apple tarafından, Apple'ın kendi sorumluluğunda işlenir; biz Apple'a kişisel veri aktarmayız.
 

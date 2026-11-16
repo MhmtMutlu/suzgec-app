@@ -1163,6 +1163,10 @@ def main() -> int:
     write_indexnow_key()
     write_sitemap(lastmods(page_paths()))
     problems = check() + check_content() + check_rules_fresh()
+    for file in sorted(ROOT.glob("*/index.html")):
+        todo = re.findall(r'<mark class="todo">\[([^\]]+)\]</mark>', file.read_text(encoding="utf-8"))
+        if todo:
+            print(f"UYARI: {file.parent.name}/ yer tutucu içeriyor: {', '.join(sorted(set(todo)))}")
     for problem in problems:
         print("HATA:", problem)
     print("Derlendi." if not problems else f"{len(problems)} sorun.")
