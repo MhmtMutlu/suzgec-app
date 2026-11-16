@@ -25,16 +25,16 @@ LEGAL_SRC = ROOT.parent / "suzgec" / "docs" / "legal" / "v2"
 APP_NAME = "İçgör"
 SITE_URL = "https://icgor.mm-apps.com/"
 CONTACT = "destek@mm-apps.com"
-UPDATED = "5 Kasım 2026"
+UPDATED = "16 Kasım 2026"
 
 # Launch-day switch: True turns the App Store badges into real links (fill APP_ID from App Store Connect first).
 APP_STORE_LIVE = False
 APP_ID = "6830374026"
 APP_STORE_URL = f"https://apps.apple.com/tr/app/id{APP_ID}"
 
-PRICE_MONTHLY = "₺84,99"
-PRICE_YEARLY = "₺499,99"
-FREE_MONTHLY_NEW = 3
+PRICE_MONTHLY = "₺49,99"
+PRICE_YEARLY = "₺299,99"
+FREE_MONTHLY_NEW = 10
 
 LEGAL_PAGES = [
     # (slug, source file, nav label, description)
@@ -344,7 +344,7 @@ def landing() -> str:
         ("Ürün bulunamazsa ne olur?",
          "Etiketin fotoğrafını çekersin; yazıyı telefonun kendisi okur, sen kontrol edip kaydedersin. İstersen ürünü, kimliğinle ilişkilendirilmeden ve moderasyondan geçtikten sonra herkesin kullanımına açılmak üzere gönderebilirsin."),
         ("Ücretsiz sürümde neler var?",
-         f"Her ay {FREE_MONTHLY_NEW} yeni ürün, bir profil ve geçmişindeki ürünlere sınırsız erişim. İçgör Aile ile tarama sınırı kalkar, 6 profile kadar aile ekleyebilir, sepet ve haftalık özeti kullanabilirsin."),
+         f"Her ay {FREE_MONTHLY_NEW} yeni ürün, bir profil ve geçmişindeki ürünlere sınırsız erişim. İçgör Aile ile tarama sınırı kalkar, 10 profile kadar aile ekleyebilir, listenin skor dağılımını ve haftalık özeti kullanabilirsin."),
         ("İnternet olmadan çalışır mı?",
          "Daha önce baktığın ürünler internetsiz de açılır. Yeni bir barkod için bağlantı gerekir; etiket fotoğrafından okuma ise tamamen telefonda yapılır."),
         ("Verilerimi nasıl silerim?",
@@ -377,7 +377,7 @@ def landing() -> str:
 <section class="wrap split-section" aria-labelledby="aile-baslik">
   <div>
     <p class="eyebrow">Aile profilleri</p>
-    <h2 id="aile-baslik">Aynı paket, altı farklı okuma.</h2>
+    <h2 id="aile-baslik">Aynı paket, on farklı okuma.</h2>
     <p>Çölyaklı bir eş, süt alerjisi olan bir çocuk, hamile bir anne, vegan bir genç. Her biri için profil oluşturursun; {APP_NAME} tek taramada hepsine ayrı cevap verir.</p>
     <ul class="checks">
       <li>AB'nin 14 alerjeni ve iz uyarıları ayrı ayrı</li>
@@ -430,7 +430,7 @@ def landing() -> str:
       <h3>İçgör Aile</h3>
       <p class="price">{PRICE_YEARLY}<small> / yıl</small></p>
       <p class="price-alt">ya da {PRICE_MONTHLY} / ay · 1 hafta ücretsiz deneme</p>
-      <ul><li>Sınırsız tarama</li><li>6 profile kadar aile</li><li>Sepet ve haftalık özet</li><li>Tüm cihazlarında, Aile Paylaşımı ile</li></ul>
+      <ul><li>Sınırsız tarama</li><li>10 profile kadar aile</li><li>Liste ve haftalık özet</li><li>Tüm cihazlarında, Aile Paylaşımı ile</li></ul>
     </article>
   </div>
   <p class="fine">Ödeme ve iptal Apple hesabın üzerinden yapılır; abonelik, dönem bitmeden en az 24 saat önce iptal edilmezse yenilenir. Ayrıntılar: <a href="kosullar/">Kullanım koşulları</a>.</p>
