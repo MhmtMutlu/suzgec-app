@@ -42,13 +42,15 @@ DEVELOPER_URL = "https://mm-apps.com/"
 # PRICE_SET: the price the App Store charges today (the 1.1 prices start 18 Nov 2026 at the earliest).
 # When APP_RELEASE becomes "1.1", also run `python3 build.py --sync` so the legal texts match the app.
 APP_RELEASE = "1.1"
-PRICE_SET = "1.0"
+PRICE_SET = "1.1"
 FEATURES = {
     "1.0": {"free": 3, "profiles": 6, "tracking": False},
     "1.1": {"free": 10, "profiles": 10, "tracking": True},
 }
 PRICES = {"1.0": ("₺84,99", "₺499,99"), "1.1": ("₺49,99", "₺299,99")}
 PRICE_MONTHLY, PRICE_YEARLY = PRICES[PRICE_SET]
+# Shown from 17 Nov, a day before Apple charges the new prices; the date keeps the claim true on both days.
+PRICE_FROM = "18 Kasım 2026'dan itibaren"
 FREE_MONTHLY_NEW = FEATURES[APP_RELEASE]["free"]
 FAMILY_PROFILES = FEATURES[APP_RELEASE]["profiles"]
 TRACKING = FEATURES[APP_RELEASE]["tracking"]
@@ -526,7 +528,7 @@ def landing() -> str:
     <article class="plan plan-main">
       <h3>İçgör Aile</h3>
       <p class="price">{PRICE_YEARLY}<small> / yıl</small></p>
-      <p class="price-alt">ya da {PRICE_MONTHLY} / ay · 1 hafta ücretsiz deneme</p>
+      <p class="price-alt">ya da {PRICE_MONTHLY} / ay · 1 hafta ücretsiz deneme · {PRICE_FROM}</p>
       <ul><li>Sınırsız tarama</li><li>{FAMILY_PROFILES} profile kadar aile</li><li>Liste ve haftalık özet</li><li>Tüm cihazlarında, Aile Paylaşımı ile</li></ul>
     </article>
   </div>
@@ -917,7 +919,7 @@ def press_page(rules: dict) -> str:
     facts = [
         ("Ad", APP_NAME), ("App Store adı", STORE_NAME), ("Geliştirici", f"{DEVELOPER}, Türkiye'de bağımsız geliştirici"),
         ("Platform", "iPhone (iOS)"), ("Dil", "Türkçe"),
-        ("Fiyat", f"Ücretsiz; İçgör Aile aboneliği {PRICE_MONTHLY} / ay veya {PRICE_YEARLY} / yıl"),
+        ("Fiyat", f"Ücretsiz; İçgör Aile aboneliği {PRICE_FROM} {PRICE_MONTHLY} / ay veya {PRICE_YEARLY} / yıl"),
         ("Ücretsiz sürüm", f"Her ay {FREE_MONTHLY_NEW} yeni ürün, 1 profil"),
         ("İçgör Aile", f"Sınırsız tarama, {FAMILY_PROFILES} profile kadar aile"),
         ("Tanıdığı katkı maddesi", f"{len(rules['additives'])} E kodu"),
@@ -1114,7 +1116,7 @@ def write_llms(rules: dict) -> None:
 
 ## Bilgiler
 - Platform: iPhone (iOS); dil: Türkçe
-- Fiyat: ücretsiz indirme; İçgör Aile aboneliği {PRICE_MONTHLY} / ay veya {PRICE_YEARLY} / yıl (Türkiye App Store)
+- Fiyat: ücretsiz indirme; İçgör Aile aboneliği {PRICE_FROM} {PRICE_MONTHLY} / ay veya {PRICE_YEARLY} / yıl (Türkiye App Store)
 - Ücretsiz sürüm: her ay {FREE_MONTHLY_NEW} yeni ürün, 1 profil; İçgör Aile: sınırsız tarama, {FAMILY_PROFILES} profile kadar aile
 - Hesap yok, reklam yok; aile profilleri telefonda kalır
 - Ürün türleri: gıda, kozmetik, temizlik ürünü, kıyafet etiketi
