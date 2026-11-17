@@ -1,15 +1,15 @@
 {
  "": {
-  "date": "2026-11-16",
-  "hash": "8e90e456c328797d134cd81ba01826cbcb7a1101408c3c41f7049fb028093be3"
+  "date": "2026-11-17",
+  "hash": "e08e526c638212ed9ad67d1bdde3ccbdbf7b92111288d8d2454d4fb8a548e892"
  },
  "alerjenler/": {
   "date": "2026-11-16",
   "hash": "9e1241f2ed713977e2c0bce586b0916f09a9125ba9c1b95fe3c6eab60560c66f"
  },
  "basin/": {
-  "date": "2026-11-16",
-  "hash": "8c958d294fdef4280ff1ed87cba19e536baf99f3fef027bf2ef13baf9bf95c61"
+  "date": "2026-11-17",
+  "hash": "cbad9323c0b2c6a93224e78b742289d01c7eb4c80c55cccd8845e9009ba2b5fd"
  },
  "beslenme-skoru/": {
   "date": "2026-11-16",
@@ -24,8 +24,8 @@
   "hash": "78479f5c36d28990af029f530cf1518472b31f6841370d96c28e2dad50b250c8"
  },
  "gizlilik/": {
-  "date": "2026-11-16",
-  "hash": "c9f14d6f9f135943926d2c07100e67f6a23e255359141349cf8c7f94f9ebe90f"
+  "date": "2026-11-17",
+  "hash": "a989acdf5e6f135f934f0dac57378c232fecb08efe8d6464dbfb7cc457af997d"
  },
  "katki-maddeleri/": {
   "date": "2026-11-16",
@@ -320,15 +320,15 @@
   "hash": "2dbafc665d933e0ea27da6a0ba391b1102245bb5567c2777e79a1c870ee9f22e"
  },
  "katki/": {
-  "date": "2026-11-16",
-  "hash": "115bb47139e82f3ac005eb0b612cc26c588450559130b6fdd717569ac3ac5a70"
+  "date": "2026-11-17",
+  "hash": "5003add41ebdb62f47b87ced793b281935646f92097dcf1a04ee195b3dae4d7b"
  },
  "kosullar/": {
-  "date": "2026-11-16",
-  "hash": "5ddd467a9ce156bfef1187d65acda7090fcf22ec9b3cb3937ea5b4a3d49261cd"
+  "date": "2026-11-17",
+  "hash": "cc55fd70c58dc6454ef2558306371a2ed1a208032d6311fdd5ff184063596b23"
  },
  "kvkk/": {
-  "date": "2026-11-16",
-  "hash": "8600acd9bb02a630cff687c7f35908e04bbe022f878c6ce7ab72e4d7b514a85e"
+  "date": "2026-11-17",
+  "hash": "620c7375c03b41b0b9d7f99fc6a703546b5e84476fae8f949ec4ad4926dc3f87"
  }
 }

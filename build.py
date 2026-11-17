@@ -30,7 +30,7 @@ SITE_URL = "https://icgor.mm-apps.com/"
 CONTACT = "destek@mm-apps.com"
 UPDATED = "16 Kasım 2026"
 
-APP_STORE_LIVE = True  # 1.0.0 approved and live (14 Nov 2026)
+APP_STORE_LIVE = True  # 1.0.0 live 14 Nov 2026; 1.1.0 live 17 Nov 2026
 APP_ID = "6830374026"
 APP_STORE_URL = f"https://apps.apple.com/tr/app/id{APP_ID}"
 STORE_NAME = "İçgör: Katkı Maddesi & Barkod"
@@ -41,7 +41,7 @@ DEVELOPER_URL = "https://mm-apps.com/"
 # APP_RELEASE: the app version on the App Store; FEATURES are what it really does.
 # PRICE_SET: the price the App Store charges today (the 1.1 prices start 18 Nov 2026 at the earliest).
 # When APP_RELEASE becomes "1.1", also run `python3 build.py --sync` so the legal texts match the app.
-APP_RELEASE = "1.0"
+APP_RELEASE = "1.1"
 PRICE_SET = "1.0"
 FEATURES = {
     "1.0": {"free": 3, "profiles": 6, "tracking": False},

@@ -1,8 +1,8 @@
 # İçgör Kullanım Koşulları
 
-Yayım tarihi: 5 Kasım 2026
-Yürürlük tarihi: 14 Kasım 2026
-Sürüm: 2.0 (önceki sürüm: 1.0, 4 Kasım 2026)
+Yayım tarihi: 16 Kasım 2026
+Yürürlük tarihi: 17 Kasım 2026
+Sürüm: 2.1 (önceki sürüm: 2.0, 5 Kasım 2026; değişiklik: ücretsiz sürümde ayda 10 yeni ürün, İçgör Aile'de 10 profil)
 
 Bu koşullar, İçgör iOS uygulamasının ("İçgör" veya "uygulama") kullanımını düzenler ve seninle İçgör'ün geliştiricisi Mehmet Mutlu ("biz") arasındaki sözleşmedir. Uygulamanın ilk açılışında "Devam et" düğmesine dokunarak bu koşulları kabul etmiş olursun. Kabul etmiyorsan uygulamayı kullanmamalısın.
 
@@ -60,9 +60,9 @@ Kişisel bilgilerin nasıl işlendiği [Gizlilik Politikası](https://icgor.mm-a
 
 ## 5. Ücretsiz sürüm ve İçgör Aile aboneliği
 
-5.1. **Ücretsiz sürüm.** Ücretsiz sürümde her ay daha önce açmadığın en fazla 3 yeni ürünün sonucunu görebilir, 1 profil kullanabilirsin. Daha önce açtığın ürünler Geçmiş'te her zaman açılır. Ücretsiz sürümün güncel kapsamı uygulamada gösterilir.
+5.1. **Ücretsiz sürüm.** Ücretsiz sürümde her ay daha önce açmadığın en fazla 10 yeni ürünün sonucunu görebilir, 1 profil kullanabilirsin. Daha önce açtığın ürünler Geçmiş'te her zaman açılır. Ücretsiz sürümün güncel kapsamı uygulamada gösterilir.
 
-5.2. **İçgör Aile.** Abonelik; sınırsız yeni ürün, en fazla 6 profil ve uygulamada güncel listesi gösterilen ek özellikleri (ör. alışveriş listesinin skor dağılımı ve haftalık özet) açar. Abonelik, aynı Apple hesabıyla kullanılan cihazlarda geçerlidir.
+5.2. **İçgör Aile.** Abonelik; sınırsız yeni ürün, en fazla 10 profil ve uygulamada güncel listesi gösterilen ek özellikleri (ör. alışveriş listesinin skor dağılımı ve haftalık özet) açar. Abonelik, aynı Apple hesabıyla kullanılan cihazlarda geçerlidir.
 
 5.3. **Satın alma ve fiyat.** Abonelik App Store üzerinden, Apple hesabına bağlı ödeme yöntemiyle alınır ve ücreti Apple tarafından tahsil edilir. Güncel fiyat (vergiler dahil), dönem, varsa ücretsiz deneme süresi ve yenileme koşulları satın almadan önce ödeme ekranında ve Apple'ın onay ekranında açıkça gösterilir; esas alınan fiyat bu ekranlardaki fiyattır.
 

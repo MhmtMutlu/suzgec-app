@@ -1,8 +1,8 @@
 # İçgör KVKK Aydınlatma Metni
 
-Yayım tarihi: 5 Kasım 2026
-Yürürlük tarihi: 14 Kasım 2026
-Sürüm: 1.0
+Yayım tarihi: 16 Kasım 2026
+Yürürlük tarihi: 17 Kasım 2026
+Sürüm: 1.1 (önceki sürüm: 1.0, 5 Kasım 2026; değişiklik: katkı takip numarası)
 
 Bu metin, 6698 sayılı Kişisel Verilerin Korunması Kanunu ("KVKK") md. 10 ve Aydınlatma Yükümlülüğünün Yerine Getirilmesinde Uyulacak Usul ve Esaslar Hakkında Tebliğ uyarınca hazırlanmıştır.
 
@@ -28,7 +28,7 @@ E-posta: destek@mm-apps.com
 
 **Özel nitelikli veriler.** Sağlık veya inanç gibi özel nitelikli kişisel verilerini istemeyiz ve senden açık rıza almayız. Hata bildirimi notuna veya e-postana bu tür bir bilgiyi kendiliğinden yazarsan, bu bilgiyi talebini yanıtlamak veya silmek dışında hiçbir amaçla kullanmayız; hata bildirimlerinde fark edildiği anda sileriz. Lütfen bu tür bilgileri bize gönderme.
 
-**Kişisel veri olmayan bilgiler.** Barkod sorguları, isteğe bağlı anonim tarama istatistiği (barkod, ürün türü, sonuç ve gün), ürün katkıları (ambalaj bilgileri ve ürün fotoğrafı) ve hata bildirimleri (barkod, alan, not), hiçbir kişi, cihaz veya IP adresiyle ilişkilendirilmeden işlenir ve saklanır. Bu bilgiler, içine istemeden kişisel bilgi girmedikçe bir kişiyi belirlemeye elverişli değildir.
+**Kişisel veri olmayan bilgiler.** Barkod sorguları, isteğe bağlı anonim tarama istatistiği (barkod, ürün türü, sonuç ve gün), ürün katkıları ve düzeltme önerileri (ambalaj bilgileri ve ürün fotoğrafı), bunların sonucunu göstermeye yarayan rastgele takip numarasının özeti ve hata bildirimleri (barkod, alan, not), hiçbir kişi, cihaz veya IP adresiyle ilişkilendirilmeden işlenir ve saklanır. Takip numarası her gönderim için telefonunda ayrı oluşturulur; bağlı olduğu kayıt silinince, en geç 1 yıl sonra silinir. Bu bilgiler, içine istemeden kişisel bilgi girmedikçe bir kişiyi belirlemeye elverişli değildir.
 
 ## 3. Toplama yöntemi
 

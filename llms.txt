@@ -7,7 +7,7 @@
 ## Bilgiler
 - Platform: iPhone (iOS); dil: Türkçe
 - Fiyat: ücretsiz indirme; İçgör Aile aboneliği ₺84,99 / ay veya ₺499,99 / yıl (Türkiye App Store)
-- Ücretsiz sürüm: her ay 3 yeni ürün, 1 profil; İçgör Aile: sınırsız tarama, 6 profile kadar aile
+- Ücretsiz sürüm: her ay 10 yeni ürün, 1 profil; İçgör Aile: sınırsız tarama, 10 profile kadar aile
 - Hesap yok, reklam yok; aile profilleri telefonda kalır
 - Ürün türleri: gıda, kozmetik, temizlik ürünü, kıyafet etiketi
 - Katkı maddeleri: 72 E kodu (ör. E100 Kurkumin, E102 Tartrazin, E104 Kinolin sarısı, E110 Gün batımı sarısı, E120 Karmin, E122 Azorubin, E124 Ponso 4R, E129 Allura kırmızısı AC, E133 Parlak mavi FCF, E140 Klorofil, E150A Sade karamel, E150C Amonyak karameli); kaynaklar Türk Gıda Kodeksi, AB mevzuatı, EFSA

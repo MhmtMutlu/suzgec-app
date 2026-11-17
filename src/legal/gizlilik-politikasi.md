@@ -1,8 +1,8 @@
 # İçgör Gizlilik Politikası
 
-Yayım tarihi: 5 Kasım 2026
-Yürürlük tarihi: 14 Kasım 2026
-Sürüm: 2.0 (önceki sürüm: 1.0, 4 Kasım 2026)
+Yayım tarihi: 16 Kasım 2026
+Yürürlük tarihi: 17 Kasım 2026
+Sürüm: 2.1 (önceki sürüm: 2.0, 5 Kasım 2026; değişiklik: katkı takibi, 3.3.1)
 
 Bu politika, İçgör iOS uygulamasının ("İçgör" veya "uygulama") hangi bilgileri, nerede ve ne kadar süre işlediğini anlatır. 6698 sayılı Kişisel Verilerin Korunması Kanunu ("KVKK") uyarınca hazırladığımız aydınlatma metni ayrı bir sayfadadır: [KVKK Bilgilendirmesi](https://icgor.mm-apps.com/kvkk/).
 
@@ -11,7 +11,7 @@ Bu politika, İçgör iOS uygulamasının ("İçgör" veya "uygulama") hangi bil
 - **Hesap yok.** İçgör'ü kullanmak için ad, e-posta, telefon numarası veya giriş bilgisi istemeyiz.
 - **Reklam ve izleme yok.** Reklam göstermeyiz, reklam kimliği (IDFA) kullanmayız, üçüncü taraf analitik aracı kullanmayız. Bilgilerini satmayız.
 - **Aile profillerin yalnızca telefonunda.** Ad, yaş grubu, alerjen, hamilelik, diyet ve benzeri bilgiler bize, iCloud'a ya da başka bir yere gönderilmez. Biz bu bilgileri göremeyiz.
-- **Sunucumuzda seni tanıtan kayıt tutmayız.** Sunucumuza gönderilen bilgiler (barkod sorgusu, isteğe bağlı katkı, hata bildirimi, isteğe bağlı istatistik) hiçbir kullanıcı, cihaz veya kurulum kimliğiyle ilişkilendirilmez.
+- **Sunucumuzda seni tanıtan kayıt tutmayız.** Sunucumuza gönderilen bilgiler (barkod sorgusu, isteğe bağlı katkı, hata bildirimi, isteğe bağlı istatistik) hiçbir kullanıcı, cihaz veya kurulum kimliğiyle ilişkilendirilmez. Katkılarının sonucunu görebilmen için her katkı ve düzeltme önerisine telefonunda rastgele bir takip numarası eklenir; sunucumuz bu numaranın yalnızca özetini saklar (bkz. 3.3.1).
 - **IP adresi.** İnternetin çalışma biçimi gereği, sunucumuza bağlandığında IP adresin sunucuya ulaşır. IP adresini hiçbir dosyaya veya veritabanına yazmayız; yalnızca kötüye kullanımı önlemek için sunucunun belleğinde en fazla 1 saat tutarız (bkz. 4. bölüm).
 - **Bize e-posta yazarsan** e-posta adresini ve mesajını yalnızca yanıt vermek için işleriz.
 
@@ -35,6 +35,7 @@ Aşağıdaki bilgiler uygulamanın telefonundaki veri deposunda tutulur. Hiçbir
 | İndirilen ürün bilgileri (önbellek) | Ürünü tekrar okuttuğunda hızlı ve internetsiz göstermek | Ayarlar > Veriler > İndirilen bilgileri temizle |
 | Ücretsiz sürümde bu ay açtığın ürünlerin barkodları | Aylık yeni ürün hakkını saymak | Her ay kendiliğinden sıfırlanır |
 | Henüz gönderilmemiş katkı veya hata bildirimi (fotoğraf dahil) | Bağlantı yokken hazırladığını sonra göndermek | Gönderilince veya gönderilemeyince otomatik silinir |
+| Katkılarım listesi: gönderdiğin katkı ve önerilerin ürün adı, barkodu, alanları, tarihi, takip numarası ve son durumu | Katkılarının incelemede mi, onaylandı mı, reddedildi mi olduğunu göstermek | Ayarlar > Katkılarım > ··· > Listeyi temizle; 1 yıl sonra kendiliğinden silinir |
 | Son tarama özeti (widget) | Ana ekran ve kilit ekranı widget'ı | Geçmiş temizlenince silinir |
 | Tercihlerin (ör. istatistik ayarı, kabul ettiğin koşul sürümü) | Uygulamanın ayarlarını hatırlamak | Uygulamayı kaldır |
 
@@ -82,7 +83,7 @@ Bulunamayan bir ürünü eklerken bilgiyi paylaşmayı her seferinde sen seçers
 
 **Gönderilmeyen:** adın, e-postan, hesap, cihaz veya kurulum kimliğin, profillerin, içindekiler ve besin değeri fotoğrafların.
 
-**İlişkilendirme yok.** Katkın sunucumuzda hiçbir kişi veya cihazla ilişkilendirilmez. Gönderim zamanı saat olarak değil, yalnızca gün olarak kaydedilir. Bu yüzden bir katkının kimden geldiğini bilemeyiz; bu, belirli bir katkıyı senin talebinle bulmamızı da zorlaştırır (bkz. 9. bölüm).
+**İlişkilendirme yok.** Katkın sunucumuzda hiçbir kişi, hesap veya cihaz kimliğiyle ilişkilendirilmez; yalnızca o katkıya ait rastgele takip numarasının özeti saklanır (bkz. 3.3.1). Gönderim zamanı saat olarak değil, yalnızca gün olarak kaydedilir. Bu yüzden bir katkının kimden geldiğini bilemeyiz; bu, belirli bir katkıyı senin talebinle bulmamızı da zorlaştırır (bkz. 9. bölüm).
 
 **Fotoğraf hakkında.**
 - Fotoğraf yalnızca ürünün ambalajını göstermelidir. İçinde yüz, kişi, el, belge, ekran veya evinin içini tanıtacak ayrıntı bulunmamalıdır.
@@ -92,6 +93,16 @@ Bulunamayan bir ürünü eklerken bilgiyi paylaşmayı her seferinde sen seçers
 **Ne olur?** Katkın önce bir inceleme kuyruğuna girer; inceleme olmadan hiçbir şey yayımlanmaz. Onaylanan ürün bilgisi ve fotoğraf tüm İçgör kullanıcılarına gösterilir, açık lisanslarla herkesin indirebileceği veritabanımızda yayımlanır ve Open Food Facts'e (veya kardeş projelerine) iletilebilir. Open Food Facts'e iletilen bilgiler orada herkese açık yayımlanır ve değişiklik geçmişinden silinemeyebilir. Lisans koşulları: [Katkı Koşulları](https://icgor.mm-apps.com/katki/).
 
 Ürün bilgileri bir kişiye değil bir ürüne aittir ve kural olarak kişisel veri değildir. Alanlara veya fotoğrafa yanlışlıkla kişisel bilgi girerse, incelemede fark edildiğinde silinir.
+
+### 3.3.1 Katkılarım: katkının sonucunu görmek
+
+Ayarlar > Katkılarım ekranında gönderdiğin ürün katkılarının ve düzeltme önerilerinin incelemede mi olduğunu, onaylandığını veya reddedildiğini görürsün. Bunun için hesap gerekmez:
+
+- Her katkı ve öneri için telefonunda **rastgele bir takip numarası** oluşturulur ve gönderimle birlikte sunucumuza iletilir. Numara yalnızca o gönderime aittir; adın, cihazın veya diğer gönderimlerinle bir bağı yoktur.
+- Sunucumuz numaranın kendisini değil, yalnızca geri çevrilemeyen bir özetini (SHA-256) gönderimin yanında saklar.
+- Ekranı açtığında telefonun, sonucu henüz belli olmayan gönderimlerinin takip numaralarını sunucumuza gönderir ve her biri için yalnızca "inceleniyor", "onaylandı", "reddedildi" ya da "bilinmiyor" yanıtını alır. Reddedilen bir gönderimde moderatörün yazdığı gerekçe de gösterilir. Sunucumuz bu sorguyu kaydetmez.
+- Takip numarasının özeti, bağlı olduğu katkı veya öneri silinince, en geç 1 yıl sonra silinir. Sonrasında durum "bilinmiyor" olarak görünür.
+- Liste yalnızca telefonundadır; Katkılarım ekranından silebilirsin. Listeyi silmek, gönderdiğin katkının incelenmesini durdurmaz.
 
 ### 3.4 Hata bildirimi (isteğe bağlı)
 
@@ -105,7 +116,7 @@ Bir üründe yanlış bilgi görürsen "Hata bildir" ile bize iletebilirsin. Gö
 
 Bir üründe yanlış bilgi görür ve doğrusunu ambalajdan okursan "Düzeltme öner" ile gönderebilirsin. Gönderilenler: barkod, ürün türü, bilginin kaynağı, düzelttiğin alanlar, ambalajda yazan değer, o anda uygulamada gördüğün değer, uygulama sürümü ve yalnızca sen seçersen ambalajın etiket fotoğrafı.
 
-- Öneri hiçbir kişi veya cihazla ilişkilendirilmez. Bir moderatör öneriyi ürün kaydı ve fotoğrafla karşılaştırır. Onaylanan düzeltme, Open Food Facts kaydı aynı kaldığı sürece uygulamada gösterilir, ODbL ile açık veri olarak yayımlanır ve Open Food Facts'e de gönderilebilir.
+- Öneri hiçbir kişi, hesap veya cihaz kimliğiyle ilişkilendirilmez; yalnızca o öneriye ait rastgele takip numarasının özeti saklanır (bkz. 3.3.1). Bir moderatör öneriyi ürün kaydı ve fotoğrafla karşılaştırır. Onaylanan düzeltme, Open Food Facts kaydı aynı kaldığı sürece uygulamada gösterilir, ODbL ile açık veri olarak yayımlanır ve Open Food Facts'e de gönderilebilir.
 - **Etiket fotoğrafı yayımlanmaz.** Fotoğraf telefonda ve sunucuda pikselden yeniden kodlanır; konum, tarih ve cihaz bilgisi silinir. Yalnızca moderatör görür ve karar verildiğinde silinir.
 - Değer alanlarına yalnızca ambalajda yazanı gir. Telefon, e-posta, kimlik numarası veya IBAN gibi bilgiler yazılırsa uygulama gönderimi durdurur.
 
@@ -146,6 +157,7 @@ Bu işlemenin hukuki sebebi, hizmetin güvenli biçimde sunulmasına yönelik me
 | Katkı: ürün bilgileri ve ön yüz fotoğrafı | Ürün veritabanını tamamlamak ve herkese sunmak | Kural olarak kişisel veri değildir; içinde yanlışlıkla kişisel veri çıkarsa yalnızca silinmek üzere işlenir (KVKK md. 5/2-f) | İncelenmemiş: en fazla 180 gün, sonra silinir. Reddedilen: karar tarihinden itibaren 30 gün. Onaylanan: açık veri olarak süresiz |
 | Düzeltme önerisi | Mevcut ürün bilgisini düzeltmek | Kural olarak kişisel veri değildir; içinde yanlışlıkla kişisel veri çıkarsa yalnızca silinmek üzere işlenir (KVKK md. 5/2-f) | İncelenmemiş: en fazla 180 gün. Karar verilen öneri: 30 gün. Onaylanan düzeltme değeri: açık veri olarak, Open Food Facts aynı değere gelene ya da kayıt değişene kadar ve sonrasında geçmiş kaydı olarak 1 yıl |
 | Düzeltme için etiket fotoğrafı | Moderatörün düzeltmeyi doğrulaması | Aynı | Karar verilince silinir; incelenmemişse en fazla 180 gün |
+| Katkı ve öneri takip numarasının özeti | Gönderenin, katkısının sonucunu görebilmesi | Kişiyle veya cihazla ilişkilendirilemeyen rastgele bir değerdir; buna rağmen kişisel veri sayılırsa: KVKK md. 5/2-f | Bağlı olduğu katkı veya öneri silinene kadar, en fazla 1 yıl |
 | Hata bildirimi (not dahil) | Ürün bilgisini düzeltmek | Kural olarak kişisel veri değildir; içinde yanlışlıkla kişisel veri çıkarsa yalnızca silinmek üzere işlenir (KVKK md. 5/2-f) | İnceleme bitene kadar; bildirim kapatıldıktan sonra 30 gün |
 | Destek e-postası | Talebini yanıtlamak | KVKK md. 5/2-c, 5/2-ç (KVKK başvuruları) ve 5/2-f | Konu kapandıktan sonra en geç 2 yıl |
 
