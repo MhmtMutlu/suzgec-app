@@ -51,6 +51,8 @@ PRICES = {"1.0": ("₺84,99", "₺499,99"), "1.1": ("₺49,99", "₺299,99")}
 PRICE_MONTHLY, PRICE_YEARLY = PRICES[PRICE_SET]
 # Shown from 17 Nov, a day before Apple charges the new prices; the date keeps the claim true on both days.
 PRICE_FROM = "18 Kasım 2026'dan itibaren"
+# One-year İçgör Aile pass, single payment, never renews (app 1.1.1, live 17 Nov 2026).
+PRICE_PASS = "₺349,99"
 FREE_MONTHLY_NEW = FEATURES[APP_RELEASE]["free"]
 FAMILY_PROFILES = FEATURES[APP_RELEASE]["profiles"]
 TRACKING = FEATURES[APP_RELEASE]["tracking"]
@@ -529,10 +531,11 @@ def landing() -> str:
       <h3>İçgör Aile</h3>
       <p class="price">{PRICE_YEARLY}<small> / yıl</small></p>
       <p class="price-alt">ya da {PRICE_MONTHLY} / ay · 1 hafta ücretsiz deneme · {PRICE_FROM}</p>
+      <p class="price-alt">ya da {PRICE_PASS} tek ödemeyle 1 yıl, otomatik yenilenmez</p>
       <ul><li>Sınırsız tarama</li><li>{FAMILY_PROFILES} profile kadar aile</li><li>Liste ve haftalık özet</li><li>Tüm cihazlarında, Aile Paylaşımı ile</li></ul>
     </article>
   </div>
-  <p class="fine">Ödeme ve iptal Apple hesabın üzerinden yapılır; abonelik, dönem bitmeden en az 24 saat önce iptal edilmezse yenilenir. Ayrıntılar: <a href="kosullar/">Kullanım koşulları</a>.</p>
+  <p class="fine">Ödeme ve iptal Apple hesabın üzerinden yapılır; abonelik, dönem bitmeden en az 24 saat önce iptal edilmezse yenilenir; 1 yıllık tek ödeme yenilenmez, süresi dolunca biter. Ayrıntılar: <a href="kosullar/">Kullanım koşulları</a>.</p>
 </section>
 
 <section class="band band-soft" aria-labelledby="sss-baslik">
@@ -919,7 +922,7 @@ def press_page(rules: dict) -> str:
     facts = [
         ("Ad", APP_NAME), ("App Store adı", STORE_NAME), ("Geliştirici", f"{DEVELOPER}, Türkiye'de bağımsız geliştirici"),
         ("Platform", "iPhone (iOS)"), ("Dil", "Türkçe"),
-        ("Fiyat", f"Ücretsiz; İçgör Aile aboneliği {PRICE_FROM} {PRICE_MONTHLY} / ay veya {PRICE_YEARLY} / yıl"),
+        ("Fiyat", f"Ücretsiz; İçgör Aile aboneliği {PRICE_FROM} {PRICE_MONTHLY} / ay veya {PRICE_YEARLY} / yıl; ya da {PRICE_PASS} tek ödemeyle 1 yıl (yenilenmez)"),
         ("Ücretsiz sürüm", f"Her ay {FREE_MONTHLY_NEW} yeni ürün, 1 profil"),
         ("İçgör Aile", f"Sınırsız tarama, {FAMILY_PROFILES} profile kadar aile"),
         ("Tanıdığı katkı maddesi", f"{len(rules['additives'])} E kodu"),
@@ -1116,7 +1119,7 @@ def write_llms(rules: dict) -> None:
 
 ## Bilgiler
 - Platform: iPhone (iOS); dil: Türkçe
-- Fiyat: ücretsiz indirme; İçgör Aile aboneliği {PRICE_FROM} {PRICE_MONTHLY} / ay veya {PRICE_YEARLY} / yıl (Türkiye App Store)
+- Fiyat: ücretsiz indirme; İçgör Aile aboneliği {PRICE_FROM} {PRICE_MONTHLY} / ay veya {PRICE_YEARLY} / yıl; ya da {PRICE_PASS} tek ödemeyle 1 yıl, yenilenmez (Türkiye App Store)
 - Ücretsiz sürüm: her ay {FREE_MONTHLY_NEW} yeni ürün, 1 profil; İçgör Aile: sınırsız tarama, {FAMILY_PROFILES} profile kadar aile
 - Hesap yok, reklam yok; aile profilleri telefonda kalır
 - Ürün türleri: gıda, kozmetik, temizlik ürünü, kıyafet etiketi

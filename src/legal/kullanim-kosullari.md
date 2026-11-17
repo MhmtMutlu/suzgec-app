@@ -1,8 +1,8 @@
 # İçgör Kullanım Koşulları
 
-Yayım tarihi: 16 Kasım 2026
+Yayım tarihi: 17 Kasım 2026
 Yürürlük tarihi: 17 Kasım 2026
-Sürüm: 2.1 (önceki sürüm: 2.0, 5 Kasım 2026; değişiklik: ücretsiz sürümde ayda 10 yeni ürün, İçgör Aile'de 10 profil)
+Sürüm: 2.2 (önceki sürüm: 2.1, 16 Kasım 2026; değişiklik: 1 yıllık tek ödeme ve teklif kodları, 5.11 ve 5.12)
 
 Bu koşullar, İçgör iOS uygulamasının ("İçgör" veya "uygulama") kullanımını düzenler ve seninle İçgör'ün geliştiricisi Mehmet Mutlu ("biz") arasındaki sözleşmedir. Uygulamanın ilk açılışında "Devam et" düğmesine dokunarak bu koşulları kabul etmiş olursun. Kabul etmiyorsan uygulamayı kullanmamalısın.
 
@@ -78,7 +78,11 @@ Kişisel bilgilerin nasıl işlendiği [Gizlilik Politikası](https://icgor.mm-a
 
 5.9. **Geri yükleme.** Aboneliğini aynı Apple hesabıyla başka bir cihazda "Geri yükle" düğmesiyle etkinleştirebilirsin. Profiller ve geçmiş cihazlar arasında aktarılmaz.
 
-5.10. **Özelliklerin değişmesi.** Ücretsiz veya ücretli özellikleri geliştirebiliriz. Abonelik döneminin ortasında, ödediğin dönem için sunulan temel özellikleri (sınırsız yeni ürün ve çoklu profil) aleyhine değiştirmeyiz. Ücretli özelliklerde aleyhine bir değişiklik ancak sonraki dönemden itibaren ve en az 15 gün önce bildirilerek uygulanır; bu durumda aboneliğini ek ücret ödemeden iptal edebilirsin.
+5.10. **Özelliklerin değişmesi.** Ücretsiz veya ücretli özellikleri geliştirebiliriz. Abonelik döneminin ortasında, ödediğin dönem için sunulan temel özellikleri (sınırsız yeni ürün ve çoklu profil) aleyhine değiştirmeyiz. Ücretli özelliklerde aleyhine bir değişiklik ancak sonraki dönemden itibaren ve en az 15 gün önce bildirilerek uygulanır; bu durumda aboneliğini ek ücret ödemeden iptal edebilirsin. 1 yıllık tek ödemede bu güvence, ödediğin 1 yılın tamamı için geçerlidir.
+
+5.11. **1 yıllık tek ödeme.** İçgör Aile'yi otomatik yenilenen abonelik yerine tek ödemeyle 1 yıllığına da alabilirsin. Bu seçenekte ücret bir kez alınır; İçgör Aile satın aldığın günden 1 yıl sonra kendiliğinden sona erer, otomatik yenilenmez ve senden tekrar ücret alınmaz. Süre dolmadan yeniden alırsan yeni yıl, mevcut sürenin bitiminden başlar. Bitiş tarihi uygulamada Ayarlar > İçgör Aile ekranında gösterilir. Satın alma, fiyat, cayma, iade ve geri yükleme için 5.3, 5.7 ve 5.9 maddeleri bu seçenek için de geçerlidir.
+
+5.12. **Teklif kodları.** Zaman zaman, kendi seçtiğimiz kişilere İçgör Aile'yi ücretsiz veya indirimli kullandıran Apple teklif kodları verebiliriz. Kod, uygulamada İçgör Aile ekranındaki "Kodum var" düğmesiyle Apple'ın ekranından kullanılır; kodun kapsamı, süresi, kullanım sayısı ve son kullanma tarihi kodla birlikte bildirilir. Kodların kullanımı Apple tarafından yürütülür ve Apple'ın koşullarına tabidir. Sınırlı sayıdaki bir kodun kullanım hakkı dolduğunda kod artık çalışmaz. Kodlar satılamaz, paraya çevrilemez; ücretsiz bir koddan iade doğmaz.
 
 ## 6. Katkılar ve hata bildirimleri
 
