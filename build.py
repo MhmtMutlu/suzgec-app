@@ -340,7 +340,7 @@ def page(title: str, description: str, body: str, depth: int, canonical: str, ac
       <p class="foot-note">{APP_NAME} bir bilgi aracıdır; tıbbi, diyet veya alerji tavsiyesi vermez. Alerjin varsa her zaman ambalajdaki etiketi okuyup kendi doktoruna danış.</p>
     </div>
     <nav class="foot-links" aria-label="Rehberler">{guide_links}<a href="{up}basin/">Basın</a></nav>
-    <nav class="foot-links" aria-label="Yasal">{legal_links}<a href="{up}destek/">Destek</a></nav>
+    <nav class="foot-links" aria-label="Yasal">{legal_links}<a href="{up}destek/">Destek</a><a href="https://mm-apps.com/">mm-apps'in diğer oyun ve uygulamaları</a></nav>
     <div class="foot-small">
       <p>Ürün verisinin bir kısmı <a href="https://world.openfoodfacts.org" rel="noopener">Open Food Facts</a> katkıcılarındandır (<a href="https://opendatacommons.org/licenses/odbl/1-0/" rel="noopener">ODbL</a>).</p>
       <p>Apple, App Store ve iPhone, Apple Inc.'in ticari markalarıdır. {APP_NAME}; Sağlık Bakanlığı veya başka bir kurumla bağlantılı değildir, onların onayını taşımaz.</p>
