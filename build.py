@@ -545,14 +545,24 @@ def landing() -> str:
       <p class="price">₺0</p>
       <ul><li>Her ay {FREE_MONTHLY_NEW} yeni ürün</li><li>1 profil</li><li>Geçmişteki ürünlere sınırsız bakış</li><li>Etiket fotoğrafından okuma</li></ul>
     </article>
+    <article class="plan">
+      <h3>İçgör Aile · Aylık</h3>
+      <p class="price">{PRICE_MONTHLY}<small> / ay</small></p>
+      <ul><li>1 hafta ücretsiz deneme</li><li>Her ay yenilenir, istediğin zaman iptal</li><li>Aile Paylaşımı ile</li></ul>
+    </article>
     <article class="plan plan-main">
-      <h3>İçgör Aile</h3>
+      <p class="plan-tag">Ayda yaklaşık {per_month(PRICE_YEARLY)}</p>
+      <h3>İçgör Aile · Yıllık</h3>
       <p class="price">{PRICE_YEARLY}<small> / yıl</small></p>
-      <p class="price-alt">ya da {PRICE_MONTHLY} / ay · 1 hafta ücretsiz deneme</p>
-      <p class="price-alt">ya da {PRICE_PASS} tek ödemeyle 1 yıl, otomatik yenilenmez (Aile Paylaşımı dışında)</p>
-      <ul><li>Sınırsız tarama</li><li>{FAMILY_PROFILES} profile kadar aile</li><li>Liste ve haftalık özet</li><li>Tüm cihazlarında, Aile Paylaşımı ile</li></ul>
+      <ul><li>1 hafta ücretsiz deneme</li><li>Her yıl yenilenir, istediğin zaman iptal</li><li>Aile Paylaşımı ile</li></ul>
+    </article>
+    <article class="plan">
+      <h3>İçgör Aile · 1 yıl</h3>
+      <p class="price">{PRICE_PASS}<small> / 1 yıl</small></p>
+      <ul><li>Tek ödeme; otomatik yenilenmez, 1 yıl sonra biter</li><li>Hediye kodu ile de açılır</li><li>Aile Paylaşımı dışında</li></ul>
     </article>
   </div>
+  <p class="plans-common">Üç İçgör Aile seçeneğinde de: sınırsız tarama · {FAMILY_PROFILES} profile kadar aile · liste ve haftalık özet · tüm cihazlarında.</p>
   <p class="fine">Ödeme ve iptal Apple hesabın üzerinden yapılır; abonelik, dönem bitmeden en az 24 saat önce iptal edilmezse yenilenir; 1 yıllık tek ödeme yenilenmez, süresi dolunca biter. Ayrıntılar: <a href="kosullar/">Kullanım koşulları</a>.</p>
 </section>
 
@@ -1116,6 +1126,12 @@ def lastmods(paths: list[str]) -> dict[str, str]:
     store.parent.mkdir(parents=True, exist_ok=True)
     store.write_text(json.dumps(result, ensure_ascii=False, indent=1, sort_keys=True) + "\n", encoding="utf-8")
     return {path: value["date"] for path, value in result.items()}
+
+
+def per_month(yearly: str) -> str:
+    """"₺299,99" → "₺25": the yearly price spread over 12 months, rounded to whole lira."""
+    amount = float(yearly.lstrip("₺").replace(".", "").replace(",", "."))
+    return f"₺{round(amount / 12)}"
 
 
 def tr_date(iso: str) -> str:

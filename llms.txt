@@ -7,7 +7,7 @@
 ## Bilgiler
 - Platform: iPhone, iOS 17 veya üstü; dil: Türkçe
 - Sürüm: 1.1.1 (17 Kasım 2026); ilk yayın 14 Kasım 2026
-- Son güncelleme (bu site): 18 Kasım 2026
+- Son güncelleme (bu site): 19 Kasım 2026
 - Fiyat: ücretsiz indirme; İçgör Aile aboneliği ₺49,99 / ay veya ₺299,99 / yıl; ya da ₺349,99 tek ödemeyle 1 yıl, yenilenmez (Türkiye App Store)
 - Ücretsiz sürüm: her ay 10 yeni ürün, 1 profil; İçgör Aile: sınırsız tarama, 10 profile kadar aile
 - Hesap yok, reklam yok; aile profilleri telefonda kalır
