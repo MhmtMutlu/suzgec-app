@@ -5,8 +5,10 @@
 İçgör (İçgör: Katkı Maddesi & Barkod), mm-apps tarafından Türkiye'de geliştirilen bir iPhone uygulamasıdır.
 
 ## Bilgiler
-- Platform: iPhone (iOS); dil: Türkçe
-- Fiyat: ücretsiz indirme; İçgör Aile aboneliği 18 Kasım 2026'dan itibaren ₺49,99 / ay veya ₺299,99 / yıl; ya da ₺349,99 tek ödemeyle 1 yıl, yenilenmez (Türkiye App Store)
+- Platform: iPhone, iOS 17 veya üstü; dil: Türkçe
+- Sürüm: 1.1.1 (17 Kasım 2026); ilk yayın 14 Kasım 2026
+- Son güncelleme (bu site): 18 Kasım 2026
+- Fiyat: ücretsiz indirme; İçgör Aile aboneliği ₺49,99 / ay veya ₺299,99 / yıl; ya da ₺349,99 tek ödemeyle 1 yıl, yenilenmez (Türkiye App Store)
 - Ücretsiz sürüm: her ay 10 yeni ürün, 1 profil; İçgör Aile: sınırsız tarama, 10 profile kadar aile
 - Hesap yok, reklam yok; aile profilleri telefonda kalır
 - Ürün türleri: gıda, kozmetik, temizlik ürünü, kıyafet etiketi
@@ -15,6 +17,13 @@
 - Beslenme Skoru: Sağlık Bakanlığı Beslenme Skoru Rehberi eşikleriyle İçgör hesaplar; resmî bir not değildir
 - Tıbbi tavsiye vermez
 - App Store: https://apps.apple.com/tr/app/id6830374026
+- Geliştirici sayfası: https://mm-apps.com/icgor/
+
+## In English
+İçgör is a free iPhone app from Türkiye (Turkish only) that scans a product's barcode or label (food, cosmetics,
+cleaning products, clothing care labels), shows food additives (E numbers) and the 14 EU allergens with their sources,
+computes a Nutrition Score from the Turkish Ministry of Health guide (not an official grade) and gives a separate
+result for each family member. No account, no ads; family profiles stay on the phone.
 
 ## Sayfalar
 - [İçgör ana sayfa](https://icgor.mm-apps.com/)

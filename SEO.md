@@ -21,8 +21,13 @@ Sayfa başına tek konu; aynı metni farklı anahtar kelimeyle çoğaltan "kapı
 - Her sayfa: canonical, açıklama, Open Graph + `og:locale tr_TR`, Twitter kartı, `apple-itunes-app` (Smart App Banner).
 - JSON-LD tek `@graph`: Organization (mm-apps), WebSite, WebPage, BreadcrumbList; ana sayfada MobileApplication
   (puan/ödül yok); katkı listesinde CollectionPage + ItemList; rehberlerde Article; basında AboutPage.
-- `sitemap.xml`: `lastmod` sayfanın içeriği gerçekten değişince ilerler (`data/lastmod.json`).
-- `robots.txt`: arama ve yapay zekâ botlarına açık. `llms.txt`: aynı bilgiler, Türkçe (deneysel; Google kullanmıyor).
+- `sitemap.xml`: `lastmod` sayfanın içeriği gerçekten değişince ilerler (`data/lastmod.json`). Aynı tarih derlemenin
+  sonunda her sayfanın JSON-LD `dateModified` alanına ve altbilgideki "Son güncelleme" satırına yazılır (`stamp()`).
+- Paylaşım görseli `assets/og.png` 1200×630 (`scripts/og.swift` ile çizilir; metni ana sayfa başlığıyla birlikte değiştir).
+- MobileApplication: `softwareVersion`, `datePublished`, `operatingSystem` (iOS 17+), `sameAs` App Store ve
+  mm-apps.com/icgor/. Sürüm ve tarihler basın sayfasında da görünür. Ana sayfadaki SSS ayrıca `FAQPage` olarak işaretli;
+  derleme her soru ve cevabın sayfada göründüğünü denetler. Rehberlerde Article: `image`, `publisher`, `dateModified`.
+- `robots.txt`: arama ve yapay zekâ botlarına açık. `llms.txt`: aynı bilgiler, Türkçe; sürüm, ilk yayın, son güncelleme ve kısa bir İngilizce paragraf (deneysel; Google kullanmıyor).
 - IndexNow anahtarı derlemede `/<anahtar>.txt` olarak yazılır; `scripts/indexnow.sh` yayından sonra çalıştırılır.
 - 404: `noindex`, canonical ve JSON-LD yok.
 
@@ -36,7 +41,9 @@ Sayfa başına tek konu; aynı metni farklı anahtar kelimeyle çoğaltan "kapı
 ## Sürüm anahtarları (`build.py` başı)
 - `APP_RELEASE`: App Store'daki sürüm. "1.1" yayına girince değiştir ve `python3 build.py --sync` çalıştır
   (yasal metinler 1.1 için uygulama deposundan kopyalanır; 1.0 yayındayken `--sync` reddedilir).
-- `PRICE_SET`: App Store'un bugün aldığı fiyat. 1.1 fiyatları (₺49,99 / ₺299,99) Apple'da başladığı gün "1.1" yap.
+- `PRICE_SET`: App Store'un bugün aldığı fiyat (1.1 fiyatları ₺49,99 / ₺299,99, 18 Kasım 2026'dan beri). `PRICE_PASS`:
+  1 yıllık tek ödeme (₺349,99, 1.1.1).
+- `APP_VERSION`, `VERSION_RELEASE`: her yeni sürüm yayına girince güncelle (JSON-LD, basın sayfası, llms.txt).
 - İkisi farklı günlere düşebilir; site her zaman mağazayla aynı şeyi söylemeli.
 
 ## Senin yapacakların

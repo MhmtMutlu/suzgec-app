@@ -28,7 +28,6 @@ LEGAL_SRC = ROOT.parent / "suzgec" / "docs" / "legal" / "v2"
 APP_NAME = "İçgör"
 SITE_URL = "https://icgor.mm-apps.com/"
 CONTACT = "destek@mm-apps.com"
-UPDATED = "16 Kasım 2026"
 
 APP_STORE_LIVE = True  # 1.0.0 live 14 Nov 2026; 1.1.0 live 17 Nov 2026
 APP_ID = "6830374026"
@@ -36,10 +35,20 @@ APP_STORE_URL = f"https://apps.apple.com/tr/app/id{APP_ID}"
 STORE_NAME = "İçgör: Katkı Maddesi & Barkod"
 DEVELOPER = "mm-apps"
 DEVELOPER_URL = "https://mm-apps.com/"
+DEVELOPER_APP_PAGE = "https://mm-apps.com/icgor/"
+# The App Store version and dates (JSON-LD, press page, llms.txt). Update with every release.
+APP_VERSION = "1.1.1"
+FIRST_RELEASE = ("2026-11-14", "14 Kasım 2026")
+VERSION_RELEASE = ("2026-11-17", "17 Kasım 2026")
+MIN_IOS = "17"
+OG_IMAGE = f"{SITE_URL}assets/og.png"  # 1200×630, scripts/og.swift
+# Filled in after the build from data/lastmod.json, so the date itself never changes a page's content hash.
+LASTMOD_ISO, LASTMOD_TEXT = "__LASTMOD_ISO__", "__LASTMOD_TEXT__"
+TR_MONTHS = ("Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran", "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık")
 
 # Two separate switches, because they go live on different days (App Review vs. Apple's scheduled price change):
 # APP_RELEASE: the app version on the App Store; FEATURES are what it really does.
-# PRICE_SET: the price the App Store charges today (the 1.1 prices start 18 Nov 2026 at the earliest).
+# PRICE_SET: the price the App Store charges today (the 1.1 prices started 18 Nov 2026).
 # When APP_RELEASE becomes "1.1", also run `python3 build.py --sync` so the legal texts match the app.
 APP_RELEASE = "1.1"
 PRICE_SET = "1.1"
@@ -50,7 +59,6 @@ FEATURES = {
 PRICES = {"1.0": ("₺84,99", "₺499,99"), "1.1": ("₺49,99", "₺299,99")}
 PRICE_MONTHLY, PRICE_YEARLY = PRICES[PRICE_SET]
 # Shown from 17 Nov, a day before Apple charges the new prices; the date keeps the claim true on both days.
-PRICE_FROM = "18 Kasım 2026'dan itibaren"
 # One-year İçgör Aile pass, single payment, never renews (app 1.1.1, live 17 Nov 2026).
 PRICE_PASS = "₺349,99"
 FREE_MONTHLY_NEW = FEATURES[APP_RELEASE]["free"]
@@ -251,7 +259,10 @@ def common_nodes(title: str, description: str, canonical: str, crumbs: list[tupl
     """Organization, WebSite, WebPage and BreadcrumbList; every text here is also visible on the page."""
     url = f"{SITE_URL}{canonical}"
     page_node = {"@type": page_type, "@id": f"{url}#webpage", "url": url, "name": title, "description": description,
-                 "inLanguage": "tr", "isPartOf": {"@id": f"{SITE_URL}#site"}, "about": {"@id": APP_NODE_ID}}
+                 "inLanguage": "tr", "isPartOf": {"@id": f"{SITE_URL}#site"}, "about": {"@id": APP_NODE_ID},
+                 "dateModified": LASTMOD_ISO, "primaryImageOfPage": {"@type": "ImageObject", "url": OG_IMAGE}}
+    if "Article" in (page_type if isinstance(page_type, list) else [page_type]):
+        page_node.update({"image": OG_IMAGE, "publisher": {"@id": ORG_ID}, "mainEntityOfPage": {"@id": f"{url}#webpage"}})
     nodes = [
         {"@type": "Organization", "@id": ORG_ID, "name": DEVELOPER, "url": DEVELOPER_URL, "email": CONTACT},
         {"@type": "WebSite", "@id": f"{SITE_URL}#site", "url": SITE_URL, "name": APP_NAME, "inLanguage": "tr",
@@ -314,8 +325,11 @@ def page(title: str, description: str, body: str, depth: int, canonical: str, ac
 <meta property="og:description" content="{esc(description)}">
 <meta property="og:type" content="website">
 <meta property="og:url" content="{SITE_URL}{canonical}">
-<meta property="og:image" content="{SITE_URL}assets/og.png">
-<meta property="og:image:alt" content="{APP_NAME} logosu: İçini gör.">
+<meta property="og:image" content="{OG_IMAGE}">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="{APP_NAME}: İçini gör. Katkı maddeleri, 14 alerjen ve Beslenme Skoru, ailedeki her kişiye ayrı.">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="{up}assets/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="{up}assets/apple-touch-icon.png">
@@ -344,7 +358,7 @@ def page(title: str, description: str, body: str, depth: int, canonical: str, ac
     <div class="foot-small">
       <p>Ürün verisinin bir kısmı <a href="https://world.openfoodfacts.org" rel="noopener">Open Food Facts</a> katkıcılarındandır (<a href="https://opendatacommons.org/licenses/odbl/1-0/" rel="noopener">ODbL</a>).</p>
       <p>Apple, App Store ve iPhone, Apple Inc.'in ticari markalarıdır. {APP_NAME}; Sağlık Bakanlığı veya başka bir kurumla bağlantılı değildir, onların onayını taşımaz.</p>
-      <p>© 2026 Mehmet Mutlu · <a href="mailto:{CONTACT}">{CONTACT}</a> · Bu site çerez ve analiz aracı kullanmaz.</p>
+      <p>© 2026 Mehmet Mutlu · <a href="mailto:{CONTACT}">{CONTACT}</a> · Bu site çerez ve analiz aracı kullanmaz. · Son güncelleme: <time datetime="{LASTMOD_ISO}">{LASTMOD_TEXT}</time></p>
     </div>
   </div>
 </footer>
@@ -445,6 +459,10 @@ def landing() -> str:
     if TRACKING:
         faq.insert(3, ("Gönderdiğim bilginin durumunu görebilir miyim?",
                        "Evet. Ayarlar > Katkılarım ekranında gönderdiğin ürün bilgilerinin incelemede mi, onaylandı mı yoksa reddedildi mi olduğunu görürsün. Her gönderim için telefonunda rastgele bir takip numarası oluşur; hesap veya cihaz kimliği kullanılmaz."))
+    faq.insert(5, ("Otomatik yenilenmeyen bir seçenek var mı?",
+                   f"Evet. İçgör Aile'yi {PRICE_PASS} tek ödemeyle 1 yıl kullanabilirsin. Süre dolunca kendiliğinden biter, hiçbir ücret yenilenmez; devam etmek istersen yeniden satın alır ya da abone olursun. Bitiş tarihi uygulamada İçgör Aile ekranında görünür."))
+    faq.insert(6, ("Hediye ya da teklif kodumu nasıl kullanırım?",
+                   "Ayarlar > İçgör Aile ekranında “Kodum var”a dokun ve kodu gir. Kod Apple hesabın üzerinden kullanılır; her kod bir hesapta bir kez geçerlidir."))
     faq_html = "".join(f"<details><summary>{esc(q)}</summary><p>{esc(a)}</p></details>" for q, a in faq)
 
     body = f"""
@@ -530,8 +548,8 @@ def landing() -> str:
     <article class="plan plan-main">
       <h3>İçgör Aile</h3>
       <p class="price">{PRICE_YEARLY}<small> / yıl</small></p>
-      <p class="price-alt">ya da {PRICE_MONTHLY} / ay · 1 hafta ücretsiz deneme · {PRICE_FROM}</p>
-      <p class="price-alt">ya da {PRICE_PASS} tek ödemeyle 1 yıl, otomatik yenilenmez</p>
+      <p class="price-alt">ya da {PRICE_MONTHLY} / ay · 1 hafta ücretsiz deneme</p>
+      <p class="price-alt">ya da {PRICE_PASS} tek ödemeyle 1 yıl, otomatik yenilenmez (Aile Paylaşımı dışında)</p>
       <ul><li>Sınırsız tarama</li><li>{FAMILY_PROFILES} profile kadar aile</li><li>Liste ve haftalık özet</li><li>Tüm cihazlarında, Aile Paylaşımı ile</li></ul>
     </article>
   </div>
@@ -555,7 +573,10 @@ def landing() -> str:
     title = f"{APP_NAME}: Katkı maddesi ve barkod tarayıcı, ailene göre"
     description = (f"{APP_NAME}, barkodu okutulan ürünün katkı maddelerini, alerjenlerini ve besin değerlerini okur; "
                    "Beslenme Skoru'nu hesaplar, ailede herkese ayrı sonuç verir.")
-    graph = common_nodes(title, description, "", [], extra={"mainEntity": {"@id": APP_NODE_ID}}) + [app_node()]
+    faq_node = {"@type": "FAQPage", "@id": f"{SITE_URL}#sss", "isPartOf": {"@id": f"{SITE_URL}#webpage"},
+                "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}}
+                               for q, a in faq]}
+    graph = common_nodes(title, description, "", [], extra={"mainEntity": {"@id": APP_NODE_ID}}) + [app_node(), faq_node]
     return page(title, description, body, 0, "", active="", graph=graph)
 
 
@@ -676,9 +697,10 @@ def app_node() -> dict:
         "@type": "MobileApplication", "@id": APP_NODE_ID, "name": APP_NAME, "alternateName": STORE_NAME,
         "description": DEFINITION, "url": SITE_URL, "image": f"{SITE_URL}assets/apple-touch-icon.png",
         "applicationCategory": "HealthApplication", "applicationSubCategory": "Gıda etiketi ve katkı maddesi okuyucu",
-        "operatingSystem": "iOS", "inLanguage": "tr", "isAccessibleForFree": True,
+        "operatingSystem": f"iOS {MIN_IOS} veya üstü", "inLanguage": "tr", "isAccessibleForFree": True,
+        "softwareVersion": APP_VERSION, "datePublished": FIRST_RELEASE[0],
         "offers": {"@type": "Offer", "price": "0", "priceCurrency": "TRY"},
-        "installUrl": APP_STORE_URL, "sameAs": [APP_STORE_URL],
+        "installUrl": APP_STORE_URL, "sameAs": [APP_STORE_URL, DEVELOPER_APP_PAGE],
         "author": {"@id": ORG_ID}, "publisher": {"@id": ORG_ID},
     }
 
@@ -921,15 +943,16 @@ def press_page(rules: dict) -> str:
     crumbs = [("Ana sayfa", ""), ("Basın", "basin/")]
     facts = [
         ("Ad", APP_NAME), ("App Store adı", STORE_NAME), ("Geliştirici", f"{DEVELOPER}, Türkiye'de bağımsız geliştirici"),
-        ("Platform", "iPhone (iOS)"), ("Dil", "Türkçe"),
-        ("Fiyat", f"Ücretsiz; İçgör Aile aboneliği {PRICE_FROM} {PRICE_MONTHLY} / ay veya {PRICE_YEARLY} / yıl; ya da {PRICE_PASS} tek ödemeyle 1 yıl (yenilenmez)"),
+        ("Platform", f"iPhone, iOS {MIN_IOS} veya üstü"), ("Dil", "Türkçe"),
+        ("Sürüm", f"{APP_VERSION} ({VERSION_RELEASE[1]})"), ("İlk yayın", FIRST_RELEASE[1]),
+        ("Fiyat", f"Ücretsiz; İçgör Aile aboneliği {PRICE_MONTHLY} / ay veya {PRICE_YEARLY} / yıl; ya da {PRICE_PASS} tek ödemeyle 1 yıl (yenilenmez)"),
         ("Ücretsiz sürüm", f"Her ay {FREE_MONTHLY_NEW} yeni ürün, 1 profil"),
         ("İçgör Aile", f"Sınırsız tarama, {FAMILY_PROFILES} profile kadar aile"),
         ("Tanıdığı katkı maddesi", f"{len(rules['additives'])} E kodu"),
         ("Alerjenler", "AB 1169/2011'deki 14 alerjen"),
         ("Veri", "Open Food Facts (ODbL) ve onaylanan kullanıcı katkıları"),
         ("Hesap ve reklam", "Hesap yok, reklam yok; profiller telefonda kalır"),
-        ("App Store", APP_STORE_URL), ("İletişim", CONTACT),
+        ("App Store", APP_STORE_URL), ("Geliştirici sayfası", DEVELOPER_APP_PAGE), ("İletişim", CONTACT),
     ]
     rows = "".join(f"<tr><th>{esc(k)}</th><td>{esc(v)}</td></tr>" for k, v in facts)
     body = f"""<div class="wrap narrow doc">
@@ -1060,6 +1083,10 @@ def check_content() -> list[str]:
                 for item in node["itemListElement"]:
                     if item["name"] not in shown:
                         problems.append(f"{rel}: sayfa yolu “{item['name']}” sayfada görünmüyor")
+            if node["@type"] == "FAQPage":
+                for qa in node["mainEntity"]:
+                    if qa["name"] not in shown or qa["acceptedAnswer"]["text"] not in shown:
+                        problems.append(f"{rel}: SSS “{qa['name']}” sayfada görünmüyor")
             if node["@type"] == "MobileApplication" and node["description"] not in shown:
                 problems.append(f"{rel}: uygulama tanımı sayfada görünmüyor")
     return problems
@@ -1091,6 +1118,20 @@ def lastmods(paths: list[str]) -> dict[str, str]:
     return {path: value["date"] for path, value in result.items()}
 
 
+def tr_date(iso: str) -> str:
+    d = datetime.date.fromisoformat(iso)
+    return f"{d.day} {TR_MONTHS[d.month - 1]} {d.year}"
+
+
+def stamp(dates: dict[str, str]) -> None:
+    """Each page's own last-change date into its JSON-LD dateModified and footer; 404 gets the newest."""
+    files = [(ROOT / path / "index.html", date) for path, date in dates.items()]
+    files.append((ROOT / "404.html", max(dates.values())))
+    for file, date in files:
+        text = file.read_text(encoding="utf-8")
+        file.write_text(text.replace(LASTMOD_ISO, date).replace(LASTMOD_TEXT, tr_date(date)), encoding="utf-8")
+
+
 def write_sitemap(dates: dict[str, str]) -> None:
     urls = "".join(f"<url><loc>{SITE_URL}{path}</loc><lastmod>{date}</lastmod></url>\n" for path, date in dates.items())
     write("sitemap.xml", f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n{urls}</urlset>\n')
@@ -1105,7 +1146,7 @@ def write_robots() -> None:
                         f"User-agent: *\nAllow: /\n\n{agents}Allow: /\n\nSitemap: {SITE_URL}sitemap.xml\n")
 
 
-def write_llms(rules: dict) -> None:
+def write_llms(rules: dict, updated: str) -> None:
     """llms.txt (speculative; Google says it does not use it). Same facts as the pages, in Turkish."""
     pages = [("", f"{APP_NAME} ana sayfa")] + [(path, name) for path, name, _ in GUIDES] + [
         ("basin/", "Basın ve tanıtım bilgileri"), ("destek/", "Destek"), ("gizlilik/", "Gizlilik politikası")]
@@ -1118,8 +1159,10 @@ def write_llms(rules: dict) -> None:
 {APP_NAME} ({STORE_NAME}), {DEVELOPER} tarafından Türkiye'de geliştirilen bir iPhone uygulamasıdır.
 
 ## Bilgiler
-- Platform: iPhone (iOS); dil: Türkçe
-- Fiyat: ücretsiz indirme; İçgör Aile aboneliği {PRICE_FROM} {PRICE_MONTHLY} / ay veya {PRICE_YEARLY} / yıl; ya da {PRICE_PASS} tek ödemeyle 1 yıl, yenilenmez (Türkiye App Store)
+- Platform: iPhone, iOS {MIN_IOS} veya üstü; dil: Türkçe
+- Sürüm: {APP_VERSION} ({VERSION_RELEASE[1]}); ilk yayın {FIRST_RELEASE[1]}
+- Son güncelleme (bu site): {tr_date(updated)}
+- Fiyat: ücretsiz indirme; İçgör Aile aboneliği {PRICE_MONTHLY} / ay veya {PRICE_YEARLY} / yıl; ya da {PRICE_PASS} tek ödemeyle 1 yıl, yenilenmez (Türkiye App Store)
 - Ücretsiz sürüm: her ay {FREE_MONTHLY_NEW} yeni ürün, 1 profil; İçgör Aile: sınırsız tarama, {FAMILY_PROFILES} profile kadar aile
 - Hesap yok, reklam yok; aile profilleri telefonda kalır
 - Ürün türleri: gıda, kozmetik, temizlik ürünü, kıyafet etiketi
@@ -1128,6 +1171,13 @@ def write_llms(rules: dict) -> None:
 - Beslenme Skoru: Sağlık Bakanlığı Beslenme Skoru Rehberi eşikleriyle İçgör hesaplar; resmî bir not değildir
 - Tıbbi tavsiye vermez
 - App Store: {APP_STORE_URL}
+- Geliştirici sayfası: {DEVELOPER_APP_PAGE}
+
+## In English
+{APP_NAME} is a free iPhone app from Türkiye (Turkish only) that scans a product's barcode or label (food, cosmetics,
+cleaning products, clothing care labels), shows food additives (E numbers) and the 14 EU allergens with their sources,
+computes a Nutrition Score from the Turkish Ministry of Health guide (not an official grade) and gives a separate
+result for each family member. No account, no ads; family profiles stay on the phone.
 
 ## Sayfalar
 {page_lines}
@@ -1164,9 +1214,11 @@ def main() -> int:
     write("404.html", not_found_page())
     write(".nojekyll", "")
     write_robots()
-    write_llms(rules)
     write_indexnow_key()
-    write_sitemap(lastmods(page_paths()))
+    dates = lastmods(page_paths())
+    write_sitemap(dates)
+    write_llms(rules, max(dates.values()))
+    stamp(dates)
     problems = check() + check_content() + check_rules_fresh()
     for file in sorted(ROOT.glob("*/index.html")):
         todo = re.findall(r'<mark class="todo">\[([^\]]+)\]</mark>', file.read_text(encoding="utf-8"))
